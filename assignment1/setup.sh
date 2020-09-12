@@ -128,15 +128,16 @@ read msg
 
 # Install Apache Spark on each machine
 echo "Installing Spark..."
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "wget http://mirror.metrocast.net/apache/spark/spark-2.4.6/spark-2.4.6-bin-hadoop2.7.tgz"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "tar zvxf spark-2.4.6-bin-hadoop2.7.tgz"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "wget http://mirror.metrocast.net/apache/spark/spark-2.4.7/spark-2.4.7-bin-hadoop2.7.tgz"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "tar zvxf spark-2.4.7-bin-hadoop2.7.tgz"
 echo "Configuring Spark..."
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"??? just the two slaves ???\" > spark-2.4.6-bin-hadoop2.7/conf/slaves"
-echo "More to do..."
-# modify spark-2.4.6-bin-hadoop2.7/conf/slaves to include the IP address of all the follower machines
-# ^------------- not sure how to do this exactly.
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"$CS744_SLAVE_1\" > /root/spark-2.4.7-bin-hadoop2.7/conf/slaves"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"$CS744_SLAVE_2\" >> /root/spark-2.4.7-bin-hadoop2.7/conf/slaves"
+# ^ verify that it's ok to do this on master too (should it be on slaves but not master?)
 echo "Starting Spark..."
-spark-2.4.6-bin-hadoop2.7/sbin/start-all.sh
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chmod -R 777 /root/spark-2.4.7-bin-hadoop2.7/"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chown -R treitz /root/spark-2.4.7-bin-hadoop2.7/"
+/root/spark-2.4.7-bin-hadoop2.7/sbin/start-all.sh
 echo "Done. Checking Spark is up..."
 jps
 echo "Hit enter to continue if the above looks good..."
@@ -144,13 +145,18 @@ read msg
 # From (https://spark.apache.org/docs/latest/spark-standalone.html):
 #   "To access Hadoop data from Spark, just use an hdfs:// URL (typically hdfs://<namenode>:9000/path)"
 
+# run spark apps like this:
+# ./spark-submit --master spark://c220g5-111230vm-1.wisc.cloudlab.us:7077 ../examples/src/main/python/pi.py
+# spark://... comes from `wget http://localhost:8080` --> look at output index.html
+
 
 # Pull down our repo onto each machine
 echo "Cloning code repo to each machine..."
-sudo parallel-ssh -i -h /root/cs744_hosts -O StrictHostKeyChecking=no "cd /root/ && mkdir code && cd code && git clone https://..."
+sudo parallel-ssh -i -h /root/cs744_hosts -O StrictHostKeyChecking=no "cd /root/ && mkdir code && cd code && git clone https://github.com/kamikazekartik/cs744_assignments.git"
 echo "Done."
 
-echo "Setup is complete! You can now run Hadoop/Spark workloads on this cluster."
+echo "Setup is complete! You can now run Hadoop/Spark workloads on this cluster with something like"
+echo "> /root/spark-2.4.7-bin-hadoop2.7/spark-submit path/to/pyspark.py"
 echo "Remember to put your data at /mnt/data"
 echo "You can stop the cluster at any time with"
 echo "> /root/spark-2.4.6-bin-hadoop2.7/sbin/stop-all.sh"
