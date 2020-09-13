@@ -10,6 +10,7 @@ file_path = "hdfs://10.10.1.1:9000/assignment1/export.csv"
 rdd_org = sc.textFile(file_path)
 # extract and filter out header
 header = rdd_org.first()
+header_rdd = sc.parallelize([header])
 rdd = rdd_org.filter(lambda line: line != header)
 
 rdd = rdd.map(lambda line: line.split(","))
@@ -19,9 +20,11 @@ def print_nice(x):
 	for i in x:
 		print(i)
 
-
 rdd_sorted = rdd.sortByKey()
 
 rdd_sorted_file = rdd_sorted.map(lambda line: ",".join(line[1]))
+# put the header back
+rdd_sorted_file = rdd_header.union(rdd_sorted_file)
+
 # write rdd_sorted_file to file
 rdd_sorted_file.saveAsTextFile("hdfs://10.10.1.1:9000/assignment1/sorted_output.csv")
