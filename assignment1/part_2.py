@@ -10,7 +10,7 @@ file_path = "hdfs://10.10.1.1:9000/assignment1/export.csv"
 rdd_org = sc.textFile(file_path)
 # extract and filter out header
 header = rdd_org.first()
-header_rdd = sc.parallelize([header])
+rdd_header = sc.parallelize([header])
 rdd = rdd_org.filter(lambda line: line != header)
 
 rdd = rdd.map(lambda line: line.split(","))
