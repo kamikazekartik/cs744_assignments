@@ -70,6 +70,7 @@ sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "df -h | grep 
 echo "Hit enter to continue if the above looks good..."
 read msg
 echo "Great! Now your files can be stored at /mnt/data"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "cd /mnt/data"
 
 
 # Install Apache Hadoop on each machine
@@ -78,44 +79,44 @@ sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "wget http://a
 sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "tar zvxf hadoop-3.1.4.tar.gz"
 echo "Configuring Hadoop..."
 # update hadoop-3.1.4/etc/hadoop/core-site.xml:
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > /root/hadoop-3.1.4/etc/hadoop/core-site.xml'
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>" >> /root/hadoop-3.1.4/etc/hadoop/core-site.xml'
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<configuration>" >> /root/hadoop-3.1.4/etc/hadoop/core-site.xml'
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<property>" >> /root/hadoop-3.1.4/etc/hadoop/core-site.xml'
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<name>fs.default.name</name>" >> /root/hadoop-3.1.4/etc/hadoop/core-site.xml'
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<value>hdfs://$CS744_MASTER:9000</value>\" >> /root/hadoop-3.1.4/etc/hadoop/core-site.xml"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "</property>" >> /root/hadoop-3.1.4/etc/hadoop/core-site.xml'
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "</configuration>" >> /root/hadoop-3.1.4/etc/hadoop/core-site.xml'
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > /mnt/data/hadoop-3.1.4/etc/hadoop/core-site.xml'
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>" >> /mnt/data/hadoop-3.1.4/etc/hadoop/core-site.xml'
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<configuration>" >> /mnt/data/hadoop-3.1.4/etc/hadoop/core-site.xml'
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<property>" >> /mnt/data/hadoop-3.1.4/etc/hadoop/core-site.xml'
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<name>fs.default.name</name>" >> /mnt/data/hadoop-3.1.4/etc/hadoop/core-site.xml'
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<value>hdfs://$CS744_MASTER:9000</value>\" >> /mnt/data/hadoop-3.1.4/etc/hadoop/core-site.xml"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "</property>" >> /mnt/data/hadoop-3.1.4/etc/hadoop/core-site.xml'
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "</configuration>" >> /mnt/data/hadoop-3.1.4/etc/hadoop/core-site.xml'
 # make namenode and datanode dirs:
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "mkdir /root/hadoop-3.1.4/data/"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "mkdir /root/hadoop-3.1.4/data/namenode/"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "mkdir /root/hadoop-3.1.4/data/datanode/"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "mkdir /mnt/data/hadoop-3.1.4/data/"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "mkdir /mnt/data/hadoop-3.1.4/data/namenode/"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "mkdir /mnt/data/hadoop-3.1.4/data/datanode/"
 # update hadoop-3.1.4/etc/hadoop/hdfs-site.xml
-#sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'x=$(head -n 18 /root/hadoop-3.1.4/etc/hadoop/core-site.xml.bkp)  && echo $x > /root/hadoop-3.1.4/etc/hadoop/core-site.xml.bkp'
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > /root/hadoop-3.1.4/etc/hadoop/hdfs-site.xml'
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>" >> /root/hadoop-3.1.4/etc/hadoop/hdfs-site.xml'
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<configuration>\" >> /root/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<property>\" >> /root/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<name>dfs.namenode.name.dir</name>\" >> /root/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<value>/root/hadoop-3.1.4/data/namenode/</value>\" >> /root/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"</property>\" >> /root/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<property>\" >> /root/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<name>dfs.datanode.data.dir</name>\" >> /root/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<value>/root/hadoop-3.1.4/data/datanode/</value>\" >> /root/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"</property>\" >> /root/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"</configuration>\" >> /root/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
+#sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'x=$(head -n 18 /mnt/data/hadoop-3.1.4/etc/hadoop/core-site.xml.bkp)  && echo $x > /mnt/data/hadoop-3.1.4/etc/hadoop/core-site.xml.bkp'
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > /mnt/data/hadoop-3.1.4/etc/hadoop/hdfs-site.xml'
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>" >> /mnt/data/hadoop-3.1.4/etc/hadoop/hdfs-site.xml'
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<configuration>\" >> /mnt/data/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<property>\" >> /mnt/data/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<name>dfs.namenode.name.dir</name>\" >> /mnt/data/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<value>/mnt/data/hadoop-3.1.4/data/namenode/</value>\" >> /mnt/data/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"</property>\" >> /mnt/data/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<property>\" >> /mnt/data/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<name>dfs.datanode.data.dir</name>\" >> /mnt/data/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"<value>/mnt/data/hadoop-3.1.4/data/datanode/</value>\" >> /mnt/data/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"</property>\" >> /mnt/data/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"</configuration>\" >> /mnt/data/hadoop-3.1.4/etc/hadoop/hdfs-site.xml"
 # update JAVA_HOME environment variable:
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"export JAVA_HOME=/$(update-alternatives --display java | head -n 2 | tail -n 1 | cut -d / -f2- | sed 's/\/bin\/java//')\" >> /root/hadoop-3.1.4/etc/hadoop/hadoop-env.sh"
-# update /root/hadoop-3.1.4/etc/hadoop/workers:
-#sudo echo "$CS744_MASTER" >> /root/hadoop-3.1.4/etc/hadoop/workers <----- not needed, since /root/hadoop-3.1.4/etc/hadoop/workers already contains "localhost"
-echo "$CS744_SLAVE_1" | sudo tee -a /root/hadoop-3.1.4/etc/hadoop/workers
-echo "$CS744_SLAVE_2" | sudo tee -a /root/hadoop-3.1.4/etc/hadoop/workers
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"export JAVA_HOME=/$(update-alternatives --display java | head -n 2 | tail -n 1 | cut -d / -f2- | sed 's/\/bin\/java//')\" >> /mnt/data/hadoop-3.1.4/etc/hadoop/hadoop-env.sh"
+# update /mnt/data/hadoop-3.1.4/etc/hadoop/workers:
+#sudo echo "$CS744_MASTER" >> /mnt/data/hadoop-3.1.4/etc/hadoop/workers <----- not needed, since /mnt/data/hadoop-3.1.4/etc/hadoop/workers already contains "localhost"
+echo "$CS744_SLAVE_1" | sudo tee -a /mnt/data/hadoop-3.1.4/etc/hadoop/workers
+echo "$CS744_SLAVE_2" | sudo tee -a /mnt/data/hadoop-3.1.4/etc/hadoop/workers
 # update PATH to include Hadoop:
-export PATH="/root/hadoop-3.1.4/bin:$PATH"
-export PATH="/root/hadoop-3.1.4/sbin:$PATH"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chmod -R 777 /root/hadoop-3.1.4/"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chown -R treitz /root/hadoop-3.1.4/"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chmod +x /root/"
+export PATH="/mnt/data/hadoop-3.1.4/bin:$PATH"
+export PATH="/mnt/data/hadoop-3.1.4/sbin:$PATH"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chmod -R 777 /mnt/data/hadoop-3.1.4/"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chown -R treitz /mnt/data/hadoop-3.1.4/"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chmod +x /mnt/data/"
 echo "Starting HDFS..."
 hdfs namenode -format
 start-dfs.sh
@@ -131,13 +132,13 @@ echo "Installing Spark..."
 sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "wget http://mirror.metrocast.net/apache/spark/spark-2.4.7/spark-2.4.7-bin-hadoop2.7.tgz"
 sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "tar zvxf spark-2.4.7-bin-hadoop2.7.tgz"
 echo "Configuring Spark..."
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"$CS744_SLAVE_1\" > /root/spark-2.4.7-bin-hadoop2.7/conf/slaves"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"$CS744_SLAVE_2\" >> /root/spark-2.4.7-bin-hadoop2.7/conf/slaves"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"$CS744_SLAVE_1\" > /mnt/data/spark-2.4.7-bin-hadoop2.7/conf/slaves"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"$CS744_SLAVE_2\" >> /mnt/data/spark-2.4.7-bin-hadoop2.7/conf/slaves"
 # ^ verify that it's ok to do this on master too (should it be on slaves but not master?)
 echo "Starting Spark..."
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chmod -R 777 /root/spark-2.4.7-bin-hadoop2.7/"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chown -R treitz /root/spark-2.4.7-bin-hadoop2.7/"
-/root/spark-2.4.7-bin-hadoop2.7/sbin/start-all.sh
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chmod -R 777 /mnt/data/spark-2.4.7-bin-hadoop2.7/"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chown -R treitz /mnt/data/spark-2.4.7-bin-hadoop2.7/"
+/mnt/data/spark-2.4.7-bin-hadoop2.7/sbin/start-all.sh
 echo "Done. Checking Spark is up..."
 jps
 echo "Hit enter to continue if the above looks good..."
@@ -152,13 +153,13 @@ read msg
 
 # Pull down our repo onto each machine
 echo "Cloning code repo to each machine..."
-sudo parallel-ssh -i -h /root/cs744_hosts -O StrictHostKeyChecking=no "cd /root/ && mkdir code && cd code && git clone https://github.com/kamikazekartik/cs744_assignments.git"
+sudo parallel-ssh -i -h /mnt/data/cs744_hosts -O StrictHostKeyChecking=no "cd /mnt/data/ && mkdir code && cd code && git clone https://github.com/kamikazekartik/cs744_assignments.git"
 echo "Done."
 
 echo "Setup is complete! You can now run Hadoop/Spark workloads on this cluster with something like"
-echo "> /root/spark-2.4.7-bin-hadoop2.7/spark-submit path/to/pyspark.py"
+echo "> /mnt/data/spark-2.4.7-bin-hadoop2.7/spark-submit path/to/pyspark.py"
 echo "Remember to put your data at /mnt/data"
 echo "You can stop the cluster at any time with"
-echo "> /root/spark-2.4.6-bin-hadoop2.7/sbin/stop-all.sh"
+echo "> /mnt/data/spark-2.4.6-bin-hadoop2.7/sbin/stop-all.sh"
 echo "> stop-dfs.sh"
 echo "Good luck!"
