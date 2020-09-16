@@ -1,7 +1,8 @@
 # make sure to set spark context etc up here (and imports)
 from pyspark import SparkContext, SparkConf
 
-conf = SparkConf().setAppName("TestApp").setMaster("spark://c220g5-111230vm-1.wisc.cloudlab.us:7077")
+conf = SparkConf().setAppName("TestApp")
+#.setMaster("spark://c220g5-111230vm-1.wisc.cloudlab.us:7077")
 sc = SparkContext(conf=conf)
 
 file_path = "hdfs://10.10.1.1:9000/assignment1/export.csv"
