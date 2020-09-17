@@ -4,7 +4,7 @@ from operator import add
 
 import sys
 
-NUM_ITERATIONS = 2
+NUM_ITERATIONS = 10
 
 conf = SparkConf().setAppName("TestApp")
 sc = SparkContext(conf=conf)
