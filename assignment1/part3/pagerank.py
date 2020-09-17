@@ -6,7 +6,7 @@ conf = SparkConf().setAppName("TestApp")
 sc = SparkContext(conf=conf)
 
 file_path = "hdfs://10.10.1.1:9000/part3/wikidata/wikidata.csv"
-# file_path = "hdfs://10.10.1.1:9000/part3/filtered_web-BerkStan.txt"
+#file_path = "hdfs://10.10.1.1:9000/part3/filtered_web-BerkStan.txt"
 
 lines = sc.textFile(file_path)
 # ^ .persist() ?
@@ -18,7 +18,7 @@ ranks = links_all.map(lambda line: (line, 1) )
 
 # COMMENT TO US: DELETE
 # GROUP BY WAS KEY!!!
-links = links.groupByKey()
+links = links.distinct().groupByKey().cache()
 ranks = links.map(lambda url_neighbors: (url_neighbors[0], 1.0))
 
 
@@ -31,5 +31,5 @@ for iteration in range(10):
     ranks = contribs.reduceByKey(lambda x, y: x+y).mapValues(lambda rank: rank * 0.85 + 0.15)
 
 # write ranks to file
-# ranks.saveAsTextFile("hdfs://10.10.1.1:9000/part3/berkstan_ranks.csv")
-ranks.saveAsTextFile("hdfs://10.10.1.1:9000/part3/wikidata_ranks.csv")
+#ranks.saveAsTextFile("hdfs://10.10.1.1:9000/part3/berkstan_ranks_2.csv")
+ranks.saveAsTextFile("hdfs://10.10.1.1:9000/part3/wikidata_ranks_2.csv")
