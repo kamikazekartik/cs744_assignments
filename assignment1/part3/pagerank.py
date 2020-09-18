@@ -2,34 +2,50 @@
 from pyspark import SparkContext, SparkConf
 from operator import add
 
+import sys
+
+NUM_ITERATIONS = 2
+
 conf = SparkConf().setAppName("TestApp")
 sc = SparkContext(conf=conf)
 
-file_path = "hdfs://10.10.1.1:9000/part3/wikidata/wikidata.csv"
-#file_path = "hdfs://10.10.1.1:9000/part3/filtered_web-BerkStan.txt"
+def solve_record(record):
+    if record[1][1] is not None:
+        return (record[0], record[1][0] + record[1][1])
+    return (record[0], record[1][0])
+
+
+file_path = sys.argv[1]
+file_path_out = sys.argv[2]
 
 lines = sc.textFile(file_path)
+
 # ^ .persist() ?
-links = lines.map(lambda line: tuple(line.split("\t")))
-links_1 = links.map(lambda line: line[0])
-links_2 = links.map(lambda line: line[1])
-links_all = sc.union([links_1,links_2]).distinct()
-ranks = links_all.map(lambda line: (line, 1) )
 
-# COMMENT TO US: DELETE
-# GROUP BY WAS KEY!!!
+links = lines.filter(lambda line: ((not ':' in line) or (line.startswith("Category:"))) and (not line.startswith("#")))
+links = links.map(lambda line: tuple(line.lower().split("\t")))
+links = links.filter(lambda line_lst: len(line_lst) == 2)
+
+src_urls = links.map(lambda line: line[0]).distinct()
+
+ranks = src_urls.map(lambda line: (line, 1.0))
+src_base_ranks = src_urls.map(lambda line: (line, 0.15))
+
 links = links.distinct().groupByKey().cache()
-ranks = links.map(lambda url_neighbors: (url_neighbors[0], 1.0))
 
 
-for iteration in range(10):
-    # Calculates URL contributions to the rank of other URLs.
+for iteration in range(NUM_ITERATIONS):
+    # Calculates URL contributions to the rank of other URLs
     contribs = links.join(ranks).flatMap(
-    	lambda (url, (links, rank)): [(x, rank/len(links)) for x in links])
+    	lambda (src_url, (links, src_rank)): [(dst_link, src_rank/len(links)) for dst_link in links])
 
     # Re-calculates URL ranks based on neighbor contributions.
-    ranks = contribs.reduceByKey(lambda x, y: x+y).mapValues(lambda rank: rank * 0.85 + 0.15)
+    ranks = contribs.reduceByKey(lambda x, y: x+y).mapValues(lambda rank: rank * 0.85)
+    ranks = src_base_ranks.leftOuterJoin(ranks).map(solve_record)
+
 
 # write ranks to file
-#ranks.saveAsTextFile("hdfs://10.10.1.1:9000/part3/berkstan_ranks_2.csv")
-ranks.saveAsTextFile("hdfs://10.10.1.1:9000/part3/wikidata_ranks_2.csv")
+#ranks.map(lambda line: ','.join([str(element) for element in line])).saveAsTextFile(file_path_out)
+
+ranks = ranks.map(lambda line: ','.join((str(element) for element in line)))
+ranks.saveAsTextFile(file_path_out)

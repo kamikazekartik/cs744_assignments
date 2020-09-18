@@ -1,0 +1,8 @@
+Runs the pagerank.py spark script using the running configuration.
+
+Like the previous script, this is invoked as ./run <input_file> <output_file>
+in which <input_file>, <output_file> are given files in the hadoop cluster.
+
+The other run script (such as run_pagerank_wiki.sh) call the original run.sh script using pre-defined files.
+
+One thing to note - run.sh has a MASTER_LOCATION variable for the location of the current running spark master process; this may need to be changed depending on the current location of that variable.
