@@ -1,0 +1,11 @@
+This program sorts a csv file from the given input file to the given output file.
+
+This can be invoked by running
+
+./run.sh <input_file> <output_file>
+
+Where input_file is the input csv in the Hadoop filesystem, and <output_file> is where we wish to write the output in tha Hadoop filesystem.
+
+An example is given in ./run_on_export.sh , which automatically supplies input and output files to run on.
+
+Note - a variable in run.sh , MASTER_LOCATION , may need to be set to a different value depending on where the spark master is being hosted to run this program successfully. We currently have it set to the location of the spark master instance on our cluster.
