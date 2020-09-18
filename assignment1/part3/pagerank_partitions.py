@@ -7,7 +7,7 @@ import sys
 # Number of iterations to run algorithm at
 NUM_ITERATIONS = 10
 # Whether or not we cache the links and src_url_base_ranks in RAM.
-CACHE_BASE_DATA = Tru
+CACHE_BASE_DATA = True
 
 conf = SparkConf().setAppName("TestApp")
 sc = SparkContext(conf=conf)
