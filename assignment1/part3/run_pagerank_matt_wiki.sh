@@ -1,1 +1,1 @@
-/mnt/data/spark-2.4.7-bin-hadoop2.7/bin/spark-submit --master spark://c220g5-120124vm-1.wisc.cloudlab.us:7077 /mnt/data/code/cs744_assignments/assignment1/part3/pagerank_matt_workspace.py hdfs://10.10.1.1:9000/part3/wikidata/wikidata.csv hdfs://10.10.1.1:9000/part3/wikidata_ranks.csv
+/mnt/data/spark-2.4.7-bin-hadoop2.7/bin/spark-submit --master spark://c220g5-110925vm-1.wisc.cloudlab.us:7077 /mnt/data/code/cs744_assignments/assignment1/part3/pagerank_matt_workspace.py hdfs://10.10.1.1:9000/wikidata hdfs://10.10.1.1:9000/part3/wikidata_output
