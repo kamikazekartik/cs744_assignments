@@ -3,7 +3,7 @@
 INPUT_FILE=$1
 OUTPUT_FILE=$2
 
-MASTER_LOCATION="spark://c220g5-111020vm-1.wisc.cloudlab.us:7077"
+MASTER_LOCATION="spark://c220g2-011009vm-1.wisc.cloudlab.us:7077"
 
 SCRIPT_FILE=pagerank_task_3.py
 
