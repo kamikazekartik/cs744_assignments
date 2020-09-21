@@ -34,12 +34,12 @@ links = links.filter(lambda line_lst: len(line_lst) == 2).distinct()
 
 # Get ranks
 src_urls = links.map(lambda line: line[0]).distinct()
-ranks = src_urls.map(lambda line: (line, 1.0))
+ranks = src_urls.map(lambda line: (line, 1.0)).partitionBy(100)
 
 # Calculate base ranks and links values to be re-used in iterations.
 # Depending on the given boolean at the top of the file, we may or may not cache these.
-src_base_ranks = src_urls.map(lambda line: (line, 0.15))
-links = links.groupByKey()
+src_base_ranks = src_urls.map(lambda line: (line, 0.15)).partitionBy(100)
+links = links.groupByKey().partitionBy(100)
 
 # Cache baseline data that is re-used in calculations, if necessary
 if CACHE_BASE_DATA:
@@ -50,15 +50,15 @@ if CACHE_BASE_DATA:
 for iteration in range(NUM_ITERATIONS):
     # Calculates URL contributions form SRC URLs to all of their Desitnation URLs
     # Join on SRC URL between <links, ranks>
-    contribs = links.join(ranks).flatMap(
+    contribs = links.join(ranks, 100).flatMap(
     	lambda (src_url, (links, src_rank)): [(dst_link, src_rank/len(links)) for dst_link in links], preservesPartitioning=True)
     # Calculate the weighted sum of contribtu from sources to destinations
     # Reduce <dst_url as key>
-    ranks = contribs.reduceByKey(lambda x, y: x+y, numPartitions = 10).mapValues(lambda rank: rank * 0.85)
+    ranks = contribs.reduceByKey(lambda x, y: x+y, numPartitions = 100).mapValues(lambda rank: rank * 0.85)
     # Add these to the base rank of all sources; also, this re-introduces 'source only' nodes into
     # the rank matrix and filters out 'destination only nodes'
     # src_url as key
-    ranks = src_base_ranks.leftOuterJoin(ranks).mapValues(solve_record)
+    ranks = src_base_ranks.leftOuterJoin(ranks, 100).mapValues(solve_record)
 
 # write ranks to file
 ranks = ranks.map(lambda line: ','.join((str(element) for element in line)))
