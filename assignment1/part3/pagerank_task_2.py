@@ -7,7 +7,7 @@ import sys
 # Number of iterations to run algorithm at
 NUM_ITERATIONS = 10
 # Whether or not we cache the links and src_url_base_ranks in RAM.
-CACHE_BASE_DATA = False
+CACHE_BASE_DATA = True
 
 conf = SparkConf().setAppName("TestApp")
 sc = SparkContext(conf=conf)
@@ -31,6 +31,7 @@ lines = sc.textFile(file_path)
 links = lines.filter(lambda line: ((not ':' in line) or (line.startswith("Category:"))) and (not line.startswith("#")))
 links = links.map(lambda line: tuple(line.lower().split("\t")))
 links = links.filter(lambda line_lst: len(line_lst) == 2)
+
 
 # Get ranks
 src_urls = links.map(lambda line: line[0]).distinct()

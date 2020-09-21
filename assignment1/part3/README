@@ -6,3 +6,5 @@ in which <input_file>, <output_file> are given files in the hadoop cluster.
 The other run script (such as run_pagerank_wiki.sh) call the original run.sh script using pre-defined files.
 
 One thing to note - run.sh has a MASTER_LOCATION variable for the location of the current running spark master process; this may need to be changed depending on the current location of that variable.
+
+Also, pagerank_task_2.py and pagerank_task_3.py exist in this directory as well; these are the adjusted files for running the PageRank algorithm with the required settings. You can run these files by changing the SCRIPT_FILE variable in run.sh to take the appropriate script file; they have the same input and output formats.
