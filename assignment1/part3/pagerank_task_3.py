@@ -51,7 +51,7 @@ for iteration in range(NUM_ITERATIONS):
     # Calculates URL contributions form SRC URLs to all of their Desitnation URLs
     # Join on SRC URL between <links, ranks>
     contribs = links.join(ranks, 100).flatMap(
-    	lambda (src_url, (links, src_rank)): [(dst_link, src_rank/len(links)) for dst_link in links], preservesPartitioning=True)
+    	lambda (src_url, (links, src_rank)): [(dst_link, src_rank/len(links)) for dst_link in links])
     # Calculate the weighted sum of contribtu from sources to destinations
     # Reduce <dst_url as key>
     ranks = contribs.reduceByKey(lambda x, y: x+y, numPartitions = 100).mapValues(lambda rank: rank * 0.85)
