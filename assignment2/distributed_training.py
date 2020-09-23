@@ -11,6 +11,7 @@ import logging
 import random
 import model as mdl
 import argparse
+import torch.distributed as dist
 
 device = "cpu"
 torch.set_num_threads(4)
@@ -24,13 +25,12 @@ if __name__=='__main__':
     parser.add_argument('--world-size', type=int, default=3, metavar='N',
                         help='Number of nodes')
 
-
     args = parser.parse_args()
-
 
     os.environ['MASTER_ADDR'] = '10.10.1.1'
     os.environ['MASTER_PORT'] = '29500'
-
+    dist.init_process_group("gloo", rank=args.rank, world_size=args.world_size)
+    
     if args.node_rank == 0:
         # I'm the master!
         x = torch.tensor([0., 0.])
@@ -45,6 +45,5 @@ if __name__=='__main__':
         logger.info("Sent {} to master".format(x))
 
     logger.info("EXITING")
-    return 0
 
 
