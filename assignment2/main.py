@@ -12,6 +12,9 @@ import random
 import model as mdl
 device = "cpu"
 torch.set_num_threads(4)
+logger = logging.getLogger()
+logging.basicConfig()
+logger.setLevel(logging.INFO)
 
 batch_size = 256 # batch for one node
 def train_model(model, train_loader, optimizer, criterion, epoch):
@@ -26,7 +29,17 @@ def train_model(model, train_loader, optimizer, criterion, epoch):
     # remember to exit the train loop at end of the epoch
     for batch_idx, (data, target) in enumerate(train_loader):
         # Your code goes here!
-        break
+        data, target = data.to(device), target.to(device)
+        optimizer.zero_grad()
+        output = model(data)
+        loss = criterion(output, target)
+        loss.backward()
+        optimizer.step()
+        
+        if batch_idx % 20 == 0:
+            logger.info('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
+                epoch, batch_idx * len(data), len(train_loader.dataset),
+                100. * batch_idx / len(train_loader), loss.item()))
 
     return None
 
@@ -43,7 +56,7 @@ def test_model(model, test_loader, criterion):
             correct += pred.eq(target.view_as(pred)).sum().item()
 
     test_loss /= len(test_loader)
-    print('Test set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
+    logger.info('Test set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
             test_loss, correct, len(test_loader.dataset),
             100. * correct / len(test_loader.dataset)))
             
@@ -83,6 +96,9 @@ def main():
     model.to(device)
     optimizer = optim.SGD(model.parameters(), lr=0.1,
                           momentum=0.9, weight_decay=0.0001)
+
+    logger.info("Testing model before training")
+    test_model(model, test_loader, training_criterion)
     # running training for one epoch
     for epoch in range(1):
         train_model(model, train_loader, optimizer, training_criterion, epoch)
