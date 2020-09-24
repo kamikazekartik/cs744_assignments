@@ -54,7 +54,7 @@ def train_model(model, train_loader, optimizer, criterion, epoch, args=None):
             for layer in range(len(w)):
                 grad_vec = w[layer].grad.data
                 # need to do this per layer (#TODO: there might be a better way)
-                dist.all_reduce(grad_vec, op=dist.reduce_op.SUM)
+                dist.all_reduce(grad_vec, op=dist.ReduceOp.SUM)
                 mean_grad = grad_vec/args.num_nodes
                 w[layer].grad.data = mean_grad
 
