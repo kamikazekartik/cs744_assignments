@@ -39,7 +39,7 @@ if __name__=='__main__':
 
         dist.gather(x, gather_list=tensor_list)
         logger.info("Received the following tensors: {}".format(tensor_list))
-        mean_x = torch.mean(torch.stack(x), dim=0)
+        mean_x = torch.mean(torch.stack(tensor_list), dim=0)
         dist.scatter(mean_x, [mean_x for i in range(args.world_size)])
         logger.info("Sent {} to everyone")
     else:
