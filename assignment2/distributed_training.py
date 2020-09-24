@@ -39,11 +39,17 @@ if __name__=='__main__':
 
         dist.gather(x, gather_list=tensor_list)
         logger.info("Received the following tensors: {}".format(tensor_list))
+        mean_x = torch.mean(torch.stack(x), dim=0)
+        dist.scatter(mean_x, [mean_x for i in range(args.world_size)])
+        logger.info("Sent {} to everyone")
     else:
         # I'm just another node
         x = args.node_rank*torch.ones(2)
         dist.gather(x, dst=0)
         logger.info("Sent {} to master".format(x))
+        mean_x = torch.zeros_like(x)
+        dist.scatter(mean_x, src=0)
+        logger.info("Received mean vector {} from master".format(mean_x))
 
     logger.info("EXITING")
 
