@@ -50,7 +50,7 @@ def train_model(model, train_loader, optimizer, criterion, epoch, args=None):
         
         if args.distributed:
             for layer in range(len(w)):
-                grad_vec = w[i].grad.data
+                grad_vec = w[layer].grad.data
             # need to do this per layer (#TODO: there might be a better way)
                 if args.node_rank == 0:
                     # master node: gather remaining gradients
@@ -66,7 +66,7 @@ def train_model(model, train_loader, optimizer, criterion, epoch, args=None):
                     # logger.info("Sent {} to master".format(x))
                     dist.scatter(mean_grad, src=0)
                 logger.info("Finished computing mean gradient for layer {}".format(layer))
-                w[i].grad.data = mean_grad
+                w[layer].grad.data = mean_grad
 
         optimizer.step()
         
