@@ -56,11 +56,11 @@ def train_model(model, train_loader, optimizer, criterion, epoch, args=None):
             # need to do this per layer (#TODO: there might be a better way)
                 if args.node_rank == 0:
                     # master node: gather remaining gradients
-                    tensor_list = [torch.zeros_like(grad_vec) for i in range(args.world_size)]
+                    tensor_list = [torch.zeros_like(grad_vec) for i in range(args.num_nodes)]
                     dist.gather(grad_vec, gather_list=tensor_list)
                     # logger.info("Received the following tensors: {}".format(tensor_list))
                     mean_grad = torch.mean(torch.stack(tensor_list), dim=0)
-                    dist.scatter(mean_grad, [mean_grad for i in range(args.world_size)])
+                    dist.scatter(mean_grad, [mean_grad for i in range(args.num_nodes)])
                 else:
                     # worker node: send gradient
                     dist.gather(grad_vec, dst=0)
@@ -110,7 +110,7 @@ def main():
                         help='flag to run in distributed mode')
     parser.add_argument('--node-rank', type=int, default=0, metavar='N',
                         help='rank-0 = Master')
-    parser.add_argument('--world-size', type=int, default=4, metavar='N',
+    parser.add_argument('--num-nodes', type=int, default=4, metavar='N',
                         help='Number of nodes')
 
     args = parser.parse_args()
@@ -118,9 +118,9 @@ def main():
     if args.distributed:
         os.environ['MASTER_ADDR'] = args.master_ip
         os.environ['MASTER_PORT'] = '29500'  # hardcoding this because it doesn't really matter
-        dist.init_process_group("gloo", rank=args.node_rank, world_size=args.world_size)
+        dist.init_process_group("gloo", rank=args.node_rank, world_size=args.num_nodes)
         global batch_size
-        batch_size = batch_size/args.world_size
+        batch_size = batch_size/args.num_nodes
 
     normalize = transforms.Normalize(mean=[x/255.0 for x in [125.3, 123.0, 113.9]],
                                 std=[x/255.0 for x in [63.0, 62.1, 66.7]])

@@ -53,21 +53,9 @@ def train_model(model, train_loader, optimizer, criterion, epoch, args=None):
         if args.distributed:
             for layer in range(len(w)):
                 grad_vec = w[layer].grad.data
-            # need to do this per layer (#TODO: there might be a better way)
-                if args.node_rank == 0:
-                    # master node: gather remaining gradients
-                    tensor_list = [torch.zeros_like(grad_vec) for i in range(args.num_nodes)]
-                    dist.gather(grad_vec, gather_list=tensor_list)
-                    # logger.info("Received the following tensors: {}".format(tensor_list))
-                    mean_grad = torch.mean(torch.stack(tensor_list), dim=0)
-                    dist.scatter(mean_grad, [mean_grad for i in range(args.num_nodes)])
-                else:
-                    # worker node: send gradient
-                    dist.gather(grad_vec, dst=0)
-                    mean_grad = torch.zeros_like(grad_vec)
-                    # logger.info("Sent {} to master".format(x))
-                    dist.scatter(mean_grad, src=0)
-                # logger.info("Finished computing mean gradient for layer {}".format(layer))
+                # need to do this per layer (#TODO: there might be a better way)
+                dist.all_reduce(grad_vec, op=dist.reduce_op.SUM)
+                mean_grad = grad_vec/args.num_nodes
                 w[layer].grad.data = mean_grad
 
         optimizer.step()
@@ -104,7 +92,7 @@ def main():
     np.random.seed(46)
 
     parser = argparse.ArgumentParser(description='PyTorch Assignment')
-    parser.add_argument('--distributed', type=bool_string, default=False,
+    parser.add_argument('--distributed', type=bool_string, default=True,
                         help='flag to run in distributed mode')
     parser.add_argument('--master-ip', type=str, default='10.10.1.1',
                         help='flag to run in distributed mode')
