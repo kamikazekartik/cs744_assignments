@@ -1,0 +1,15 @@
+INFO:root:Testing model before training
+INFO:root:Test set: Average loss: 2.3029, Accuracy: 1000/10000 (10%)
+
+INFO:root:Train Epoch: 0 [0/50000 (0%)]	Loss: 2.613245	TimeTaken: 3.15786790848
+INFO:root:Train Epoch: 0 [5120/50000 (10%)]	Loss: 3.714869	TimeTaken: 1.96255397797
+INFO:root:Train Epoch: 0 [10240/50000 (20%)]	Loss: 2.663946	TimeTaken: 2.1443529129
+INFO:root:Train Epoch: 0 [15360/50000 (31%)]	Loss: 2.398991	TimeTaken: 2.16963100433
+INFO:root:Train Epoch: 0 [20480/50000 (41%)]	Loss: 2.308394	TimeTaken: 1.95407915115
+INFO:root:Train Epoch: 0 [25600/50000 (51%)]	Loss: 2.481955	TimeTaken: 1.97260499001
+INFO:root:Train Epoch: 0 [30720/50000 (61%)]	Loss: 2.262338	TimeTaken: 1.97783088684
+INFO:root:Train Epoch: 0 [35840/50000 (71%)]	Loss: 2.234272	TimeTaken: 1.93568015099
+INFO:root:Train Epoch: 0 [40960/50000 (82%)]	Loss: 2.306973	TimeTaken: 1.95886802673
+INFO:root:Train Epoch: 0 [46080/50000 (92%)]	Loss: 2.093395	TimeTaken: 2.14675211906
+INFO:root:Test set: Average loss: 2.0304, Accuracy: 2263/10000 (23%)
+
