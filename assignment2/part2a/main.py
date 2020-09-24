@@ -65,7 +65,7 @@ def train_model(model, train_loader, optimizer, criterion, epoch, args=None):
                     mean_grad = torch.zeros_like(grad_vec)
                     # logger.info("Sent {} to master".format(x))
                     dist.scatter(mean_grad, src=0)
-                logger.info("Finished computing mean gradient for layer {}".format(layer))
+                # logger.info("Finished computing mean gradient for layer {}".format(layer))
                 w[layer].grad.data = mean_grad
 
         optimizer.step()
@@ -97,7 +97,9 @@ def test_model(model, test_loader, criterion):
 
 def main():
     parser = argparse.ArgumentParser(description='PyTorch Assignment')
-    parser.add_argument('--distributed', type=bool_string, default=False,
+    parser.add_argument('--distributed', type=bool_string, default=True,
+                        help='flag to run in distributed mode')
+    parser.add_argument('--master-ip', type=str, default='10.10.1.1',
                         help='flag to run in distributed mode')
     parser.add_argument('--node-rank', type=int, default=0, metavar='N',
                         help='rank-0 = Master')
@@ -107,8 +109,8 @@ def main():
     args = parser.parse_args()
 
     if args.distributed:
-        os.environ['MASTER_ADDR'] = '10.10.1.1'
-        os.environ['MASTER_PORT'] = '29500'
+        os.environ['MASTER_ADDR'] = args.master_ip
+        os.environ['MASTER_PORT'] = '29500'  # hardcoding this because it doesn't really matter
         dist.init_process_group("gloo", rank=args.node_rank, world_size=args.world_size)
         global batch_size
         batch_size = batch_size/args.world_size
