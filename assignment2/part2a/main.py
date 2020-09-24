@@ -12,6 +12,7 @@ import random
 import model as mdl
 import argparse
 import torch.distributed as dist
+import time
 
 device = "cpu"
 torch.set_num_threads(4)
@@ -40,6 +41,7 @@ def train_model(model, train_loader, optimizer, criterion, epoch, args=None):
     model.train()
     # remember to exit the train loop at end of the epoch
     for batch_idx, (data, target) in enumerate(train_loader):
+        start_time = time.time()
         # Your code goes here!
         data, target = data.to(device), target.to(device)
         optimizer.zero_grad()
@@ -69,11 +71,13 @@ def train_model(model, train_loader, optimizer, criterion, epoch, args=None):
                 w[layer].grad.data = mean_grad
 
         optimizer.step()
+        end_time = time.time()
+        elapsed_time = (end_time - start_time)
         
         if batch_idx % 20 == 0:
-            logger.info('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
+            logger.info('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}\tTimeTaken: {}'.format(
                 epoch, batch_idx * len(data), len(train_loader.dataset),
-                100. * batch_idx / len(train_loader), loss.item()))
+                100. * batch_idx / len(train_loader), loss.item(), elapsed_time))
 
     return None
 
@@ -96,6 +100,9 @@ def test_model(model, test_loader, criterion):
             
 
 def main():
+    torch.manual_seed(46)
+    np.random.seed(46)
+    
     parser = argparse.ArgumentParser(description='PyTorch Assignment')
     parser.add_argument('--distributed', type=bool_string, default=True,
                         help='flag to run in distributed mode')
