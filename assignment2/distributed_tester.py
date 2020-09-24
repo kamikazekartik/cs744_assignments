@@ -41,7 +41,7 @@ if __name__=='__main__':
         logger.info("Received the following tensors: {}".format(tensor_list))
         mean_x = torch.mean(torch.stack(tensor_list), dim=0)
         dist.scatter(mean_x, [mean_x for i in range(args.world_size)])
-        logger.info("Sent {} to everyone")
+        logger.info("Sent {} to everyone".format(mean_x))
     else:
         # I'm just another node
         x = args.node_rank*torch.ones(2)
