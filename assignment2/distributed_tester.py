@@ -42,6 +42,8 @@ if __name__=='__main__':
         mean_x = torch.mean(torch.stack(tensor_list), dim=0)
         dist.scatter(mean_x, [mean_x for i in range(args.world_size)])
         logger.info("Sent {} to everyone".format(mean_x))
+        dist.all_reduce(x, op=dist.reduce_op.SUM)
+        logger.info("Got sum from all-reduce: {}".format(x))
     else:
         # I'm just another node
         x = args.node_rank*torch.ones(2)
@@ -50,6 +52,8 @@ if __name__=='__main__':
         mean_x = torch.zeros_like(x)
         dist.scatter(mean_x, src=0)
         logger.info("Received mean vector {} from master".format(mean_x))
+        dist.all_reduce(x, op=dist.reduce_op.SUM)
+        logger.info("Got sum from all-reduce: {}".format(x))
 
     logger.info("EXITING")
 
