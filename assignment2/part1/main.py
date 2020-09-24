@@ -102,7 +102,7 @@ def test_model(model, test_loader, criterion):
 def main():
     torch.manual_seed(46)
     np.random.seed(46)
-    
+
     parser = argparse.ArgumentParser(description='PyTorch Assignment')
     parser.add_argument('--distributed', type=bool_string, default=False,
                         help='flag to run in distributed mode')
@@ -135,7 +135,7 @@ def main():
     transform_test = transforms.Compose([
             transforms.ToTensor(),
             normalize])
-    training_set = datasets.CIFAR10(root="./data", train=True,
+    training_set = datasets.CIFAR10(root="../data", train=True,
                                                 download=True, transform=transform_train)
     train_loader = torch.utils.data.DataLoader(training_set,
                                                     num_workers=2,
@@ -143,7 +143,7 @@ def main():
                                                     sampler=None,
                                                     shuffle=True,
                                                     pin_memory=True)
-    test_set = datasets.CIFAR10(root="./data", train=False,
+    test_set = datasets.CIFAR10(root="../data", train=False,
                                 download=True, transform=transform_test)
 
     test_loader = torch.utils.data.DataLoader(test_set,
