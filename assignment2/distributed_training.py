@@ -15,6 +15,7 @@ import torch.distributed as dist
 
 device = "cpu"
 torch.set_num_threads(4)
+logging.basicConfig()
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
@@ -29,7 +30,7 @@ if __name__=='__main__':
 
     os.environ['MASTER_ADDR'] = '10.10.1.1'
     os.environ['MASTER_PORT'] = '29500'
-    dist.init_process_group("gloo", rank=args.rank, world_size=args.world_size)
+    dist.init_process_group("gloo", rank=args.node_rank, world_size=args.world_size)
     
     if args.node_rank == 0:
         # I'm the master!
