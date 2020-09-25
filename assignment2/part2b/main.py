@@ -21,6 +21,7 @@ logging.basicConfig()
 logger.setLevel(logging.INFO)
 
 batch_size = 256 # batch for one node
+RAND_SEED = 46
 
 # helper function because otherwise non-empty strings
 # evaluate as True
@@ -88,8 +89,8 @@ def test_model(model, test_loader, criterion):
             
 
 def main():
-    torch.manual_seed(46)
-    np.random.seed(46)
+    torch.manual_seed(RAND_SEED)
+    np.random.seed(RAND_SEED)
 
     parser = argparse.ArgumentParser(description='PyTorch Assignment')
     parser.add_argument('--distributed', type=bool_string, default=True,
@@ -125,12 +126,19 @@ def main():
             normalize])
     training_set = datasets.CIFAR10(root="../data", train=True,
                                                 download=True, transform=transform_train)
+    
+    training_sampler = \
+        torch.utils.data.distributed.DistributedSampler(train_dataset,
+                                                        num_replicas=args.num_nodes,
+                                                        rank=args.node_rank)
+
     train_loader = torch.utils.data.DataLoader(training_set,
                                                     num_workers=2,
                                                     batch_size=batch_size,
-                                                    sampler=None,
+                                                    sampler=training_sampler,
                                                     shuffle=True,
                                                     pin_memory=True)
+    
     test_set = datasets.CIFAR10(root="../data", train=False,
                                 download=True, transform=transform_test)
 
