@@ -128,15 +128,16 @@ def main():
                                                 download=True, transform=transform_train)
     
     training_sampler = \
-        torch.utils.data.distributed.DistributedSampler(train_dataset,
+        torch.utils.data.distributed.DistributedSampler(training_set,
                                                         num_replicas=args.num_nodes,
-                                                        rank=args.node_rank)
+                                                        rank=args.node_rank,
+                                                        shuffle=True,)
 
     train_loader = torch.utils.data.DataLoader(training_set,
                                                     num_workers=2,
                                                     batch_size=batch_size,
                                                     sampler=training_sampler,
-                                                    shuffle=True,
+                                                    shuffle=False,
                                                     pin_memory=True)
     
     test_set = datasets.CIFAR10(root="../data", train=False,
@@ -158,6 +159,7 @@ def main():
     test_model(model, test_loader, training_criterion)
     # running training for one epoch
     for epoch in range(1):
+        training_sampler.set_epoch(epoch)
         train_model(model, train_loader, optimizer, training_criterion, epoch, args)
         test_model(model, test_loader, training_criterion)
 
