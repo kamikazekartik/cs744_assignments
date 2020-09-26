@@ -41,8 +41,8 @@ def train_model(model, train_loader, optimizer, criterion, epoch, args=None):
 
     model.train()
     # remember to exit the train loop at end of the epoch
+    start_time = time.time()
     for batch_idx, (data, target) in enumerate(train_loader):
-        start_time = time.time()
         # Your code goes here!
         data, target = data.to(device), target.to(device)
         optimizer.zero_grad()
@@ -63,10 +63,11 @@ def train_model(model, train_loader, optimizer, criterion, epoch, args=None):
         
         if batch_idx % 20 == 0:
             end_time = time.time()
-            elapsed_time = (end_time - start_time)
+            elapsed_time = (end_time - start_time) / 20
             logger.info('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}\tTimeTaken: {}'.format(
                 epoch, batch_idx * len(data), len(train_loader.dataset),
                 100. * batch_idx / len(train_loader), loss.item(), elapsed_time))
+            start_time = time.time()
 
     return None
 
