@@ -1,45 +1,15 @@
 INFO:root:Testing model before training
 INFO:root:Test set: Average loss: 2.3029, Accuracy: 1000/10000 (10%)
 
-INFO:root:Train Epoch: 0 [0/50000 (0%)]	Loss: 2.670627	TimeTaken: 2.15146303177
-INFO:root:Train Epoch: 0 [1280/50000 (3%)]	Loss: 3.139140	TimeTaken: 1.16947293282
-INFO:root:Train Epoch: 0 [2560/50000 (5%)]	Loss: 2.436243	TimeTaken: 1.0387301445
-INFO:root:Train Epoch: 0 [3840/50000 (8%)]	Loss: 2.290952	TimeTaken: 1.15820884705
-INFO:root:Train Epoch: 0 [5120/50000 (10%)]	Loss: 2.286578	TimeTaken: 1.02946209908
-INFO:root:Train Epoch: 0 [6400/50000 (13%)]	Loss: 2.283611	TimeTaken: 1.09519910812
-INFO:root:Train Epoch: 0 [7680/50000 (15%)]	Loss: 2.298463	TimeTaken: 1.0631248951
-INFO:root:Train Epoch: 0 [8960/50000 (18%)]	Loss: 2.352921	TimeTaken: 1.04719114304
-INFO:root:Train Epoch: 0 [10240/50000 (20%)]	Loss: 2.295799	TimeTaken: 1.19319701195
-INFO:root:Train Epoch: 0 [11520/50000 (23%)]	Loss: 2.285440	TimeTaken: 1.07548093796
-INFO:root:Train Epoch: 0 [12800/50000 (26%)]	Loss: 2.308267	TimeTaken: 1.12119102478
-INFO:root:Train Epoch: 0 [14080/50000 (28%)]	Loss: 2.317497	TimeTaken: 1.06030702591
-INFO:root:Train Epoch: 0 [15360/50000 (31%)]	Loss: 2.281191	TimeTaken: 1.11694598198
-INFO:root:Train Epoch: 0 [16640/50000 (33%)]	Loss: 2.236444	TimeTaken: 1.15921401978
-INFO:root:Train Epoch: 0 [17920/50000 (36%)]	Loss: 2.316654	TimeTaken: 1.12044095993
-INFO:root:Train Epoch: 0 [19200/50000 (38%)]	Loss: 2.300644	TimeTaken: 1.02241802216
-INFO:root:Train Epoch: 0 [20480/50000 (41%)]	Loss: 2.276748	TimeTaken: 0.996675014496
-INFO:root:Train Epoch: 0 [21760/50000 (43%)]	Loss: 2.300368	TimeTaken: 1.07234692574
-INFO:root:Train Epoch: 0 [23040/50000 (46%)]	Loss: 2.266810	TimeTaken: 1.14264011383
-INFO:root:Train Epoch: 0 [24320/50000 (49%)]	Loss: 2.316225	TimeTaken: 1.04041004181
-INFO:root:Train Epoch: 0 [25600/50000 (51%)]	Loss: 2.252901	TimeTaken: 1.01357102394
-INFO:root:Train Epoch: 0 [26880/50000 (54%)]	Loss: 2.292267	TimeTaken: 1.05331397057
-INFO:root:Train Epoch: 0 [28160/50000 (56%)]	Loss: 2.286167	TimeTaken: 1.00249385834
-INFO:root:Train Epoch: 0 [29440/50000 (59%)]	Loss: 2.251725	TimeTaken: 1.00511789322
-INFO:root:Train Epoch: 0 [30720/50000 (61%)]	Loss: 2.235308	TimeTaken: 1.03905105591
-INFO:root:Train Epoch: 0 [32000/50000 (64%)]	Loss: 2.261357	TimeTaken: 1.03778982162
-INFO:root:Train Epoch: 0 [33280/50000 (66%)]	Loss: 2.234064	TimeTaken: 1.04855298996
-INFO:root:Train Epoch: 0 [34560/50000 (69%)]	Loss: 2.229472	TimeTaken: 1.04273700714
-INFO:root:Train Epoch: 0 [35840/50000 (72%)]	Loss: 2.310441	TimeTaken: 1.17344784737
-INFO:root:Train Epoch: 0 [37120/50000 (74%)]	Loss: 2.148438	TimeTaken: 1.15527391434
-INFO:root:Train Epoch: 0 [38400/50000 (77%)]	Loss: 2.076838	TimeTaken: 1.08738207817
-INFO:root:Train Epoch: 0 [39680/50000 (79%)]	Loss: 2.220818	TimeTaken: 1.07556796074
-INFO:root:Train Epoch: 0 [40960/50000 (82%)]	Loss: 2.072180	TimeTaken: 1.03073096275
-INFO:root:Train Epoch: 0 [42240/50000 (84%)]	Loss: 2.063909	TimeTaken: 1.02598190308
-INFO:root:Train Epoch: 0 [43520/50000 (87%)]	Loss: 2.045532	TimeTaken: 1.16103887558
-INFO:root:Train Epoch: 0 [44800/50000 (90%)]	Loss: 2.183677	TimeTaken: 1.04085898399
-INFO:root:Train Epoch: 0 [46080/50000 (92%)]	Loss: 2.039719	TimeTaken: 1.02013397217
-INFO:root:Train Epoch: 0 [47360/50000 (95%)]	Loss: 1.955509	TimeTaken: 1.03155493736
-INFO:root:Train Epoch: 0 [48640/50000 (97%)]	Loss: 1.980967	TimeTaken: 1.06670689583
-INFO:root:Train Epoch: 0 [49920/50000 (100%)]	Loss: 2.061423	TimeTaken: 1.07637190819
-INFO:root:Test set: Average loss: 2.0554, Accuracy: 1776/10000 (18%)
+INFO:root:Train Epoch: 0 [0/50000 (0%)]	Loss: 2.745337	TimeTaken: 1.42255210876
+INFO:root:Train Epoch: 0 [1280/50000 (10%)]	Loss: 2.670962	TimeTaken: 1.02515792847
+INFO:root:Train Epoch: 0 [2560/50000 (20%)]	Loss: 2.434496	TimeTaken: 1.13422584534
+INFO:root:Train Epoch: 0 [3840/50000 (31%)]	Loss: 2.513740	TimeTaken: 1.02700805664
+INFO:root:Train Epoch: 0 [5120/50000 (41%)]	Loss: 2.259095	TimeTaken: 1.09760594368
+INFO:root:Train Epoch: 0 [6400/50000 (51%)]	Loss: 2.206005	TimeTaken: 1.11299395561
+INFO:root:Train Epoch: 0 [7680/50000 (61%)]	Loss: 2.267789	TimeTaken: 1.04547905922
+INFO:root:Train Epoch: 0 [8960/50000 (71%)]	Loss: 2.337305	TimeTaken: 1.06928706169
+INFO:root:Train Epoch: 0 [10240/50000 (82%)]	Loss: 2.228638	TimeTaken: 1.04545116425
+INFO:root:Train Epoch: 0 [11520/50000 (92%)]	Loss: 2.330067	TimeTaken: 1.03372001648
+INFO:root:Test set: Average loss: 2.2148, Accuracy: 1534/10000 (15%)
 
