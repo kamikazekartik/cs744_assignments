@@ -28,7 +28,6 @@ echo "Hit enter to continue (and run the commands here on the master)..."
 read msg
 sudo apt-get update
 sudo apt-get install openjdk-8-jdk
-cd /root/
 echo "Hit enter to continue..."
 read msg
 
@@ -37,7 +36,7 @@ read msg
 echo "Generating SSH key..."
 ssh-keygen -t rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-echo "Copy the following key file to ~/.ssh/authorized_keys all machines (including master):"
+echo "Copy the following key file to ~/.ssh/authorized_keys all machines (already done for master):"
 cat ~/.ssh/id_rsa.pub
 echo ""
 echo "Hit enter to continue..."
@@ -70,13 +69,14 @@ sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "df -h | grep 
 echo "Hit enter to continue if the above looks good..."
 read msg
 echo "Great! Now your files can be stored at /mnt/data"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "cd /mnt/data"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "cd /mnt/data/"
+cd /mnt/data/
 
 
 # Install Apache Hadoop on each machine
 echo "Installing Hadoop..."
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "wget http://apache.mirrors.hoobly.com/hadoop/common/hadoop-3.1.4/hadoop-3.1.4.tar.gz"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "tar zvxf hadoop-3.1.4.tar.gz"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "cd /mnt/data/ && wget http://apache.mirrors.hoobly.com/hadoop/common/hadoop-3.1.4/hadoop-3.1.4.tar.gz"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "cd /mnt/data/ && tar zvxf hadoop-3.1.4.tar.gz"
 echo "Configuring Hadoop..."
 # update hadoop-3.1.4/etc/hadoop/core-site.xml:
 sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no 'echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > /mnt/data/hadoop-3.1.4/etc/hadoop/core-site.xml'
@@ -118,19 +118,19 @@ sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chmod -R
 sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chown -R treitz /mnt/data/hadoop-3.1.4/"
 sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo chmod +x /mnt/data/"
 echo "Starting HDFS..."
-hdfs namenode -format
-start-dfs.sh
+/mnt/data/hadoop-3.1.4/bin/hdfs namenode -format
+/mnt/data/hadoop-3.1.4/sbin/start-dfs.sh
 echo "Done. Checking HDFS is up..."
 #jps
-hdfs dfsadmin -report
+/mnt/data/hadoop-3.1.4/bin/hdfs dfsadmin -report
 echo "Hit enter to continue if the above looks good..."
 read msg
 
 
 # Install Apache Spark on each machine
 echo "Installing Spark..."
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "wget http://mirror.metrocast.net/apache/spark/spark-2.4.7/spark-2.4.7-bin-hadoop2.7.tgz"
-sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "tar zvxf spark-2.4.7-bin-hadoop2.7.tgz"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "cd /mnt/data/ && wget http://mirror.metrocast.net/apache/spark/spark-2.4.7/spark-2.4.7-bin-hadoop2.7.tgz"
+sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "cd /mnt/data/ && tar zvxf spark-2.4.7-bin-hadoop2.7.tgz"
 echo "Configuring Spark..."
 sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"$CS744_SLAVE_1\" > /mnt/data/spark-2.4.7-bin-hadoop2.7/conf/slaves"
 sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "echo \"$CS744_SLAVE_2\" >> /mnt/data/spark-2.4.7-bin-hadoop2.7/conf/slaves"
@@ -152,8 +152,12 @@ read msg
 
 
 # Pull down our repo onto each machine
-echo "Cloning code repo to each machine..."
-sudo parallel-ssh -i -h /mnt/data/cs744_hosts -O StrictHostKeyChecking=no "cd /mnt/data/ && mkdir code && cd code && git clone https://github.com/kamikazekartik/cs744_assignments.git"
+echo "Cloning code repo..."
+cd /mnt/data/
+sudo mkdir code
+sudo chown treitz code
+cd code
+git clone https://github.com/kamikazekartik/cs744_assignments.git
 echo "Done."
 
 echo "Setup is complete! You can now run Hadoop/Spark workloads on this cluster with something like"

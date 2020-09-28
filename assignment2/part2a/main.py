@@ -49,8 +49,8 @@ def train_model(model, train_loader, optimizer, criterion, epoch, args=None):
         output = model(data)
         loss = criterion(output, target)
         loss.backward()
-        w = list(model.parameters())
-        
+        w = list(model.named_parameters())
+
         if args.distributed:
             for layer in range(len(w)):
                 grad_vec = w[layer].grad.data
@@ -72,7 +72,7 @@ def train_model(model, train_loader, optimizer, criterion, epoch, args=None):
                 w[layer].grad.data = mean_grad
 
         optimizer.step()
-        
+
         if batch_idx % 20 == 0:
             end_time = time.time()
             elapsed_time = (end_time - start_time) / 20
@@ -99,7 +99,7 @@ def test_model(model, test_loader, criterion):
     logger.info('Test set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
             test_loss, correct, len(test_loader.dataset),
             100. * correct / len(test_loader.dataset)))
-            
+
 
 def main():
     torch.manual_seed(RAND_SEED)
@@ -137,7 +137,7 @@ def main():
     transform_test = transforms.Compose([
             transforms.ToTensor(),
             normalize])
-    
+
     training_set = datasets.CIFAR10(root="../data", train=True,
                                                 download=True, transform=transform_train)
 
@@ -146,14 +146,14 @@ def main():
                                                         num_replicas=args.num_nodes,
                                                         rank=args.node_rank,
                                                         shuffle=True,)
-    
+
     train_loader = torch.utils.data.DataLoader(training_set,
                                                     num_workers=2,
                                                     batch_size=batch_size,
                                                     sampler=training_sampler,
                                                     shuffle=False,
                                                     pin_memory=True)
-    
+
     test_set = datasets.CIFAR10(root="../data", train=False,
                                 download=True, transform=transform_test)
 

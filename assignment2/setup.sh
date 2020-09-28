@@ -17,11 +17,10 @@ export CS744_SLAVE_3="10.10.1.4"
 # Update software
 echo "Most of the cluster configuration is done automatically by this script, but a few things must be done manually first."
 echo "Run the following command on the three slave machines (this script will run them here on the master):"
-echo "> sudo apt-get update && sudo apt-get install python-pip"
+echo "> sudo apt-get -y update && sudo apt-get -y install python-pip"
 echo "Hit enter to continue (and run the commands here on the master)..."
 read msg
-sudo apt-get update
-sudo apt-get install python-pip
+sudo apt-get -y update && sudo apt-get -y install python-pip
 echo "Hit enter to continue..."
 read msg
 
@@ -39,7 +38,7 @@ read msg
 
 # Install/configure parallel-ssh
 echo "Installing parallel-ssh..."
-sudo apt install python-pip python-setuptools
+sudo apt -y install python-pip python-setuptools
 sudo pip install --upgrade pip
 sudo pip install parallel-ssh
 echo "Creating parallel-ssh hosts file..."
@@ -74,7 +73,5 @@ sudo parallel-ssh -i -h ~/cs744_hosts -O StrictHostKeyChecking=no "sudo apt -y i
 # Pull down our repo onto each machine
 echo "Cloning code repo..."
 cd ~/
-mkdir code
-cd code
 git clone https://github.com/kamikazekartik/cs744_assignments.git
 echo "Done."
