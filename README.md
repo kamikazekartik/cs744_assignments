@@ -5,7 +5,7 @@ CS744-Assignments
 To run the Python scripts found in `/project/` on GCP, follow these steps:
 1. Create a general purpose, N1 class, standard-1 (not shared core) instance in GCP.
 1. Under “CPU platform and GPU”, add your desired GPU.
-1. Change boot disk from 10-20 GB (CUDA requires a ton of space).
+1. Change boot disk from default 10GB to 20GB (CUDA requires a ton of space).
 1. (Optional) Under “Management, security, disks, …” set Availability Policy -> Preemptibility to “On” (this cuts cost to ~30%, but means the instance won’t run longer than 24 hours).
 1. Click the `SSH` button to connect to the instance via SSH in a browser window. 🤯
 1. Run `sudo apt install -y git` to be able to clone our git repo.
