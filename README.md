@@ -12,6 +12,6 @@ To run the Python scripts found in `/project/` on GCP, follow these steps:
 1. Run `git clone https://github.com/kamikazekartik/cs744_assignments.git` to pull down the code (log in with your GitHub credentials).
 1. Run `cd cs744_assignments/project/` to get into the project directory.
 1. Run `chmod +x setup_init.sh && chmod +x setup_finish.sh` to make the setup scripts executable.
-1. Run `./setup_init.sh`. When complete, this will terminate you SSH session for reboot (to install a kernel upgrade); click the `SSH` button on your instance to reconnect.
+1. Run `./setup_init.sh`. When complete, this will terminate your SSH session for reboot (to install a kernel upgrade); click the `SSH` button on your instance to reconnect.
 1. Run `cd cs744_assignments/project/` to get into the project directory again, and run `./setup_finish.sh` to complete setup (this takes a while)
 When finished, you can run python scripts with `python3 main.py` or similar.
