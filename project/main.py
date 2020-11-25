@@ -2,6 +2,7 @@ import time
 import os
 import random
 import copy
+import argparse
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -25,33 +26,15 @@ logging.basicConfig()
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
+# helper function because otherwise non-empty strings
+# evaluate as True
+def bool_string(s):
+    if s not in {'False', 'True'}:
+        raise ValueError('Not a valid boolean string')
+    return s == 'True'
 
-# seed experiment
-utils.seed_experiment(42)
-
-# Options:
-use_amp = False
-use_half_all = True
-use_half_conv = False
-use_half_lin = False
-dataset = 'Cifar10'
-PRELOAD = False # decides if we should use pytorch's dataloader or just preload into a python list
-
-# Make sure we're using a GPU, and report what GPU it is.
-# (Otherwise this would run **forever**)
-if torch.cuda.is_available():
-  print("using "+torch.cuda.get_device_name(0))
-else:
-  print('No GPU available (enable it?), quitting.')
-  exit()
-device = torch.device("cuda:0")
-
-# Set up dataset:
-batch_size = 64
-test_batch_size = 1000
 
 # test function:
-
 def test(dataset, model, device, test_loader, criterion, test_batch_size=1000):
     class_correct = list(0. for i in range(10))
     class_total = list(0. for i in range(10))
@@ -93,9 +76,8 @@ def test(dataset, model, device, test_loader, criterion, test_batch_size=1000):
 
     return 100.0 * correct/len(test_loader.dataset)
 
+
 # train method
-
-
 def train(model, optimizer, criterion, scaler, train_loader, use_amp, epoch=0):
 
     # Iterating through the train loader
@@ -119,7 +101,7 @@ def train(model, optimizer, criterion, scaler, train_loader, use_amp, epoch=0):
     return loss.item()
 
 
-def run_experiment(MAX_EPOCHS=3):
+def run_experiment(args):
     epoch_list = [0]
     loss_epoch_list = [-1]
     epoch_train_time_list = [-1]
@@ -128,48 +110,41 @@ def run_experiment(MAX_EPOCHS=3):
     test_acc_list = []
 
     # get data 
-    train_loader, test_loader = utils.get_dataloader(dataset, use_half=use_half_all, PRELOAD=PRELOAD,
-            batch_size=batch_size, test_batch_size=test_batch_size)
+    train_loader, test_loader = utils.get_dataloader(dataset, use_half=args.use_half, PRELOAD=args.preload_data,
+            batch_size=args.batch_size, test_batch_size=args.test_batch_size)
 
-    if dataset in ['MNIST', 'EMNIST']:
-        model = utils.get_model('lenet', device)
-    elif dataset == 'Cifar10':
-        model = utils.get_model('vgg11', device)
-    else:
-        logger.info("BAD DATASET!!!")
-        exit()
+    model = utils.get_model(args.model, device)
 
-    if use_half_all:
+    if args.use_half:
         model.half()
 
     criterion = nn.CrossEntropyLoss()
-    curr_lr = 0.01
+    curr_lr = args.lr
     optimizer = optim.SGD(model.parameters(), lr=curr_lr, momentum=0.9)
-    scaler = torch.cuda.amp.GradScaler(enabled=use_amp)
+    scaler = torch.cuda.amp.GradScaler(enabled=args.use_amp)
     total_training_time = 0
 
     # check accuracy before training
-    test_acc = test(dataset, model, device, test_loader, criterion)
+    test_acc = test(args.dataset, model, args.device, test_loader, criterion)
     test_acc_list.append(test_acc)
 
-    for epoch in range(1, MAX_EPOCHS):
+    for epoch in range(1, args.max_epochs):
         start_time = time.time()
-        last_epoch_loss = train(model, optimizer, criterion, scaler, train_loader, use_amp, epoch)
+        last_epoch_loss = train(model, optimizer, criterion, scaler, train_loader, args.use_amp, epoch)
         end_time = time.time()
         epoch_training_time = end_time - start_time
         total_training_time += epoch_training_time
         epoch_list.append(epoch)
         epoch_train_time_list.append(epoch_training_time)
         total_train_time_list.append(total_training_time)
-        lr_list.append(curr_lr)
-        test_acc = test(dataset, model, device, test_loader, criterion)
+        lr_list.append(args.lr)
+        test_acc = test(args.dataset, model, args.device, test_loader, criterion)
         test_acc_list.append(test_acc)
         loss_epoch_list.append(last_epoch_loss)
 
-        # cut learning rate in half every 20 epochs
-        if epoch % 20 == 19:
-          curr_lr = 0.5 * curr_lr
-          for g in optimizer.param_groups:
+        # learning rate decay
+        curr_lr = args.gamma * curr_lr
+        for g in optimizer.param_groups:
             g['lr'] = curr_lr
 
 
@@ -185,3 +160,53 @@ def run_experiment(MAX_EPOCHS=3):
     return results_df
 
 # run_experiment()
+
+def main():
+    # Training settings
+    parser = argparse.ArgumentParser(description='PyTorch Mixed-Precision Experiments')
+    parser.add_argument('--batch-size', type=int, default=64, metavar='N',
+                        help='input batch size for training (default: 64)')
+    parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
+                        help='input batch size for testing (default: 1000)')
+    parser.add_argument('--max-epochs', type=int, default=3, metavar='N',
+                        help='number of epochs to train (default: 3)')
+    parser.add_argument('--lr', type=float, default=0.01, metavar='LR',
+                        help='learning rate (default: 0.01)')
+    parser.add_argument('--gamma', type=float, default=0.99, metavar='M',
+                        help='Learning rate step gamma (default: 0.7)')
+    parser.add_argument('--dataset', type=str, default='MNIST',
+                        help='dataset to use MNIST|EMNIST|Cifar10')
+    parser.add_argument('--model', type=str, default='lenet',
+                        help='model to use lenet|vgg11|vgg13|vgg16|vgg19')
+    parser.add_argument('--device', type=str, default='cuda',
+                        help='device to set, can take the value of: cuda or cuda:x')
+    parser.add_argument('--seed', type=int, default=42, metavar='S',
+                        help='random seed (default: 1)')
+    parser.add_argument('--save-model', action='store_true', default=False,
+                       help='For Saving the current Model')
+    parser.add_argument('--use-amp', type=bool_string, default=False,
+                        help='use AMP')
+    parser.add_argument('--use-half', type=bool_string, default=False,
+                        help='use half precision for training')
+    parser.add_argument('--preload-data', type=bool_string, default=False,
+                        help='preload data into a list')
+    
+    args = parser.parse_args()
+    # seed experiment
+    utils.seed_experiment(args.seed)
+
+    # Make sure we're using a GPU, and report what GPU it is.
+    # (Otherwise this would run **forever**)
+    if torch.cuda.is_available():
+      logger.info("using "+torch.cuda.get_device_name(0))
+    else:
+      logger.info('No GPU available (enable it?), quitting.')
+      exit()
+
+    device = torch.device(args.device)
+
+    results_df = run_experiment(args)
+
+
+
+
