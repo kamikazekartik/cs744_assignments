@@ -59,7 +59,7 @@ class ToHalfTensor(object):
         return img
 
 
-def get_dataloader(dataset="MNIST", use_half=False, PRELOAD=False):
+def get_dataloader(dataset="MNIST", use_half=False, PRELOAD=False, batch_size=64, test_batch_size=1000):
     if dataset == 'MNIST':
         train_set = torchvision.datasets.MNIST('./data', train=True, download=True,
                                                transform=transforms.Compose([
@@ -129,13 +129,14 @@ def get_model(model_name='lenet', device=None):
     if model_name == 'lenet':
         model = lenet.Net().to(device)
     elif model_name == 'vgg11':
-        return vgg.vgg11().to(device)
+        model = vgg.vgg11().to(device)
     elif model_name == 'vgg13':
-        return vgg.vgg13().to(device)
+        model = vgg.vgg13().to(device)
     elif model_name == 'vgg16':
-        return vgg.vgg16().to(device)
+        model = vgg.vgg16().to(device)
     elif model_name == 'vgg19':
-        return vgg.vgg19().to(device)
+        model = vgg.vgg19().to(device)
     else:
         logger.info("Unknown Model Name!!!")
-        return -1
+        model -1
+    return model

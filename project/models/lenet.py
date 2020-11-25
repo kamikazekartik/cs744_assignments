@@ -5,8 +5,10 @@ Modified from https://github.com/pytorch/vision.git
 import math
 import logging
 
+import torch
 import torch.nn as nn
 import torch.nn.init as init
+import torch.nn.functional as F
 
 
 logging.basicConfig()

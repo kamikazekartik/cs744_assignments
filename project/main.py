@@ -27,15 +27,15 @@ logger.setLevel(logging.INFO)
 
 
 # seed experiment
-seed_experiment(42)
+utils.seed_experiment(42)
 
 # Options:
 use_amp = False
 use_half_all = True
 use_half_conv = False
 use_half_lin = False
-dataset = 'MNIST'
-PRELOAD = True # decides if we should use pytorch's dataloader or just preload into a python list
+dataset = 'Cifar10'
+PRELOAD = False # decides if we should use pytorch's dataloader or just preload into a python list
 
 # Make sure we're using a GPU, and report what GPU it is.
 # (Otherwise this would run **forever**)
@@ -52,7 +52,7 @@ test_batch_size = 1000
 
 # test function:
 
-def test(dataset, model, device, test_loader, criterion):
+def test(dataset, model, device, test_loader, criterion, test_batch_size=1000):
     class_correct = list(0. for i in range(10))
     class_total = list(0. for i in range(10))
     if dataset in ['EMNIST', 'MNIST']:
@@ -119,7 +119,7 @@ def train(model, optimizer, criterion, scaler, train_loader, use_amp, epoch=0):
     return loss.item()
 
 
- def run_experiment(MAX_EPOCHS=3):
+def run_experiment(MAX_EPOCHS=3):
     epoch_list = [0]
     loss_epoch_list = [-1]
     epoch_train_time_list = [-1]
@@ -128,12 +128,13 @@ def train(model, optimizer, criterion, scaler, train_loader, use_amp, epoch=0):
     test_acc_list = []
 
     # get data 
-    train_loader, test_loader = get_dataloader(dataset, use_half=use_half_all, PRELOAD=PRELOAD)
+    train_loader, test_loader = utils.get_dataloader(dataset, use_half=use_half_all, PRELOAD=PRELOAD,
+            batch_size=batch_size, test_batch_size=test_batch_size)
 
     if dataset in ['MNIST', 'EMNIST']:
-        model = Net().to(device)
+        model = utils.get_model('lenet', device)
     elif dataset == 'Cifar10':
-        model = vgg11().to(device)
+        model = utils.get_model('vgg11', device)
     else:
         logger.info("BAD DATASET!!!")
         exit()
@@ -182,3 +183,5 @@ def train(model, optimizer, criterion, scaler, train_loader, use_amp, epoch=0):
 
     results_df = pd.DataFrame({"epoch": epoch_list, "training_loss": loss_epoch_list, "test_acc": test_acc_list, "epoch_train_time": epoch_train_time_list, "total_train_time": total_train_time_list, "lr": lr_list, })
     return results_df
+
+# run_experiment()
