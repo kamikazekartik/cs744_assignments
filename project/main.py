@@ -25,8 +25,32 @@ logging.basicConfig()
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-# test function:
 
+# seed experiment
+seed_experiment(42)
+
+# Options:
+use_amp = False
+use_half_all = True
+use_half_conv = False
+use_half_lin = False
+dataset = 'MNIST'
+PRELOAD = True # decides if we should use pytorch's dataloader or just preload into a python list
+
+# Make sure we're using a GPU, and report what GPU it is.
+# (Otherwise this would run **forever**)
+if torch.cuda.is_available():
+  print("using "+torch.cuda.get_device_name(0))
+else:
+  print('No GPU available (enable it?), quitting.')
+  exit()
+device = torch.device("cuda:0")
+
+# Set up dataset:
+batch_size = 64
+test_batch_size = 1000
+
+# test function:
 
 def test(dataset, model, device, test_loader, criterion):
 	class_correct = list(0. for i in range(10))
