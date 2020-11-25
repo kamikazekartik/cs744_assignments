@@ -110,7 +110,7 @@ def run_experiment(args):
     test_acc_list = []
 
     # get data 
-    train_loader, test_loader = utils.get_dataloader(dataset, use_half=args.use_half, PRELOAD=args.preload_data,
+    train_loader, test_loader = utils.get_dataloader(args.dataset, use_half=args.use_half, PRELOAD=args.preload_data,
             batch_size=args.batch_size, test_batch_size=args.test_batch_size)
 
     model = utils.get_model(args.model, device)
@@ -159,10 +159,9 @@ def run_experiment(args):
     results_df = pd.DataFrame({"epoch": epoch_list, "training_loss": loss_epoch_list, "test_acc": test_acc_list, "epoch_train_time": epoch_train_time_list, "total_train_time": total_train_time_list, "lr": lr_list, })
     return results_df
 
-# run_experiment()
 
-def main():
-    # Training settings
+if __name__ == '__main__':
+    
     parser = argparse.ArgumentParser(description='PyTorch Mixed-Precision Experiments')
     parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                         help='input batch size for training (default: 64)')
@@ -206,7 +205,4 @@ def main():
     device = torch.device(args.device)
 
     results_df = run_experiment(args)
-
-
-
 

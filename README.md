@@ -15,4 +15,5 @@ To run the Python scripts found in `/project/` on GCP, follow these steps:
 1. Run `./setup_init.sh`. When complete, this will terminate your SSH session for reboot (to install a kernel upgrade); click the `SSH` button on your instance to reconnect.
 1. Run `cd cs744_assignments/project/` to get into the project directory again, and run `./setup_finish.sh` to complete setup (this takes a while). 
 
-When finished, you can run python scripts with `python3 main.py` or similar.
+When finished, you can run the code using the bash script `run_main.sh`.
+Typical usage is going to look like `nohup bash run_main.sh &`. NOTE: The outputs will be written to the log file which is specified at the bottom of `run_main.sh`.

@@ -1,0 +1,45 @@
+INFO:root:using Tesla T4
+Seeded everything with seed: 42
+INFO:root:Accuracy of     0 : 90 %
+INFO:root:Accuracy of     1 :  0 %
+INFO:root:Accuracy of     2 :  0 %
+INFO:root:Accuracy of     3 : 21 %
+INFO:root:Accuracy of     4 :  0 %
+INFO:root:Accuracy of     5 :  0 %
+INFO:root:Accuracy of     6 :  0 %
+INFO:root:Accuracy of     7 :  0 %
+INFO:root:Accuracy of     8 :  0 %
+INFO:root:Accuracy of     9 :  0 %
+INFO:root:
+Test set: Average loss: 0.0002, Accuracy: 1102/10000 (11%)
+
+INFO:root:Train Epoch: 1 [0 (0%)]	Loss: 2.300759
+INFO:root:Train Epoch: 1 [32000 (53%)]	Loss: 0.199657
+INFO:root:Accuracy of     0 : 99 %
+INFO:root:Accuracy of     1 : 99 %
+INFO:root:Accuracy of     2 : 98 %
+INFO:root:Accuracy of     3 : 97 %
+INFO:root:Accuracy of     4 : 95 %
+INFO:root:Accuracy of     5 : 95 %
+INFO:root:Accuracy of     6 : 97 %
+INFO:root:Accuracy of     7 : 96 %
+INFO:root:Accuracy of     8 : 97 %
+INFO:root:Accuracy of     9 : 97 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 9760/10000 (98%)
+
+INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 0.079642
+INFO:root:Train Epoch: 2 [32000 (53%)]	Loss: 0.004133
+INFO:root:Accuracy of     0 : 99 %
+INFO:root:Accuracy of     1 : 99 %
+INFO:root:Accuracy of     2 : 98 %
+INFO:root:Accuracy of     3 : 98 %
+INFO:root:Accuracy of     4 : 99 %
+INFO:root:Accuracy of     5 : 98 %
+INFO:root:Accuracy of     6 : 98 %
+INFO:root:Accuracy of     7 : 96 %
+INFO:root:Accuracy of     8 : 98 %
+INFO:root:Accuracy of     9 : 97 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 9850/10000 (98%)
+
