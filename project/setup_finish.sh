@@ -21,7 +21,7 @@ sudo python3 get-pip.py
 pip install numpy pandas matplotlib seaborn torch torchvision
 
 # allocate swap memory to prevent runtime errors
-sudo fallocate -l 1G /swapfile
+sudo fallocate -l 10G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile

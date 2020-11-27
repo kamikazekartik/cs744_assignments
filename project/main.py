@@ -189,6 +189,8 @@ if __name__ == '__main__':
                         help='use half precision for training')
     parser.add_argument('--preload-data', type=bool_string, default=False,
                         help='preload data into a list')
+    parser.add_argument('--results-filename', type=str, default='results.csv',
+                        help='specify csv file to write results')
     
     args = parser.parse_args()
     # seed experiment
@@ -205,4 +207,7 @@ if __name__ == '__main__':
     device = torch.device(args.device)
 
     results_df = run_experiment(args)
+    results_df.to_csv(args.results_filename)
+    logger.info("Results: ")
+    logger.info(results_df)
 
