@@ -22,6 +22,13 @@ import models.lenet as lenet
 
 import utils
 
+from qtorch.quant import *
+from qtorch.optim import OptimLP
+from qtorch import BlockFloatingPoint, FixedPoint, FloatingPoint
+from qtorch.auto_low import sequential_lower
+
+num_types = ["weight", "activate", "grad", "error", "momentum"]
+
 logging.basicConfig()
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -101,7 +108,7 @@ def train(model, optimizer, criterion, scaler, train_loader, use_amp, epoch=0):
     return loss.item()
 
 
-def run_experiment(args):
+def run_experiment(args, number_dict, quant_dict):
     epoch_list = [0]
     loss_epoch_list = [-1]
     epoch_train_time_list = [-1]
@@ -115,6 +122,14 @@ def run_experiment(args):
 
     model = utils.get_model(args.model, device)
 
+    if args.low_prec:
+        # automatically insert quantization modules
+        model = sequential_lower(model, layer_types=["conv", "linear"],
+                                 forward_number=number_dict["activate"], backward_number=number_dict["error"],
+                                 forward_rounding=args.rounding, backward_rounding=args.rounding)
+        # removing the final quantization module
+        model.classifier = model.classifier[0]
+
     if args.use_half:
         model.half()
 
@@ -123,6 +138,12 @@ def run_experiment(args):
     optimizer = optim.SGD(model.parameters(), lr=curr_lr, momentum=0.9)
     scaler = torch.cuda.amp.GradScaler(enabled=args.use_amp)
     total_training_time = 0
+
+    if args.low_prec:
+        optimizer = OptimLP(optimizer,
+                    weight_quant=quant_dict["weight"],
+                    grad_quant=quant_dict["grad"],
+                    momentum_quant=quant_dict["momentum"])
 
     # check accuracy before training
     test_acc = test(args.dataset, model, args.device, test_loader, criterion)
@@ -191,6 +212,17 @@ if __name__ == '__main__':
                         help='preload data into a list')
     parser.add_argument('--results-filename', type=str, default='results.csv',
                         help='specify csv file to write results')
+    parse.add_argument('--low-prec', type='bool_string', default=False,
+                        help='use qPytorch for custom low precision training')
+
+    # quantization arguments
+    for num in num_types:
+        parser.add_argument('--nbits-{}'.format(num), type=int, default=-1, metavar='N',
+                            help='word length in bits for {}; -1 if full precision.'.format(num))
+    
+    parser.add_argument('--rounding'.format(num), type=str, default='stochastic', metavar='S',
+                        choices=["stochastic","nearest"],
+                        help='rounding method for {}, stochastic or nearest'.format(num))
     
     args = parser.parse_args()
     # seed experiment
@@ -206,7 +238,19 @@ if __name__ == '__main__':
 
     device = torch.device(args.device)
 
-    results_df = run_experiment(args)
+    # prepare quantization functions
+    # using block floating point, allocating shared exponent along the first dimension
+    number_dict = dict()
+    for num in num_types:
+        num_wl = getattr(args, "wl_{}".format(num))
+        number_dict[num] = BlockFloatingPoint(wl=num_wl, dim=0)
+        logger.info("{:10}: {}".format(num, number_dict[num]))
+    quant_dict = dict()
+    for num in ["weight", "momentum", "grad"]:
+        quant_dict[num] = quantizer(forward_number=number_dict[num],
+                                    forward_rounding=args.rounding)
+
+    results_df = run_experiment(args, number_dict, quant_dict)
     results_df.to_csv(args.results_filename)
     logger.info("Results: ")
     logger.info(results_df)
