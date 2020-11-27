@@ -212,7 +212,7 @@ if __name__ == '__main__':
                         help='preload data into a list')
     parser.add_argument('--results-filename', type=str, default='results.csv',
                         help='specify csv file to write results')
-    parse.add_argument('--low-prec', type='bool_string', default=False,
+    parser.add_argument('--low-prec', type=bool_string, default=False,
                         help='use qPytorch for custom low precision training')
 
     # quantization arguments
@@ -242,7 +242,7 @@ if __name__ == '__main__':
     # using block floating point, allocating shared exponent along the first dimension
     number_dict = dict()
     for num in num_types:
-        num_wl = getattr(args, "wl_{}".format(num))
+        num_wl = getattr(args, "nbits_{}".format(num))
         number_dict[num] = BlockFloatingPoint(wl=num_wl, dim=0)
         logger.info("{:10}: {}".format(num, number_dict[num]))
     quant_dict = dict()

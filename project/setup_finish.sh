@@ -20,6 +20,11 @@ sudo python3 get-pip.py
 # install required Python packages
 pip install numpy pandas matplotlib seaborn torch torchvision
 
+# install some really esoteric things for qtorch
+pip3 install qtorch
+sudo apt install -y ninja-build
+sudo apt install -y python3-dev
+
 # allocate swap memory to prevent runtime errors
 sudo fallocate -l 10G /swapfile
 sudo chmod 600 /swapfile
