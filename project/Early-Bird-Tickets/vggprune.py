@@ -15,8 +15,10 @@ from models import *
 parser = argparse.ArgumentParser(description='PyTorch Slimming CIFAR prune')
 parser.add_argument('--data', type=str, default=None,
                     help='path to dataset')
-parser.add_argument('--dataset', type=str, default='cifar100',
+parser.add_argument('--dataset', type=str, default='cifar10',
                     help='training dataset (default: cifar10)')
+parser.add_argument('--num_classes', type=int, default=10,
+                    help='number of classes to predict (default: 10)')
 parser.add_argument('--test-batch-size', type=int, default=256, metavar='N',
                     help='input batch size for testing (default: 256)')
 parser.add_argument('--no-cuda', action='store_true', default=False,
@@ -35,6 +37,9 @@ parser.add_argument('--multi_GPU', type=int, default=0,
                     help='multi_GPU')
 # multi-gpus
 parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
+
+parser.add_argument('--eb_percent_prune',default=30,type=float,
+                     help='Percent of network to keep after finding mask.')
 
 args = parser.parse_args()
 args.cuda = not args.no_cuda and torch.cuda.is_available()
@@ -56,7 +61,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 if args.dataset == "imagenet":
     model = slimmingvgg(dataset=args.dataset, depth=args.depth)
 else:
-    model = vgg(dataset=args.dataset, depth=args.depth)
+    model = vgg(num_classes=10, depth=args.depth)
 
 if args.model:
     if os.path.isfile(args.model):

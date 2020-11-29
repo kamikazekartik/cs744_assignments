@@ -24,6 +24,8 @@ num_types = ["weight", "activate", "grad", "error", "momentum"]
 parser = argparse.ArgumentParser(description='PyTorch Slimming CIFAR training')
 parser.add_argument('--dataset', type=str, default='cifar10',
                     help='training dataset (default: cifar100)')
+parser.add_argument('--num_classes', type=int, default=10,
+                    help='number of classes to predict (default: 10)')
 parser.add_argument('--sparsity-regularization', '-sr', dest='sr', action='store_true',
                     help='train with channel sparsity regularization')
 parser.add_argument('--s', type=float, default=0.0001,
@@ -205,7 +207,7 @@ else:
                        ])),
         batch_size=args.test_batch_size, shuffle=True, **kwargs)
 
-model = models.__dict__[args.arch](dataset=args.dataset, depth=args.depth)
+model = models.__dict__[args.arch](dataset=args.num_classes, depth=args.depth)
 # automatically insert quantization modules
 model = sequential_lower(model, layer_types=["conv", "linear"],
                          forward_number=number_dict["activate"], backward_number=number_dict["error"],
@@ -221,7 +223,7 @@ if args.cuda:
 
 # Build SWALP model
 if args.swa:
-    swa_model = models.__dict__[args.arch](dataset=args.dataset, depth=args.depth)
+    swa_model = models.__dict__[args.arch](dataset=args.num_classes, depth=args.depth)
     swa_n = 0
     swa_model.cuda()
 

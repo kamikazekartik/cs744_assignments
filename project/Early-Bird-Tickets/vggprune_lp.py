@@ -20,8 +20,10 @@ num_types = ["weight", "activate", "grad", "error", "momentum"]
 parser = argparse.ArgumentParser(description='PyTorch Slimming CIFAR prune')
 parser.add_argument('--data', type=str, default=None,
                     help='path to dataset')
-parser.add_argument('--dataset', type=str, default='cifar100',
+parser.add_argument('--dataset', type=str, default='cifar10',
                     help='training dataset (default: cifar10)')
+parser.add_argument('--num_classes', type=int, default=10,
+                    help='number of classes to predict (default: 10)')
 parser.add_argument('--test-batch-size', type=int, default=256, metavar='N',
                     help='input batch size for testing (default: 256)')
 parser.add_argument('--no-cuda', action='store_true', default=False,
@@ -36,6 +38,9 @@ parser.add_argument('--save', default='', type=str, metavar='PATH',
                     help='path to save pruned model (default: none)')
 # multi-gpus
 parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
+
+parser.add_argument('--eb_percent_prune',default=30,type=float,
+                     help='Percent of network to keep after finding mask.')
 
 # quantized parameters
 for num in num_types:
@@ -74,7 +79,7 @@ for num in ["weight", "momentum", "grad"]:
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-model = models.__dict__['vgg'](dataset=args.dataset, depth=args.depth)
+model = models.__dict__['vgg'](num_classes=args.num_classes, depth=args.depth)
 # automatically insert quantization modules
 model = sequential_lower(model, layer_types=["conv", "linear"],
                          forward_number=number_dict["activate"], backward_number=number_dict["error"],

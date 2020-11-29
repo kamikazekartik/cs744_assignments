@@ -18,7 +18,9 @@ from compute_flops import print_model_param_flops
 # Training settings
 parser = argparse.ArgumentParser(description='PyTorch Slimming CIFAR training')
 parser.add_argument('--dataset', type=str, default='cifar10',
-                    help='training dataset (default: cifar100)')
+                    help='training dataset (default: cifar10)')
+parser.add_argument('--num_classes', type=int, default=10,
+                    help='number of classes to predict (default: 10)')
 parser.add_argument('--data', type=str, default=None,
                     help='path to dataset')
 parser.add_argument('--sparsity-regularization', '-sr', dest='sr', action='store_true',
@@ -188,7 +190,7 @@ if args.dataset == 'imagenet':
         model = torch.nn.DataParallel(model, device_ids=args.gpu_ids)
         # model = torch.nn.parallel.DistributedDataParallel(model, device_ids=args.gpu_ids, find_unused_parameters=True)
 else:
-    model = models.__dict__[args.arch](dataset=args.dataset, depth=args.depth)
+    model = models.__dict__[args.arch](num_classes=args.num_classes, depth=args.depth)
     if args.cuda:
         model.cuda()
     if len(args.gpu_ids) > 1:
