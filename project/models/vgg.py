@@ -112,6 +112,18 @@ def _vgg(arch: str, cfg: str, batch_norm: bool, pretrained: bool, progress: bool
         model.load_state_dict(state_dict)
     return model
 
+def vgg_pruned(pruned_model_path: str, reset_weights: bool, **kwargs: Any) -> VGG:
+    r'''
+    Load and return a VGG model form a 'pruned' model.
+    This model will include a 'cfg' file in its checkpoint dictionary that will determine the model architecture.
+    '''
+    if reset_weights:
+        kwargs['init_weights'] = True
+    checkpointed_model = torch.load(pruned_model_path)
+    model = VGG(make_layers(checkpointed_model['cfg'], True), **kwargs)
+    model.load_state_dict(checkpointed_model['state_dict'])
+    return model
+    
 
 def vgg11(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> VGG:
     r"""VGG 11-layer model (configuration "A") from

@@ -197,7 +197,7 @@ if __name__ == '__main__':
     parser.add_argument('--dataset', type=str, default='MNIST',
                         help='dataset to use MNIST|EMNIST|Cifar10')
     parser.add_argument('--model', type=str, default='lenet',
-                        help='model to use lenet|vgg11|vgg13|vgg16|vgg19')
+                        help='model to use lenet|vgg11|vgg13|vgg16|vgg19|vgg_pruned')
     parser.add_argument('--device', type=str, default='cuda',
                         help='device to set, can take the value of: cuda or cuda:x')
     parser.add_argument('--seed', type=int, default=42, metavar='S',
