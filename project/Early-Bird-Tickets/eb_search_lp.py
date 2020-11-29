@@ -207,7 +207,7 @@ else:
                        ])),
         batch_size=args.test_batch_size, shuffle=True, **kwargs)
 
-model = models.__dict__[args.arch](dataset=args.num_classes, depth=args.depth)
+model = models.__dict__[args.arch](num_classes=args.num_classes, depth=args.depth)
 # automatically insert quantization modules
 model = sequential_lower(model, layer_types=["conv", "linear"],
                          forward_number=number_dict["activate"], backward_number=number_dict["error"],
@@ -223,7 +223,7 @@ if args.cuda:
 
 # Build SWALP model
 if args.swa:
-    swa_model = models.__dict__[args.arch](dataset=args.num_classes, depth=args.depth)
+    swa_model = models.__dict__[args.arch](num_classes=args.num_classes, depth=args.depth)
     swa_n = 0
     swa_model.cuda()
 
@@ -399,7 +399,7 @@ best_prec1 = 0.
 # early_bird_50 = EarlyBird(0.5)
 # early_bird_70 = EarlyBird(0.7)
 
-early_bird = EarlyBird(args.eb_percent_prune)
+early_bird = EarlyBird(args.eb_percent_prune / 100)
 
 for epoch in range(args.start_epoch, args.epochs):
     if early_bird.early_bird_emerge(model):
@@ -409,7 +409,7 @@ for epoch in range(args.start_epoch, args.epochs):
             'state_dict': model.state_dict(),
             'best_prec1': best_prec1,
             'optimizer': optimizer.state_dict()
-        }, is_best, 'EB-30-'+str(epoch+1), filepath=args.save)
+        }, is_best, 'EB-30-'+str(epoch+1), filepath=args.save, is_swa = False)
         break
     # if early_bird_30.early_bird_emerge(model):
     #     print("[early_bird_30] Find EB!!!!!!!!!, epoch: "+str(epoch))

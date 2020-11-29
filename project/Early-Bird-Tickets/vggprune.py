@@ -61,7 +61,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 if args.dataset == "imagenet":
     model = slimmingvgg(dataset=args.dataset, depth=args.depth)
 else:
-    model = vgg(num_classes=10, depth=args.depth)
+    model = vgg(num_classes=args.num_classes, depth=args.depth)
 
 if args.model:
     if os.path.isfile(args.model):
@@ -215,7 +215,7 @@ print(cfg)
 if args.dataset == "imagenet":
     newmodel = slimmingvgg(dataset=args.dataset, cfg=cfg)
 else:
-    newmodel = vgg(dataset=args.dataset, cfg=cfg)
+    newmodel = vgg(num_classes=args.num_classes, cfg=cfg)
 
 if len(args.gpu_ids) > 1:
     newmodel = torch.nn.DataParallel(newmodel, device_ids=args.gpu_ids)

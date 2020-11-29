@@ -387,7 +387,7 @@ best_prec1 = 0.
 # early_bird_50 = EarlyBird(0.5)
 # early_bird_70 = EarlyBird(0.7)
 
-early_bird = EarlyBird(args.eb_percent_prune)
+early_bird = EarlyBird(args.eb_percent_prune / 100)
 
 for epoch in range(args.start_epoch, args.epochs):
     if early_bird.early_bird_emerge(model):
