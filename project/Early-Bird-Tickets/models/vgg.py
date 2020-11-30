@@ -20,7 +20,7 @@ class vgg(nn.Module):
         if cfg is None:
             cfg = defaultcfg[depth]
 
-        self.feature = self.make_layers(cfg, True)
+        self.features = self.make_layers(cfg, True)
 
         # if dataset == 'cifar10':
         #     num_classes = 10

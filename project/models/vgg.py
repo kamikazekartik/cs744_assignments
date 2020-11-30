@@ -39,28 +39,42 @@ class VGG(nn.Module):
         self,
         features: nn.Module,
         num_classes: int = 1000,
-        init_weights: bool = True
+        init_weights: bool = True,
+        custom_cfg: Any = None,
     ) -> None:
         super(VGG, self).__init__()
         self.features = features
-        self.avgpool = nn.AdaptiveAvgPool2d((7, 7))
-        self.classifier = nn.Sequential(
-            nn.Linear(512 * 7 * 7, 4096),
-            nn.ReLU(True),
-            nn.Dropout(),
-            nn.Linear(4096, 4096),
-            nn.ReLU(True),
-            nn.Dropout(),
-            nn.Linear(4096, num_classes),
-        )
+        if not custom_cfg:
+            self.avgpool = nn.AdaptiveAvgPool2d((7, 7))
+            self.classifier = nn.Sequential(
+                nn.Linear(512 * 7 * 7, 4096),
+                nn.ReLU(True),
+                nn.Dropout(),
+                nn.Linear(4096, 4096),
+                nn.ReLU(True),
+                nn.Dropout(),
+                nn.Linear(4096, num_classes),
+            )
+            self.eb_arch = False
+        else:
+            self.avgpool = nn.AvgPool2d(2)
+            self.classifier = nn.Linear(custom_cfg[-1], num_classes)
+            self.eb_arch = True
+
         if init_weights:
             self._initialize_weights()
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        x = self.features(x)
-        x = self.avgpool(x)
-        x = torch.flatten(x, 1)
-        x = self.classifier(x)
+        if self.eb_arch:
+            x = self.features(x)
+            x = self.avgpool(x)
+            x = x.view(x.size(0), -1)
+            x = self.classifier(x)
+        else:
+            x = self.features(x)
+            x = self.avgpool(x)
+            x = torch.flatten(x, 1)
+            x = self.classifier(x)
         return x
 
     def _initialize_weights(self) -> None:
@@ -121,6 +135,7 @@ def vgg_pruned(pruned_model_path: str, reset_weights: bool, **kwargs: Any) -> VG
         kwargs['init_weights'] = True
     print('Loading pruned model from:', pruned_model_path)
     checkpointed_model = torch.load(pruned_model_path)
+    kwargs['custom_cfg'] = checkpointed_model['cfg']
     model = VGG(make_layers(checkpointed_model['cfg'], batch_norm=True), **kwargs)
     model.load_state_dict(checkpointed_model['state_dict'])
     return model
