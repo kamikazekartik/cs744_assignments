@@ -1,2 +1,6 @@
+data.cifar10/
+data.cifar100/
+baseline/
+lp_baseline/
 data/
 *.pyc

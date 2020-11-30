@@ -137,7 +137,7 @@ def get_model(model_name='lenet', device=None, pruned_model_path=None):
     elif model_name == 'vgg19':
         model = vgg.vgg19().to(device)
     elif model_name == 'vgg_pruned':
-        model = vgg.vgg_pruned(False, pruned_model_path).to(device)
+        model = vgg.vgg_pruned(pruned_model_path, False).to(device)
     else:
         logger.info("Unknown Model Name!!!")
         model -1

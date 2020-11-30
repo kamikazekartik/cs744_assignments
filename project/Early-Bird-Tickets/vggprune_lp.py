@@ -229,7 +229,7 @@ acc = test(model)
 
 # Make real prune
 print(cfg)
-newmodel = models.__dict__['vgg'](dataset=args.dataset, depth=args.depth, cfg=cfg)
+newmodel = models.__dict__['vgg'](num_classes=args.num_classes, depth=args.depth, cfg=cfg)
 # automatically insert quantization modules
 newmodel = sequential_lower(newmodel, layer_types=["conv", "linear"],
                          forward_number=number_dict["activate"], backward_number=number_dict["error"],

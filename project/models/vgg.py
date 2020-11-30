@@ -119,8 +119,9 @@ def vgg_pruned(pruned_model_path: str, reset_weights: bool, **kwargs: Any) -> VG
     '''
     if reset_weights:
         kwargs['init_weights'] = True
+    print('Loading pruned model from:', pruned_model_path)
     checkpointed_model = torch.load(pruned_model_path)
-    model = VGG(make_layers(checkpointed_model['cfg'], True), **kwargs)
+    model = VGG(make_layers(checkpointed_model['cfg'], batch_norm=True), **kwargs)
     model.load_state_dict(checkpointed_model['state_dict'])
     return model
     

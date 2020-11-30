@@ -120,8 +120,10 @@ def run_experiment(args, number_dict, quant_dict):
     train_loader, test_loader = utils.get_dataloader(args.dataset, use_half=args.use_half, PRELOAD=args.preload_data,
             batch_size=args.batch_size, test_batch_size=args.test_batch_size)
 
-    model = utils.get_model(args.model, device)
-
+    if args.pruned_model_path == None:
+        model = utils.get_model(args.model, device)
+    else:
+        model = utils.get_model(args.model, device, args.pruned_model_path)
     if args.low_prec:
         # automatically insert quantization modules
         model = sequential_lower(model, layer_types=["conv", "linear"],
@@ -214,6 +216,8 @@ if __name__ == '__main__':
                         help='specify csv file to write results')
     parser.add_argument('--low-prec', type=bool_string, default=False,
                         help='use qPytorch for custom low precision training')
+    parser.add_argument('--pruned-model-path', type=str, default=None,
+                        help='path to pruned model checkpoint when using pruned models')
 
     # quantization arguments
     for num in num_types:
