@@ -17,3 +17,14 @@ To run the Python scripts found in `/project/` on GCP, follow these steps:
 
 When finished, you can run the code using the bash script `run_main.sh`.
 Typical usage is going to look like `nohup bash run_main.sh &`. NOTE: The outputs will be written to the log file which is specified at the bottom of `run_main.sh`.
+
+## Running EB Ticket Code
+For setting up the `early_bird` enviornment, run the following scripts after previous setup.
+1. Run `bash ./setup_conda.sh` to build miniconda3 in your home directory. When prompted, respond with `Enter` or `yes`
+1. Run `bash ./setup_env.sh` to setup and activate the `early_bird` environment.
+
+You can always exit conda completely by running `conda deactivate` until the conda prompt has exited. To retrun to the EarlyBird environment, you can run `~/miniconda3/bin/activate` followed by `source activate early_bird`.
+
+The scripts for building and running on tickets are in the `/project/Early-Bird-Tickets/` directory. From `/project/Early-Bird-Tickets/`, run the command `bash ./scripts/vgg-fp/search.sh` to find a ticket and `bash ./scripts/vgg-fp/pruned.sh` to prune it. Similarly, to recover the low-precision tickets, you can run `bash ./scripts/vgg-lp/search.sh` to get the low precision ticket and `bash ./scripts/vgg-lp/pruned.sh` to prune it.
+
+These tickets can be called form the `/project/` directory using the scripts `bash run_main_eb.sh` and `bash run_main_eb_lp.sh`.
