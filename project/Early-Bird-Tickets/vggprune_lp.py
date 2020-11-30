@@ -292,7 +292,29 @@ for [m0, m1] in zip(model.modules(), newmodel.modules()):
         m1.weight.data = m0.weight.data[:, idx0].clone()
         m1.bias.data = m0.bias.data.clone()
 
-torch.save({'cfg': cfg, 'state_dict': newmodel.state_dict()}, os.path.join(args.save, 'pruned.pth.tar'))
+# Fix state dict keys
+import re
+from collections import OrderedDict
+nm_state_dict = newmodel.state_dict()
+new_state_dict = OrderedDict()
+for key in nm_state_dict:
+    if re.search('(.\d+.0.)', key):
+        idx = key.find('.')
+        base = key[:idx + 1]
+
+        new_key = key[idx + 1:]
+        end_idx = new_key.find('.')
+        ending = new_key[end_idx+2:]
+
+        layer_ind = int(new_key[:end_idx])
+        final_key = base + str(layer_ind) + ending
+        print('Old Key:', key)
+        print('New Key:', final_key)
+        new_state_dict[final_key] = nm_state_dict[key]
+    else:
+        new_state_dict[key] = nm_state_dict[key]
+
+torch.save({'cfg': cfg, 'state_dict': new_state_dict}, os.path.join(args.save, 'pruned.pth.tar'))
 
 # print(newmodel)
 model = newmodel

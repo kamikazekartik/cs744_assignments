@@ -125,7 +125,7 @@ def get_dataloader(dataset="MNIST", use_half=False, PRELOAD=False, batch_size=64
     return (train_loader, test_loader)
 
 
-def get_model(model_name='lenet', device=None, pruned_model_path=None):
+def get_model(model_name='lenet', device=None, pruned_model_path=None, num_classes = 1000):
     if model_name == 'lenet':
         model = lenet.Net().to(device)
     elif model_name == 'vgg11':
@@ -137,7 +137,7 @@ def get_model(model_name='lenet', device=None, pruned_model_path=None):
     elif model_name == 'vgg19':
         model = vgg.vgg19().to(device)
     elif model_name == 'vgg_pruned':
-        model = vgg.vgg_pruned(pruned_model_path, False).to(device)
+        model = vgg.vgg_pruned(pruned_model_path, False, num_classes = num_classes).to(device)
     else:
         logger.info("Unknown Model Name!!!")
         model -1

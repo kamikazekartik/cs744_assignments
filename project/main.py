@@ -123,7 +123,7 @@ def run_experiment(args, number_dict, quant_dict):
     if args.pruned_model_path == None:
         model = utils.get_model(args.model, device)
     else:
-        model = utils.get_model(args.model, device, args.pruned_model_path)
+        model = utils.get_model(args.model, device, args.pruned_model_path, args.num_classes)
     if args.low_prec:
         # automatically insert quantization modules
         model = sequential_lower(model, layer_types=["conv", "linear"],
@@ -218,6 +218,8 @@ if __name__ == '__main__':
                         help='use qPytorch for custom low precision training')
     parser.add_argument('--pruned-model-path', type=str, default=None,
                         help='path to pruned model checkpoint when using pruned models')
+    parser.add_argument('--num-classes', type=int, default=1000,
+                        help='number of classes to predict for dataset')
 
     # quantization arguments
     for num in num_types:

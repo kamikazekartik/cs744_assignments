@@ -4,7 +4,7 @@ CUDA_VISIBLE_DEVICES=0 python eb_search_lp.py \
 --num_classes 10 \
 --arch vgg \
 --depth 16 \
---save ./lp_baseline/vgg16-cifar10-8bit \
+--save ./lp_baseline/vgg16-cifar10-8b \
 --lr 0.1 \
 --epochs 160 \
 --schedule 80 120 \

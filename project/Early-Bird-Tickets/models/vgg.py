@@ -21,6 +21,7 @@ class vgg(nn.Module):
             cfg = defaultcfg[depth]
 
         self.features = self.make_layers(cfg, True)
+        print('Num Classes:', num_classes)
 
         # if dataset == 'cifar10':
         #     num_classes = 10
@@ -48,7 +49,7 @@ class vgg(nn.Module):
         return nn.Sequential(*layers)
 
     def forward(self, x):
-        x = self.feature(x)
+        x = self.features(x)
         x = nn.AvgPool2d(2)(x)
         x = x.view(x.size(0), -1)
         y = self.classifier(x)

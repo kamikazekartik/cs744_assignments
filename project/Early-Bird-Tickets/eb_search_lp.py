@@ -409,7 +409,7 @@ for epoch in range(args.start_epoch, args.epochs):
             'state_dict': model.state_dict(),
             'best_prec1': best_prec1,
             'optimizer': optimizer.state_dict()
-        }, is_best, 'EB-30-'+str(epoch+1), filepath=args.save, is_swa = False)
+        }, is_best, 'EB-'+str(int(args.eb_percent_prun)), filepath=args.save, is_swa = False)
         break
     # if early_bird_30.early_bird_emerge(model):
     #     print("[early_bird_30] Find EB!!!!!!!!!, epoch: "+str(epoch))

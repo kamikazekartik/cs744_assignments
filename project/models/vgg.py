@@ -91,7 +91,7 @@ class VGG(nn.Module):
                 nn.init.constant_(m.bias, 0)
 
 
-def make_layers(cfg: List[Union[str, int]], batch_norm: bool = False) -> nn.Sequential:
+def make_layers(cfg: List[Union[str, int]], batch_norm: bool = False, cnn_bias: bool = True) -> nn.Sequential:
     layers: List[nn.Module] = []
     in_channels = 3
     for v in cfg:
@@ -99,7 +99,7 @@ def make_layers(cfg: List[Union[str, int]], batch_norm: bool = False) -> nn.Sequ
             layers += [nn.MaxPool2d(kernel_size=2, stride=2)]
         else:
             v = cast(int, v)
-            conv2d = nn.Conv2d(in_channels, v, kernel_size=3, padding=1)
+            conv2d = nn.Conv2d(in_channels, v, kernel_size=3, padding=1, bias = cnn_bias)
             if batch_norm:
                 layers += [conv2d, nn.BatchNorm2d(v), nn.ReLU(inplace=True)]
             else:
@@ -136,7 +136,7 @@ def vgg_pruned(pruned_model_path: str, reset_weights: bool, **kwargs: Any) -> VG
     print('Loading pruned model from:', pruned_model_path)
     checkpointed_model = torch.load(pruned_model_path)
     kwargs['custom_cfg'] = checkpointed_model['cfg']
-    model = VGG(make_layers(checkpointed_model['cfg'], batch_norm=True), **kwargs)
+    model = VGG(make_layers(checkpointed_model['cfg'], batch_norm=True, cnn_bias = False), **kwargs)
     model.load_state_dict(checkpointed_model['state_dict'])
     return model
     

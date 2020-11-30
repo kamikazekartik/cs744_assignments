@@ -16,5 +16,5 @@ python3 main.py --seed 42 \
 --nbits-grad=8 \
 --nbits-error=8 \
 --nbits-momentum=8 \
---pruned-model-path ~/cs744_assignments/project/Early-Bird-Tickets/baseline/vgg16-cifar10/pruned_30_0.3/pruned.pth.tar
+--pruned-model-path ~/cs744_assignments/project/Early-Bird-Tickets/lp_baseline/vgg16-cifar10-8b/pruned_30_0.3/pruned.pth.tar
 > cifar10_vgg_pruned_qtorch_log 2>&1

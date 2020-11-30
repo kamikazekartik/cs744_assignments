@@ -5,8 +5,8 @@ CUDA_VISIBLE_DEVICES=0 python vggprune_lp.py \
 --test-batch-size 256 \
 --depth 16 \
 --percent 0.3 \
---model ./lp_baseline/vgg16-cifar10-8bit/EB-30-29.pth.tar \
---save ./lp_baseline/vgg16-cifar10-8bit/pruned_3029_0.3 \
+--model ./lp_baseline/vgg16-cifar10-8b/EB-30.pth.tar \
+--save ./lp_baseline/vgg16-cifar10-8b/pruned_30_0.3 \
 --wl-weight 8 \
 --wl-grad 8 \
 --wl-activate 8 \
