@@ -17,6 +17,7 @@ from torchvision import models
 import logging
 
 import models.vgg as vgg
+import models.resnet as resnet
 import models.lenet as lenet
 
 logging.basicConfig()
@@ -138,6 +139,12 @@ def get_model(model_name='lenet', device=None, pruned_model_path=None, num_class
         model = vgg.vgg19().to(device)
     elif model_name == 'vgg_pruned':
         model = vgg.vgg_pruned(pruned_model_path, False, num_classes = num_classes).to(device)
+    elif model_name == 'resnet18':
+        model = resnet.ResNet18().to(device)
+    elif model_name == 'resnet50':
+        model = resnet.ResNet50().to(device)
+    elif model_name =='resnet152':
+        model = resnet.ResNet152().to(device)
     else:
         logger.info("Unknown Model Name!!!")
         model -1
