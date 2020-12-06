@@ -161,12 +161,19 @@ def run_experiment(args, number_dict, quant_dict):
         epoch_train_time_list.append(epoch_training_time)
         total_train_time_list.append(total_training_time)
         lr_list.append(args.lr)
-        test_acc = test(args.dataset, model, args.device, test_loader, criterion)
+        if epoch%20 == 0:
+            test_acc = test(args.dataset, model, args.device, test_loader, criterion)
+        else:
+            test_acc = -1
         test_acc_list.append(test_acc)
         loss_epoch_list.append(last_epoch_loss)
 
         # learning rate decay
-        curr_lr = args.gamma * curr_lr
+        # curr_lr = args.gamma * curr_lr
+        if epoch >= 80:
+            curr_lr = 0.01
+        if epoch >= 120:
+            curr_lr = 0.001
         for g in optimizer.param_groups:
             g['lr'] = curr_lr
 
