@@ -1,0 +1,105 @@
+INFO:root:using Tesla V100-SXM2-16GB
+INFO:root:weight    : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:activate  : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:grad      : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:error     : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:momentum  : BlockFloatingPoint (wl=8, dim=0)
+Seeded everything with seed: 42
+Files already downloaded and verified
+Files already downloaded and verified
+INFO:root:Accuracy of plane :  0 %
+INFO:root:Accuracy of   car :  0 %
+INFO:root:Accuracy of  bird :  0 %
+INFO:root:Accuracy of   cat :  0 %
+INFO:root:Accuracy of  deer :  0 %
+INFO:root:Accuracy of   dog :  0 %
+INFO:root:Accuracy of  frog :  0 %
+INFO:root:Accuracy of horse :  0 %
+INFO:root:Accuracy of  ship :  0 %
+INFO:root:Accuracy of truck :  0 %
+INFO:root:
+Test set: Average loss: 0.0007, Accuracy: 0/10000 (0%)
+
+INFO:root:Train Epoch: 1 [0 (0%)]	Loss: 6.906196
+INFO:root:Train Epoch: 1 [32000 (64%)]	Loss: 2.308704
+INFO:root:Accuracy of plane :  0 %
+INFO:root:Accuracy of   car : 16 %
+INFO:root:Accuracy of  bird :  0 %
+INFO:root:Accuracy of   cat : 88 %
+INFO:root:Accuracy of  deer :  0 %
+INFO:root:Accuracy of   dog :  0 %
+INFO:root:Accuracy of  frog :  0 %
+INFO:root:Accuracy of horse :  0 %
+INFO:root:Accuracy of  ship :  0 %
+INFO:root:Accuracy of truck : 48 %
+INFO:root:
+Test set: Average loss: 0.0002, Accuracy: 1535/10000 (15%)
+
+INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 2.263133
+INFO:root:Train Epoch: 2 [32000 (64%)]	Loss: 2.184796
+INFO:root:Accuracy of plane : 61 %
+INFO:root:Accuracy of   car : 57 %
+INFO:root:Accuracy of  bird : 19 %
+INFO:root:Accuracy of   cat : 60 %
+INFO:root:Accuracy of  deer : 18 %
+INFO:root:Accuracy of   dog :  0 %
+INFO:root:Accuracy of  frog :  3 %
+INFO:root:Accuracy of horse : 28 %
+INFO:root:Accuracy of  ship : 32 %
+INFO:root:Accuracy of truck : 22 %
+INFO:root:
+Test set: Average loss: 0.0002, Accuracy: 3050/10000 (30%)
+
+INFO:root:Train Epoch: 3 [0 (0%)]	Loss: 2.030537
+INFO:root:Train Epoch: 3 [32000 (64%)]	Loss: 1.738714
+INFO:root:Accuracy of plane : 36 %
+INFO:root:Accuracy of   car : 74 %
+INFO:root:Accuracy of  bird :  8 %
+INFO:root:Accuracy of   cat : 50 %
+INFO:root:Accuracy of  deer : 13 %
+INFO:root:Accuracy of   dog : 16 %
+INFO:root:Accuracy of  frog : 54 %
+INFO:root:Accuracy of horse : 67 %
+INFO:root:Accuracy of  ship : 65 %
+INFO:root:Accuracy of truck : 50 %
+INFO:root:
+Test set: Average loss: 0.0002, Accuracy: 4383/10000 (44%)
+
+INFO:root:Train Epoch: 4 [0 (0%)]	Loss: 1.629435
+INFO:root:Train Epoch: 4 [32000 (64%)]	Loss: 1.522048
+INFO:root:Accuracy of plane : 60 %
+INFO:root:Accuracy of   car : 45 %
+INFO:root:Accuracy of  bird : 12 %
+INFO:root:Accuracy of   cat :  1 %
+INFO:root:Accuracy of  deer : 52 %
+INFO:root:Accuracy of   dog : 49 %
+INFO:root:Accuracy of  frog : 81 %
+INFO:root:Accuracy of horse : 69 %
+INFO:root:Accuracy of  ship : 68 %
+INFO:root:Accuracy of truck : 71 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 5128/10000 (51%)
+
+INFO:root:Train Epoch: 5 [0 (0%)]	Loss: 1.436823
+INFO:root:Train Epoch: 5 [32000 (64%)]	Loss: 1.127741
+INFO:root:Accuracy of plane : 64 %
+INFO:root:Accuracy of   car : 76 %
+INFO:root:Accuracy of  bird : 26 %
+INFO:root:Accuracy of   cat : 29 %
+INFO:root:Accuracy of  deer : 39 %
+INFO:root:Accuracy of   dog : 48 %
+INFO:root:Accuracy of  frog : 71 %
+INFO:root:Accuracy of horse : 54 %
+INFO:root:Accuracy of  ship : 86 %
+INFO:root:Accuracy of truck : 43 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 5416/10000 (54%)
+
+INFO:root:Results: 
+INFO:root:   epoch  training_loss  test_acc  epoch_train_time  total_train_time    lr
+0      0      -1.000000      0.00         -1.000000         -1.000000 -1.00
+1      1       2.175100     15.35         28.607127         28.607127  0.01
+2      2       1.811000     30.50         28.683864         57.290991  0.01
+3      3       1.789199     43.83         28.415242         85.706233  0.01
+4      4       1.465677     51.28         28.413471        114.119704  0.01
+5      5       0.968237     54.16         28.434692        142.554395  0.01
