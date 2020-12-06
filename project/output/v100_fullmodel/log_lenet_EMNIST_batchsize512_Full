@@ -1,0 +1,98 @@
+INFO:root:using Tesla V100-SXM2-16GB
+INFO:root:weight    : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:activate  : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:grad      : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:error     : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:momentum  : BlockFloatingPoint (wl=8, dim=0)
+Seeded everything with seed: 42
+INFO:root:Accuracy of     0 : 82 %
+INFO:root:Accuracy of     1 :  0 %
+INFO:root:Accuracy of     2 :  0 %
+INFO:root:Accuracy of     3 : 59 %
+INFO:root:Accuracy of     4 :  0 %
+INFO:root:Accuracy of     5 :  0 %
+INFO:root:Accuracy of     6 :  0 %
+INFO:root:Accuracy of     7 :  0 %
+INFO:root:Accuracy of     8 :  0 %
+INFO:root:Accuracy of     9 :  0 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 5682/40000 (14%)
+
+INFO:root:Train Epoch: 1 [0 (0%)]	Loss: 2.306549
+INFO:root:Accuracy of     0 : 98 %
+INFO:root:Accuracy of     1 : 99 %
+INFO:root:Accuracy of     2 : 95 %
+INFO:root:Accuracy of     3 : 94 %
+INFO:root:Accuracy of     4 : 97 %
+INFO:root:Accuracy of     5 : 98 %
+INFO:root:Accuracy of     6 : 98 %
+INFO:root:Accuracy of     7 : 98 %
+INFO:root:Accuracy of     8 : 97 %
+INFO:root:Accuracy of     9 : 96 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 38992/40000 (97%)
+
+INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 0.080795
+INFO:root:Accuracy of     0 : 98 %
+INFO:root:Accuracy of     1 : 99 %
+INFO:root:Accuracy of     2 : 98 %
+INFO:root:Accuracy of     3 : 95 %
+INFO:root:Accuracy of     4 : 98 %
+INFO:root:Accuracy of     5 : 99 %
+INFO:root:Accuracy of     6 : 98 %
+INFO:root:Accuracy of     7 : 99 %
+INFO:root:Accuracy of     8 : 97 %
+INFO:root:Accuracy of     9 : 97 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 39286/40000 (98%)
+
+INFO:root:Train Epoch: 3 [0 (0%)]	Loss: 0.063659
+INFO:root:Accuracy of     0 : 98 %
+INFO:root:Accuracy of     1 : 99 %
+INFO:root:Accuracy of     2 : 98 %
+INFO:root:Accuracy of     3 : 97 %
+INFO:root:Accuracy of     4 : 98 %
+INFO:root:Accuracy of     5 : 99 %
+INFO:root:Accuracy of     6 : 99 %
+INFO:root:Accuracy of     7 : 98 %
+INFO:root:Accuracy of     8 : 98 %
+INFO:root:Accuracy of     9 : 98 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 39517/40000 (99%)
+
+INFO:root:Train Epoch: 4 [0 (0%)]	Loss: 0.036222
+INFO:root:Accuracy of     0 : 99 %
+INFO:root:Accuracy of     1 : 99 %
+INFO:root:Accuracy of     2 : 99 %
+INFO:root:Accuracy of     3 : 98 %
+INFO:root:Accuracy of     4 : 98 %
+INFO:root:Accuracy of     5 : 98 %
+INFO:root:Accuracy of     6 : 99 %
+INFO:root:Accuracy of     7 : 98 %
+INFO:root:Accuracy of     8 : 99 %
+INFO:root:Accuracy of     9 : 98 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 39556/40000 (99%)
+
+INFO:root:Train Epoch: 5 [0 (0%)]	Loss: 0.035597
+INFO:root:Accuracy of     0 : 99 %
+INFO:root:Accuracy of     1 : 99 %
+INFO:root:Accuracy of     2 : 99 %
+INFO:root:Accuracy of     3 : 98 %
+INFO:root:Accuracy of     4 : 99 %
+INFO:root:Accuracy of     5 : 98 %
+INFO:root:Accuracy of     6 : 99 %
+INFO:root:Accuracy of     7 : 99 %
+INFO:root:Accuracy of     8 : 98 %
+INFO:root:Accuracy of     9 : 98 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 39622/40000 (99%)
+
+INFO:root:Results: 
+INFO:root:   epoch  training_loss  test_acc  epoch_train_time  total_train_time    lr
+0      0      -1.000000   14.2050         -1.000000         -1.000000 -1.00
+1      1       0.065059   97.4800         21.969334         21.969334  0.01
+2      2       0.048156   98.2150         22.001207         43.970540  0.01
+3      3       0.015530   98.7925         22.117115         66.087656  0.01
+4      4       0.021050   98.8900         22.093643         88.181298  0.01
+5      5       0.015250   99.0550         22.086415        110.267713  0.01
