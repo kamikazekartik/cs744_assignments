@@ -1,0 +1,113 @@
+INFO:root:using Tesla V100-SXM2-16GB
+INFO:root:weight    : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:activate  : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:grad      : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:error     : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:momentum  : BlockFloatingPoint (wl=8, dim=0)
+Seeded everything with seed: 42
+INFO:root:Accuracy of     0 : 82 %
+INFO:root:Accuracy of     1 :  0 %
+INFO:root:Accuracy of     2 :  0 %
+INFO:root:Accuracy of     3 : 59 %
+INFO:root:Accuracy of     4 :  0 %
+INFO:root:Accuracy of     5 :  0 %
+INFO:root:Accuracy of     6 :  0 %
+INFO:root:Accuracy of     7 :  0 %
+INFO:root:Accuracy of     8 :  0 %
+INFO:root:Accuracy of     9 :  0 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 5682/40000 (14%)
+
+INFO:root:Train Epoch: 1 [0 (0%)]	Loss: 2.307894
+INFO:root:Train Epoch: 1 [64000 (27%)]	Loss: 0.052521
+INFO:root:Train Epoch: 1 [128000 (53%)]	Loss: 0.019083
+INFO:root:Train Epoch: 1 [192000 (80%)]	Loss: 0.015667
+INFO:root:Accuracy of     0 : 99 %
+INFO:root:Accuracy of     1 : 99 %
+INFO:root:Accuracy of     2 : 98 %
+INFO:root:Accuracy of     3 : 96 %
+INFO:root:Accuracy of     4 : 99 %
+INFO:root:Accuracy of     5 : 99 %
+INFO:root:Accuracy of     6 : 98 %
+INFO:root:Accuracy of     7 : 99 %
+INFO:root:Accuracy of     8 : 98 %
+INFO:root:Accuracy of     9 : 98 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 39412/40000 (99%)
+
+INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 0.006014
+INFO:root:Train Epoch: 2 [64000 (27%)]	Loss: 0.052318
+INFO:root:Train Epoch: 2 [128000 (53%)]	Loss: 0.007569
+INFO:root:Train Epoch: 2 [192000 (80%)]	Loss: 0.030267
+INFO:root:Accuracy of     0 : 98 %
+INFO:root:Accuracy of     1 : 99 %
+INFO:root:Accuracy of     2 : 98 %
+INFO:root:Accuracy of     3 : 98 %
+INFO:root:Accuracy of     4 : 99 %
+INFO:root:Accuracy of     5 : 99 %
+INFO:root:Accuracy of     6 : 99 %
+INFO:root:Accuracy of     7 : 99 %
+INFO:root:Accuracy of     8 : 98 %
+INFO:root:Accuracy of     9 : 98 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 39613/40000 (99%)
+
+INFO:root:Train Epoch: 3 [0 (0%)]	Loss: 0.038769
+INFO:root:Train Epoch: 3 [64000 (27%)]	Loss: 0.011511
+INFO:root:Train Epoch: 3 [128000 (53%)]	Loss: 0.031381
+INFO:root:Train Epoch: 3 [192000 (80%)]	Loss: 0.016766
+INFO:root:Accuracy of     0 : 99 %
+INFO:root:Accuracy of     1 : 99 %
+INFO:root:Accuracy of     2 : 98 %
+INFO:root:Accuracy of     3 : 99 %
+INFO:root:Accuracy of     4 : 98 %
+INFO:root:Accuracy of     5 : 99 %
+INFO:root:Accuracy of     6 : 99 %
+INFO:root:Accuracy of     7 : 99 %
+INFO:root:Accuracy of     8 : 99 %
+INFO:root:Accuracy of     9 : 99 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 39696/40000 (99%)
+
+INFO:root:Train Epoch: 4 [0 (0%)]	Loss: 0.020341
+INFO:root:Train Epoch: 4 [64000 (27%)]	Loss: 0.076845
+INFO:root:Train Epoch: 4 [128000 (53%)]	Loss: 0.022940
+INFO:root:Train Epoch: 4 [192000 (80%)]	Loss: 0.003896
+INFO:root:Accuracy of     0 : 99 %
+INFO:root:Accuracy of     1 : 99 %
+INFO:root:Accuracy of     2 : 99 %
+INFO:root:Accuracy of     3 : 99 %
+INFO:root:Accuracy of     4 : 98 %
+INFO:root:Accuracy of     5 : 99 %
+INFO:root:Accuracy of     6 : 99 %
+INFO:root:Accuracy of     7 : 99 %
+INFO:root:Accuracy of     8 : 99 %
+INFO:root:Accuracy of     9 : 99 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 39724/40000 (99%)
+
+INFO:root:Train Epoch: 5 [0 (0%)]	Loss: 0.034276
+INFO:root:Train Epoch: 5 [64000 (27%)]	Loss: 0.015818
+INFO:root:Train Epoch: 5 [128000 (53%)]	Loss: 0.037639
+INFO:root:Train Epoch: 5 [192000 (80%)]	Loss: 0.000926
+INFO:root:Accuracy of     0 : 99 %
+INFO:root:Accuracy of     1 : 99 %
+INFO:root:Accuracy of     2 : 99 %
+INFO:root:Accuracy of     3 : 99 %
+INFO:root:Accuracy of     4 : 99 %
+INFO:root:Accuracy of     5 : 99 %
+INFO:root:Accuracy of     6 : 99 %
+INFO:root:Accuracy of     7 : 99 %
+INFO:root:Accuracy of     8 : 99 %
+INFO:root:Accuracy of     9 : 98 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 39735/40000 (99%)
+
+INFO:root:Results: 
+INFO:root:   epoch  training_loss  test_acc  epoch_train_time  total_train_time    lr
+0      0      -1.000000   14.2050         -1.000000         -1.000000 -1.00
+1      1       0.016819   98.5300         28.831933         28.831933  0.01
+2      2       0.030940   99.0325         28.148266         56.980199  0.01
+3      3       0.002111   99.2400         28.718231         85.698430  0.01
+4      4       0.003677   99.3100         28.163555        113.861985  0.01
+5      5       0.008660   99.3375         27.697292        141.559277  0.01
