@@ -18,81 +18,81 @@ INFO:root:Accuracy of     9 :  0 %
 INFO:root:
 Test set: Average loss: 0.0001, Accuracy: 5680/40000 (14%)
 
-INFO:root:Train Epoch: 1 [0 (0%)]	Loss: 2.306641
+INFO:root:Train Epoch: 1 [0 (0%)]	Loss: 2.304688
 INFO:root:Accuracy of     0 : 98 %
-INFO:root:Accuracy of     1 : 99 %
+INFO:root:Accuracy of     1 : 97 %
 INFO:root:Accuracy of     2 : 96 %
-INFO:root:Accuracy of     3 : 94 %
-INFO:root:Accuracy of     4 : 97 %
-INFO:root:Accuracy of     5 : 98 %
+INFO:root:Accuracy of     3 : 91 %
+INFO:root:Accuracy of     4 : 98 %
+INFO:root:Accuracy of     5 : 94 %
+INFO:root:Accuracy of     6 : 98 %
+INFO:root:Accuracy of     7 : 96 %
+INFO:root:Accuracy of     8 : 95 %
+INFO:root:Accuracy of     9 : 91 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 38345/40000 (96%)
+
+INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 0.136353
+INFO:root:Accuracy of     0 : 98 %
+INFO:root:Accuracy of     1 : 98 %
+INFO:root:Accuracy of     2 : 98 %
+INFO:root:Accuracy of     3 : 97 %
+INFO:root:Accuracy of     4 : 96 %
+INFO:root:Accuracy of     5 : 96 %
 INFO:root:Accuracy of     6 : 98 %
 INFO:root:Accuracy of     7 : 98 %
 INFO:root:Accuracy of     8 : 97 %
-INFO:root:Accuracy of     9 : 96 %
-INFO:root:
-Test set: Average loss: 0.0000, Accuracy: 39044/40000 (98%)
-
-INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 0.081543
-INFO:root:Accuracy of     0 : 98 %
-INFO:root:Accuracy of     1 : 99 %
-INFO:root:Accuracy of     2 : 98 %
-INFO:root:Accuracy of     3 : 95 %
-INFO:root:Accuracy of     4 : 98 %
-INFO:root:Accuracy of     5 : 99 %
-INFO:root:Accuracy of     6 : 98 %
-INFO:root:Accuracy of     7 : 99 %
-INFO:root:Accuracy of     8 : 97 %
 INFO:root:Accuracy of     9 : 97 %
 INFO:root:
-Test set: Average loss: 0.0000, Accuracy: 39314/40000 (98%)
+Test set: Average loss: 0.0000, Accuracy: 39134/40000 (98%)
 
-INFO:root:Train Epoch: 3 [0 (0%)]	Loss: 0.063049
+INFO:root:Train Epoch: 3 [0 (0%)]	Loss: 0.078979
 INFO:root:Accuracy of     0 : 98 %
 INFO:root:Accuracy of     1 : 99 %
 INFO:root:Accuracy of     2 : 98 %
 INFO:root:Accuracy of     3 : 97 %
 INFO:root:Accuracy of     4 : 98 %
-INFO:root:Accuracy of     5 : 99 %
+INFO:root:Accuracy of     5 : 98 %
 INFO:root:Accuracy of     6 : 99 %
+INFO:root:Accuracy of     7 : 99 %
+INFO:root:Accuracy of     8 : 96 %
+INFO:root:Accuracy of     9 : 97 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 39315/40000 (98%)
+
+INFO:root:Train Epoch: 4 [0 (0%)]	Loss: 0.059357
+INFO:root:Accuracy of     0 : 99 %
+INFO:root:Accuracy of     1 : 98 %
+INFO:root:Accuracy of     2 : 98 %
+INFO:root:Accuracy of     3 : 98 %
+INFO:root:Accuracy of     4 : 96 %
+INFO:root:Accuracy of     5 : 97 %
+INFO:root:Accuracy of     6 : 98 %
 INFO:root:Accuracy of     7 : 98 %
 INFO:root:Accuracy of     8 : 98 %
 INFO:root:Accuracy of     9 : 98 %
 INFO:root:
-Test set: Average loss: 0.0000, Accuracy: 39527/40000 (99%)
+Test set: Average loss: 0.0000, Accuracy: 39323/40000 (98%)
 
-INFO:root:Train Epoch: 4 [0 (0%)]	Loss: 0.039307
+INFO:root:Train Epoch: 5 [0 (0%)]	Loss: 0.053284
 INFO:root:Accuracy of     0 : 99 %
-INFO:root:Accuracy of     1 : 99 %
-INFO:root:Accuracy of     2 : 99 %
+INFO:root:Accuracy of     1 : 98 %
+INFO:root:Accuracy of     2 : 98 %
 INFO:root:Accuracy of     3 : 98 %
 INFO:root:Accuracy of     4 : 98 %
 INFO:root:Accuracy of     5 : 98 %
 INFO:root:Accuracy of     6 : 99 %
-INFO:root:Accuracy of     7 : 98 %
-INFO:root:Accuracy of     8 : 98 %
-INFO:root:Accuracy of     9 : 98 %
-INFO:root:
-Test set: Average loss: 0.0000, Accuracy: 39569/40000 (99%)
-
-INFO:root:Train Epoch: 5 [0 (0%)]	Loss: 0.031433
-INFO:root:Accuracy of     0 : 98 %
-INFO:root:Accuracy of     1 : 99 %
-INFO:root:Accuracy of     2 : 99 %
-INFO:root:Accuracy of     3 : 98 %
-INFO:root:Accuracy of     4 : 99 %
-INFO:root:Accuracy of     5 : 98 %
-INFO:root:Accuracy of     6 : 99 %
 INFO:root:Accuracy of     7 : 99 %
 INFO:root:Accuracy of     8 : 98 %
-INFO:root:Accuracy of     9 : 98 %
+INFO:root:Accuracy of     9 : 97 %
 INFO:root:
-Test set: Average loss: 0.0000, Accuracy: 39614/40000 (99%)
+Test set: Average loss: 0.0000, Accuracy: 39472/40000 (99%)
 
 INFO:root:Results: 
 INFO:root:   epoch  training_loss  test_acc  epoch_train_time  total_train_time    lr
 0      0      -1.000000   14.2000         -1.000000         -1.000000 -1.00
-1      1       0.072571   97.6100         22.610637         22.610637  0.01
-2      2       0.046661   98.2850         22.391069         45.001706  0.01
-3      3       0.014931   98.8175         22.430547         67.432253  0.01
-4      4       0.024734   98.9225         22.654238         90.086491  0.01
-5      5       0.018616   99.0350         22.440217        112.526708  0.01
+1      1       0.122009   95.8625         21.297896         21.297896  0.01
+2      2       0.053192   97.8350         21.259045         42.556941  0.01
+3      3       0.023026   98.2875         21.408869         63.965810  0.01
+4      4       0.047943   98.3075         21.369461         85.335271  0.01
+5      5       0.032867   98.6800         21.371513        106.706784  0.01
