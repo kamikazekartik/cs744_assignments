@@ -1,0 +1,222 @@
+INFO:root:using Tesla V100-SXM2-16GB
+INFO:root:weight    : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:activate  : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:grad      : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:error     : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:momentum  : BlockFloatingPoint (wl=8, dim=0)
+Seeded everything with seed: 42
+Files already downloaded and verified
+Files already downloaded and verified
+Loading pruned model from: ./Early-Bird-Tickets/lp_baseline/vgg16-cifar10-8b/pruned_30_0.3/pruned.pth.tar
+INFO:root:Accuracy of plane : 44 %
+INFO:root:Accuracy of   car :  0 %
+INFO:root:Accuracy of  bird : 35 %
+INFO:root:Accuracy of   cat : 99 %
+INFO:root:Accuracy of  deer : 75 %
+INFO:root:Accuracy of   dog :  5 %
+INFO:root:Accuracy of  frog : 59 %
+INFO:root:Accuracy of horse : 66 %
+INFO:root:Accuracy of  ship : 31 %
+INFO:root:Accuracy of truck : 58 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 4756/10000 (48%)
+
+INFO:root:Train Epoch: 1 [0 (0%)]	Loss: 1.358398
+INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 0.096924
+INFO:root:Train Epoch: 3 [0 (0%)]	Loss: 0.069092
+INFO:root:Train Epoch: 4 [0 (0%)]	Loss: 0.140747
+INFO:root:Train Epoch: 5 [0 (0%)]	Loss: 0.052338
+INFO:root:Train Epoch: 6 [0 (0%)]	Loss: 0.079041
+INFO:root:Train Epoch: 7 [0 (0%)]	Loss: 0.061157
+INFO:root:Train Epoch: 8 [0 (0%)]	Loss: 0.013344
+INFO:root:Train Epoch: 9 [0 (0%)]	Loss: 0.053040
+INFO:root:Train Epoch: 10 [0 (0%)]	Loss: 0.075012
+INFO:root:Train Epoch: 11 [0 (0%)]	Loss: 0.046326
+INFO:root:Train Epoch: 12 [0 (0%)]	Loss: 0.016174
+INFO:root:Train Epoch: 13 [0 (0%)]	Loss: 0.070374
+INFO:root:Train Epoch: 14 [0 (0%)]	Loss: 0.038849
+INFO:root:Train Epoch: 15 [0 (0%)]	Loss: 0.034698
+INFO:root:Train Epoch: 16 [0 (0%)]	Loss: 0.009018
+INFO:root:Train Epoch: 17 [0 (0%)]	Loss: 0.021637
+INFO:root:Train Epoch: 18 [0 (0%)]	Loss: 0.021194
+INFO:root:Train Epoch: 19 [0 (0%)]	Loss: 0.002789
+INFO:root:Train Epoch: 20 [0 (0%)]	Loss: 0.035889
+INFO:root:Accuracy of plane : 91 %
+INFO:root:Accuracy of   car : 97 %
+INFO:root:Accuracy of  bird : 87 %
+INFO:root:Accuracy of   cat : 81 %
+INFO:root:Accuracy of  deer : 93 %
+INFO:root:Accuracy of   dog : 88 %
+INFO:root:Accuracy of  frog : 94 %
+INFO:root:Accuracy of horse : 92 %
+INFO:root:Accuracy of  ship : 95 %
+INFO:root:Accuracy of truck : 93 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 9163/10000 (92%)
+
+INFO:root:Train Epoch: 21 [0 (0%)]	Loss: 0.003363
+INFO:root:Train Epoch: 22 [0 (0%)]	Loss: 0.016663
+INFO:root:Train Epoch: 23 [0 (0%)]	Loss: 0.041016
+INFO:root:Train Epoch: 24 [0 (0%)]	Loss: 0.021622
+INFO:root:Train Epoch: 25 [0 (0%)]	Loss: 0.025574
+INFO:root:Train Epoch: 26 [0 (0%)]	Loss: 0.002594
+INFO:root:Train Epoch: 27 [0 (0%)]	Loss: 0.011993
+INFO:root:Train Epoch: 28 [0 (0%)]	Loss: 0.038300
+INFO:root:Train Epoch: 29 [0 (0%)]	Loss: 0.033508
+INFO:root:Train Epoch: 30 [0 (0%)]	Loss: 0.033661
+INFO:root:Train Epoch: 31 [0 (0%)]	Loss: 0.017365
+INFO:root:Train Epoch: 32 [0 (0%)]	Loss: 0.002050
+INFO:root:Train Epoch: 33 [0 (0%)]	Loss: 0.058960
+INFO:root:Train Epoch: 34 [0 (0%)]	Loss: 0.011703
+INFO:root:Train Epoch: 35 [0 (0%)]	Loss: 0.004807
+INFO:root:Train Epoch: 36 [0 (0%)]	Loss: 0.017090
+INFO:root:Train Epoch: 37 [0 (0%)]	Loss: 0.007679
+INFO:root:Train Epoch: 38 [0 (0%)]	Loss: 0.000741
+INFO:root:Train Epoch: 39 [0 (0%)]	Loss: 0.009056
+INFO:root:Train Epoch: 40 [0 (0%)]	Loss: 0.015572
+INFO:root:Accuracy of plane : 91 %
+INFO:root:Accuracy of   car : 98 %
+INFO:root:Accuracy of  bird : 90 %
+INFO:root:Accuracy of   cat : 86 %
+INFO:root:Accuracy of  deer : 88 %
+INFO:root:Accuracy of   dog : 86 %
+INFO:root:Accuracy of  frog : 91 %
+INFO:root:Accuracy of horse : 91 %
+INFO:root:Accuracy of  ship : 93 %
+INFO:root:Accuracy of truck : 93 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 9126/10000 (91%)
+
+INFO:root:Train Epoch: 41 [0 (0%)]	Loss: 0.016769
+INFO:root:Train Epoch: 42 [0 (0%)]	Loss: 0.005356
+INFO:root:Train Epoch: 43 [0 (0%)]	Loss: 0.074707
+INFO:root:Train Epoch: 44 [0 (0%)]	Loss: 0.004482
+INFO:root:Train Epoch: 45 [0 (0%)]	Loss: 0.002867
+INFO:root:Train Epoch: 46 [0 (0%)]	Loss: 0.007698
+INFO:root:Train Epoch: 47 [0 (0%)]	Loss: 0.008713
+INFO:root:Train Epoch: 48 [0 (0%)]	Loss: 0.004646
+INFO:root:Train Epoch: 49 [0 (0%)]	Loss: 0.000793
+INFO:root:Train Epoch: 50 [0 (0%)]	Loss: 0.000720
+INFO:root:Train Epoch: 51 [0 (0%)]	Loss: 0.033600
+INFO:root:Train Epoch: 52 [0 (0%)]	Loss: 0.005878
+INFO:root:Train Epoch: 53 [0 (0%)]	Loss: 0.001091
+INFO:root:Train Epoch: 54 [0 (0%)]	Loss: 0.004581
+INFO:root:Train Epoch: 55 [0 (0%)]	Loss: 0.007004
+INFO:root:Train Epoch: 56 [0 (0%)]	Loss: 0.001471
+INFO:root:Train Epoch: 57 [0 (0%)]	Loss: 0.005207
+INFO:root:Train Epoch: 58 [0 (0%)]	Loss: 0.001371
+INFO:root:Train Epoch: 59 [0 (0%)]	Loss: 0.003639
+INFO:root:Train Epoch: 60 [0 (0%)]	Loss: 0.001412
+INFO:root:Accuracy of plane : 90 %
+INFO:root:Accuracy of   car : 97 %
+INFO:root:Accuracy of  bird : 90 %
+INFO:root:Accuracy of   cat : 74 %
+INFO:root:Accuracy of  deer : 93 %
+INFO:root:Accuracy of   dog : 90 %
+INFO:root:Accuracy of  frog : 93 %
+INFO:root:Accuracy of horse : 94 %
+INFO:root:Accuracy of  ship : 94 %
+INFO:root:Accuracy of truck : 94 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 9129/10000 (91%)
+
+INFO:root:Train Epoch: 61 [0 (0%)]	Loss: 0.001004
+INFO:root:Train Epoch: 62 [0 (0%)]	Loss: 0.006298
+INFO:root:Train Epoch: 63 [0 (0%)]	Loss: 0.008240
+INFO:root:Train Epoch: 64 [0 (0%)]	Loss: 0.001217
+INFO:root:Train Epoch: 65 [0 (0%)]	Loss: 0.000194
+INFO:root:Train Epoch: 66 [0 (0%)]	Loss: 0.004581
+INFO:root:Train Epoch: 67 [0 (0%)]	Loss: 0.001545
+INFO:root:Train Epoch: 68 [0 (0%)]	Loss: 0.001145
+INFO:root:Train Epoch: 69 [0 (0%)]	Loss: 0.018768
+INFO:root:Train Epoch: 70 [0 (0%)]	Loss: 0.004868
+INFO:root:Train Epoch: 71 [0 (0%)]	Loss: 0.010361
+INFO:root:Train Epoch: 72 [0 (0%)]	Loss: 0.001639
+INFO:root:Train Epoch: 73 [0 (0%)]	Loss: 0.004036
+INFO:root:Train Epoch: 74 [0 (0%)]	Loss: 0.014702
+INFO:root:Train Epoch: 75 [0 (0%)]	Loss: 0.000465
+INFO:root:Train Epoch: 76 [0 (0%)]	Loss: 0.011589
+INFO:root:Train Epoch: 77 [0 (0%)]	Loss: 0.001871
+INFO:root:Train Epoch: 78 [0 (0%)]	Loss: 0.002260
+INFO:root:Train Epoch: 79 [0 (0%)]	Loss: 0.014420
+INFO:root:Train Epoch: 80 [0 (0%)]	Loss: 0.002882
+INFO:root:Accuracy of plane : 92 %
+INFO:root:Accuracy of   car : 96 %
+INFO:root:Accuracy of  bird : 90 %
+INFO:root:Accuracy of   cat : 79 %
+INFO:root:Accuracy of  deer : 92 %
+INFO:root:Accuracy of   dog : 88 %
+INFO:root:Accuracy of  frog : 92 %
+INFO:root:Accuracy of horse : 93 %
+INFO:root:Accuracy of  ship : 95 %
+INFO:root:Accuracy of truck : 93 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 9145/10000 (91%)
+
+INFO:root:Train Epoch: 81 [0 (0%)]	Loss: 0.002592
+INFO:root:Train Epoch: 82 [0 (0%)]	Loss: 0.005787
+INFO:root:Train Epoch: 83 [0 (0%)]	Loss: 0.005726
+INFO:root:Train Epoch: 84 [0 (0%)]	Loss: 0.004444
+INFO:root:Train Epoch: 85 [0 (0%)]	Loss: 0.009148
+INFO:root:Train Epoch: 86 [0 (0%)]	Loss: 0.016800
+INFO:root:Train Epoch: 87 [0 (0%)]	Loss: 0.001071
+INFO:root:Train Epoch: 88 [0 (0%)]	Loss: 0.000419
+INFO:root:Train Epoch: 89 [0 (0%)]	Loss: 0.006260
+INFO:root:Train Epoch: 90 [0 (0%)]	Loss: 0.000264
+INFO:root:Train Epoch: 91 [0 (0%)]	Loss: 0.007519
+INFO:root:Train Epoch: 92 [0 (0%)]	Loss: 0.002218
+INFO:root:Train Epoch: 93 [0 (0%)]	Loss: 0.000049
+INFO:root:Train Epoch: 94 [0 (0%)]	Loss: 0.001911
+INFO:root:Train Epoch: 95 [0 (0%)]	Loss: 0.000036
+INFO:root:Train Epoch: 96 [0 (0%)]	Loss: 0.000552
+INFO:root:Train Epoch: 97 [0 (0%)]	Loss: 0.000228
+INFO:root:Train Epoch: 98 [0 (0%)]	Loss: 0.000039
+INFO:root:Train Epoch: 99 [0 (0%)]	Loss: 0.000284
+INFO:root:Train Epoch: 100 [0 (0%)]	Loss: 0.000044
+INFO:root:Accuracy of plane : 94 %
+INFO:root:Accuracy of   car : 97 %
+INFO:root:Accuracy of  bird : 86 %
+INFO:root:Accuracy of   cat : 82 %
+INFO:root:Accuracy of  deer : 94 %
+INFO:root:Accuracy of   dog : 87 %
+INFO:root:Accuracy of  frog : 90 %
+INFO:root:Accuracy of horse : 92 %
+INFO:root:Accuracy of  ship : 94 %
+INFO:root:Accuracy of truck : 93 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 9132/10000 (91%)
+
+INFO:root:Train Epoch: 101 [0 (0%)]	Loss: 0.023056
+INFO:root:Train Epoch: 102 [0 (0%)]	Loss: 0.000518
+INFO:root:Train Epoch: 103 [0 (0%)]	Loss: 0.001342
+INFO:root:Train Epoch: 104 [0 (0%)]	Loss: 0.000851
+INFO:root:Train Epoch: 105 [0 (0%)]	Loss: 0.000473
+INFO:root:Train Epoch: 106 [0 (0%)]	Loss: 0.000801
+INFO:root:Train Epoch: 107 [0 (0%)]	Loss: 0.000821
+INFO:root:Train Epoch: 108 [0 (0%)]	Loss: 0.011971
+INFO:root:Train Epoch: 109 [0 (0%)]	Loss: 0.000411
+INFO:root:Train Epoch: 110 [0 (0%)]	Loss: 0.003317
+INFO:root:Train Epoch: 111 [0 (0%)]	Loss: 0.000280
+INFO:root:Train Epoch: 112 [0 (0%)]	Loss: 0.037292
+INFO:root:Train Epoch: 113 [0 (0%)]	Loss: 0.003622
+INFO:root:Train Epoch: 114 [0 (0%)]	Loss: 0.000111
+INFO:root:Train Epoch: 115 [0 (0%)]	Loss: 0.001630
+INFO:root:Train Epoch: 116 [0 (0%)]	Loss: 0.040985
+INFO:root:Train Epoch: 117 [0 (0%)]	Loss: 0.000130
+INFO:root:Train Epoch: 118 [0 (0%)]	Loss: 0.000114
+INFO:root:Train Epoch: 119 [0 (0%)]	Loss: 0.009926
+INFO:root:Results: 
+INFO:root:     epoch  training_loss  test_acc  epoch_train_time  total_train_time    lr
+0        0      -1.000000     47.56         -1.000000         -1.000000 -1.00
+1        1       0.037567     -1.00         12.007995         12.007995  0.01
+2        2       0.055542     -1.00         11.650378         23.658373  0.01
+3        3       0.049835     -1.00         11.286665         34.945038  0.01
+4        4       0.020584     -1.00         11.607706         46.552744  0.01
+..     ...            ...       ...               ...               ...   ...
+115    115       0.054962     -1.00         11.117623       1291.709046  0.01
+116    116       0.000054     -1.00         11.813885       1303.522931  0.01
+117    117       0.000083     -1.00         11.394220       1314.917151  0.01
+118    118       0.000597     -1.00         11.191844       1326.108995  0.01
+119    119       0.000054     -1.00         11.154232       1337.263227  0.01
+
+[120 rows x 6 columns]
