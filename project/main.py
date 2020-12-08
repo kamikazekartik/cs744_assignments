@@ -150,6 +150,7 @@ def run_experiment(args, number_dict, quant_dict):
     # check accuracy before training
     test_acc = test(args.dataset, model, args.device, test_loader, criterion)
     test_acc_list.append(test_acc)
+    curr_lr = args.lr
 
     for epoch in range(1, args.max_epochs):
         start_time = time.time()
@@ -160,7 +161,7 @@ def run_experiment(args, number_dict, quant_dict):
         epoch_list.append(epoch)
         epoch_train_time_list.append(epoch_training_time)
         total_train_time_list.append(total_training_time)
-        lr_list.append(args.lr)
+        lr_list.append(curr_lr)
         if epoch%20 == 0:
             test_acc = test(args.dataset, model, args.device, test_loader, criterion)
         else:
