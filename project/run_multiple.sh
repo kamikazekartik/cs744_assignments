@@ -1,6 +1,6 @@
 #!/bin/bash
 
-model_data=( 1 2 3 )
+model_data=( 1 )
 for md in "${model_data[@]}"
 do
 	if [ $md -eq 1 ]; then
@@ -13,7 +13,7 @@ do
 		model=lenet
 		data=EMNIST
 	fi
-	batch_size=( 64 128 256 512 1024 )
+	batch_size=( 128 )
 	for bs in "${batch_size[@]}"
 	do
 		precision=( 1 2 3 )
