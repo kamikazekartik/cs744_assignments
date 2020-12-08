@@ -265,7 +265,22 @@ if __name__ == '__main__':
                                     forward_rounding=args.rounding)
 
     results_df = run_experiment(args, number_dict, quant_dict)
-    results_df.to_csv(args.results_filename)
+    if args.results_filename == 'results.csv':
+        # default filename, change it
+        results_filename = "results_{}_{}_batchsize{}_".format(args.dataset, args.model, args.dataset)
+        if args.use_half:
+            results_filename += "Half"
+        elif args.use_amp:
+            results_filename += "AMP"
+        elif args.low_prec:
+            results_filename += "Lowprec"
+        else:
+            results_filename += "Full"
+        results_filename += ".csv"
+    else:
+        results_filename = args.results_filename
+
+    results_df.to_csv(results_filename)
     logger.info("Results: ")
     logger.info(results_df)
 

@@ -6,8 +6,8 @@ python3 main.py --seed 42 \
 --model resnet50 \
 --batch-size 128 \
 --test-batch-size 1000 \
---use-amp True \
---use-half False \
+--use-amp False \
+--use-half True \
 --preload-data False \
 --device=cuda \
 --low-prec=False \
@@ -16,5 +16,4 @@ python3 main.py --seed 42 \
 --nbits-grad=8 \
 --nbits-error=8 \
 --nbits-momentum=8 \
---results-filename "resnet50_amp_convergence_results.csv" \
-> cifar10_resnet50_amp_convergence_log 2>&1
+> log_convergence_resnet50_Cifar10_batchsize128_Half 2>&1
