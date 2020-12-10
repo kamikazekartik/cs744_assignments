@@ -267,7 +267,7 @@ if __name__ == '__main__':
     results_df = run_experiment(args, number_dict, quant_dict)
     if args.results_filename == 'results.csv':
         # default filename, change it
-        results_filename = "results_{}_{}_batchsize{}_".format(args.dataset, args.model, args.dataset)
+        results_filename = "results_{}_{}_batchsize{}_".format(args.model, args.dataset, args.batch_size)
         if args.use_half:
             results_filename += "Half"
         elif args.use_amp:
