@@ -1,0 +1,405 @@
+INFO:root:using Tesla V100-SXM2-16GB
+INFO:root:weight    : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:activate  : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:grad      : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:error     : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:momentum  : BlockFloatingPoint (wl=8, dim=0)
+Seeded everything with seed: 42
+Files already downloaded and verified
+Files already downloaded and verified
+INFO:root:Accuracy of plane :  0 %
+INFO:root:Accuracy of   car :  0 %
+INFO:root:Accuracy of  bird :  0 %
+INFO:root:Accuracy of   cat :  0 %
+INFO:root:Accuracy of  deer :  0 %
+INFO:root:Accuracy of   dog :  0 %
+INFO:root:Accuracy of  frog :  0 %
+INFO:root:Accuracy of horse :  0 %
+INFO:root:Accuracy of  ship :  0 %
+INFO:root:Accuracy of truck :  0 %
+INFO:root:
+Test set: Average loss: 0.0007, Accuracy: 0/10000 (0%)
+
+INFO:root:Train Epoch: 1 [0 (0%)]	Loss: 6.918273
+INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 2.309510
+INFO:root:Train Epoch: 3 [0 (0%)]	Loss: 1.938895
+INFO:root:Train Epoch: 4 [0 (0%)]	Loss: 1.557590
+INFO:root:Train Epoch: 5 [0 (0%)]	Loss: 1.426471
+INFO:root:Train Epoch: 6 [0 (0%)]	Loss: 1.331225
+INFO:root:Train Epoch: 7 [0 (0%)]	Loss: 1.103661
+INFO:root:Train Epoch: 8 [0 (0%)]	Loss: 0.819096
+INFO:root:Train Epoch: 9 [0 (0%)]	Loss: 0.760149
+INFO:root:Train Epoch: 10 [0 (0%)]	Loss: 0.590235
+INFO:root:Accuracy of plane : 74 %
+INFO:root:Accuracy of   car : 95 %
+INFO:root:Accuracy of  bird : 76 %
+INFO:root:Accuracy of   cat : 43 %
+INFO:root:Accuracy of  deer : 74 %
+INFO:root:Accuracy of   dog : 68 %
+INFO:root:Accuracy of  frog : 82 %
+INFO:root:Accuracy of horse : 75 %
+INFO:root:Accuracy of  ship : 79 %
+INFO:root:Accuracy of truck : 76 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 7459/10000 (75%)
+
+INFO:root:Train Epoch: 11 [0 (0%)]	Loss: 0.772325
+INFO:root:Train Epoch: 12 [0 (0%)]	Loss: 0.545768
+INFO:root:Train Epoch: 13 [0 (0%)]	Loss: 0.745614
+INFO:root:Train Epoch: 14 [0 (0%)]	Loss: 0.378224
+INFO:root:Train Epoch: 15 [0 (0%)]	Loss: 0.544530
+INFO:root:Train Epoch: 16 [0 (0%)]	Loss: 0.580765
+INFO:root:Train Epoch: 17 [0 (0%)]	Loss: 0.382480
+INFO:root:Train Epoch: 18 [0 (0%)]	Loss: 0.519281
+INFO:root:Train Epoch: 19 [0 (0%)]	Loss: 0.294007
+INFO:root:Train Epoch: 20 [0 (0%)]	Loss: 0.427645
+INFO:root:Accuracy of plane : 76 %
+INFO:root:Accuracy of   car : 90 %
+INFO:root:Accuracy of  bird : 70 %
+INFO:root:Accuracy of   cat : 68 %
+INFO:root:Accuracy of  deer : 82 %
+INFO:root:Accuracy of   dog : 74 %
+INFO:root:Accuracy of  frog : 92 %
+INFO:root:Accuracy of horse : 90 %
+INFO:root:Accuracy of  ship : 90 %
+INFO:root:Accuracy of truck : 86 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 8225/10000 (82%)
+
+INFO:root:Train Epoch: 21 [0 (0%)]	Loss: 0.512980
+INFO:root:Train Epoch: 22 [0 (0%)]	Loss: 0.295496
+INFO:root:Train Epoch: 23 [0 (0%)]	Loss: 0.337636
+INFO:root:Train Epoch: 24 [0 (0%)]	Loss: 0.341028
+INFO:root:Train Epoch: 25 [0 (0%)]	Loss: 0.487891
+INFO:root:Train Epoch: 26 [0 (0%)]	Loss: 0.287589
+INFO:root:Train Epoch: 27 [0 (0%)]	Loss: 0.238246
+INFO:root:Train Epoch: 28 [0 (0%)]	Loss: 0.281884
+INFO:root:Train Epoch: 29 [0 (0%)]	Loss: 0.305417
+INFO:root:Train Epoch: 30 [0 (0%)]	Loss: 0.180737
+INFO:root:Accuracy of plane : 92 %
+INFO:root:Accuracy of   car : 96 %
+INFO:root:Accuracy of  bird : 80 %
+INFO:root:Accuracy of   cat : 73 %
+INFO:root:Accuracy of  deer : 86 %
+INFO:root:Accuracy of   dog : 72 %
+INFO:root:Accuracy of  frog : 86 %
+INFO:root:Accuracy of horse : 78 %
+INFO:root:Accuracy of  ship : 86 %
+INFO:root:Accuracy of truck : 82 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 8362/10000 (84%)
+
+INFO:root:Train Epoch: 31 [0 (0%)]	Loss: 0.255638
+INFO:root:Train Epoch: 32 [0 (0%)]	Loss: 0.154510
+INFO:root:Train Epoch: 33 [0 (0%)]	Loss: 0.294496
+INFO:root:Train Epoch: 34 [0 (0%)]	Loss: 0.194464
+INFO:root:Train Epoch: 35 [0 (0%)]	Loss: 0.186233
+INFO:root:Train Epoch: 36 [0 (0%)]	Loss: 0.252645
+INFO:root:Train Epoch: 37 [0 (0%)]	Loss: 0.191331
+INFO:root:Train Epoch: 38 [0 (0%)]	Loss: 0.228810
+INFO:root:Train Epoch: 39 [0 (0%)]	Loss: 0.215267
+INFO:root:Train Epoch: 40 [0 (0%)]	Loss: 0.139796
+INFO:root:Accuracy of plane : 91 %
+INFO:root:Accuracy of   car : 90 %
+INFO:root:Accuracy of  bird : 79 %
+INFO:root:Accuracy of   cat : 71 %
+INFO:root:Accuracy of  deer : 86 %
+INFO:root:Accuracy of   dog : 77 %
+INFO:root:Accuracy of  frog : 88 %
+INFO:root:Accuracy of horse : 88 %
+INFO:root:Accuracy of  ship : 90 %
+INFO:root:Accuracy of truck : 86 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 8511/10000 (85%)
+
+INFO:root:Train Epoch: 41 [0 (0%)]	Loss: 0.135899
+INFO:root:Train Epoch: 42 [0 (0%)]	Loss: 0.182650
+INFO:root:Train Epoch: 43 [0 (0%)]	Loss: 0.106098
+INFO:root:Train Epoch: 44 [0 (0%)]	Loss: 0.220252
+INFO:root:Train Epoch: 45 [0 (0%)]	Loss: 0.224823
+INFO:root:Train Epoch: 46 [0 (0%)]	Loss: 0.111386
+INFO:root:Train Epoch: 47 [0 (0%)]	Loss: 0.144876
+INFO:root:Train Epoch: 48 [0 (0%)]	Loss: 0.157396
+INFO:root:Train Epoch: 49 [0 (0%)]	Loss: 0.201566
+INFO:root:Train Epoch: 50 [0 (0%)]	Loss: 0.307603
+INFO:root:Accuracy of plane : 92 %
+INFO:root:Accuracy of   car : 93 %
+INFO:root:Accuracy of  bird : 75 %
+INFO:root:Accuracy of   cat : 76 %
+INFO:root:Accuracy of  deer : 83 %
+INFO:root:Accuracy of   dog : 81 %
+INFO:root:Accuracy of  frog : 89 %
+INFO:root:Accuracy of horse : 89 %
+INFO:root:Accuracy of  ship : 89 %
+INFO:root:Accuracy of truck : 91 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 8616/10000 (86%)
+
+INFO:root:Train Epoch: 51 [0 (0%)]	Loss: 0.111478
+INFO:root:Train Epoch: 52 [0 (0%)]	Loss: 0.062408
+INFO:root:Train Epoch: 53 [0 (0%)]	Loss: 0.104099
+INFO:root:Train Epoch: 54 [0 (0%)]	Loss: 0.083209
+INFO:root:Train Epoch: 55 [0 (0%)]	Loss: 0.100507
+INFO:root:Train Epoch: 56 [0 (0%)]	Loss: 0.092521
+INFO:root:Train Epoch: 57 [0 (0%)]	Loss: 0.118545
+INFO:root:Train Epoch: 58 [0 (0%)]	Loss: 0.057395
+INFO:root:Train Epoch: 59 [0 (0%)]	Loss: 0.114694
+INFO:root:Train Epoch: 60 [0 (0%)]	Loss: 0.066310
+INFO:root:Accuracy of plane : 92 %
+INFO:root:Accuracy of   car : 94 %
+INFO:root:Accuracy of  bird : 80 %
+INFO:root:Accuracy of   cat : 77 %
+INFO:root:Accuracy of  deer : 86 %
+INFO:root:Accuracy of   dog : 73 %
+INFO:root:Accuracy of  frog : 89 %
+INFO:root:Accuracy of horse : 91 %
+INFO:root:Accuracy of  ship : 92 %
+INFO:root:Accuracy of truck : 88 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 8646/10000 (86%)
+
+INFO:root:Train Epoch: 61 [0 (0%)]	Loss: 0.067276
+INFO:root:Train Epoch: 62 [0 (0%)]	Loss: 0.067491
+INFO:root:Train Epoch: 63 [0 (0%)]	Loss: 0.086275
+INFO:root:Train Epoch: 64 [0 (0%)]	Loss: 0.142341
+INFO:root:Train Epoch: 65 [0 (0%)]	Loss: 0.110984
+INFO:root:Train Epoch: 66 [0 (0%)]	Loss: 0.178318
+INFO:root:Train Epoch: 67 [0 (0%)]	Loss: 0.092770
+INFO:root:Train Epoch: 68 [0 (0%)]	Loss: 0.039532
+INFO:root:Train Epoch: 69 [0 (0%)]	Loss: 0.083810
+INFO:root:Train Epoch: 70 [0 (0%)]	Loss: 0.174940
+INFO:root:Accuracy of plane : 88 %
+INFO:root:Accuracy of   car : 96 %
+INFO:root:Accuracy of  bird : 84 %
+INFO:root:Accuracy of   cat : 63 %
+INFO:root:Accuracy of  deer : 84 %
+INFO:root:Accuracy of   dog : 85 %
+INFO:root:Accuracy of  frog : 91 %
+INFO:root:Accuracy of horse : 91 %
+INFO:root:Accuracy of  ship : 92 %
+INFO:root:Accuracy of truck : 85 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 8629/10000 (86%)
+
+INFO:root:Train Epoch: 71 [0 (0%)]	Loss: 0.040573
+INFO:root:Train Epoch: 72 [0 (0%)]	Loss: 0.029005
+INFO:root:Train Epoch: 73 [0 (0%)]	Loss: 0.036659
+INFO:root:Train Epoch: 74 [0 (0%)]	Loss: 0.048337
+INFO:root:Train Epoch: 75 [0 (0%)]	Loss: 0.035829
+INFO:root:Train Epoch: 76 [0 (0%)]	Loss: 0.065397
+INFO:root:Train Epoch: 77 [0 (0%)]	Loss: 0.064062
+INFO:root:Train Epoch: 78 [0 (0%)]	Loss: 0.089579
+INFO:root:Train Epoch: 79 [0 (0%)]	Loss: 0.027322
+INFO:root:Train Epoch: 80 [0 (0%)]	Loss: 0.083548
+INFO:root:Accuracy of plane : 89 %
+INFO:root:Accuracy of   car : 94 %
+INFO:root:Accuracy of  bird : 81 %
+INFO:root:Accuracy of   cat : 73 %
+INFO:root:Accuracy of  deer : 85 %
+INFO:root:Accuracy of   dog : 78 %
+INFO:root:Accuracy of  frog : 91 %
+INFO:root:Accuracy of horse : 90 %
+INFO:root:Accuracy of  ship : 90 %
+INFO:root:Accuracy of truck : 91 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 8673/10000 (87%)
+
+INFO:root:Train Epoch: 81 [0 (0%)]	Loss: 0.082204
+INFO:root:Train Epoch: 82 [0 (0%)]	Loss: 0.118595
+INFO:root:Train Epoch: 83 [0 (0%)]	Loss: 0.023489
+INFO:root:Train Epoch: 84 [0 (0%)]	Loss: 0.053294
+INFO:root:Train Epoch: 85 [0 (0%)]	Loss: 0.027860
+INFO:root:Train Epoch: 86 [0 (0%)]	Loss: 0.035802
+INFO:root:Train Epoch: 87 [0 (0%)]	Loss: 0.121713
+INFO:root:Train Epoch: 88 [0 (0%)]	Loss: 0.045736
+INFO:root:Train Epoch: 89 [0 (0%)]	Loss: 0.013427
+INFO:root:Train Epoch: 90 [0 (0%)]	Loss: 0.047941
+INFO:root:Accuracy of plane : 88 %
+INFO:root:Accuracy of   car : 91 %
+INFO:root:Accuracy of  bird : 82 %
+INFO:root:Accuracy of   cat : 78 %
+INFO:root:Accuracy of  deer : 82 %
+INFO:root:Accuracy of   dog : 74 %
+INFO:root:Accuracy of  frog : 90 %
+INFO:root:Accuracy of horse : 93 %
+INFO:root:Accuracy of  ship : 90 %
+INFO:root:Accuracy of truck : 95 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 8677/10000 (87%)
+
+INFO:root:Train Epoch: 91 [0 (0%)]	Loss: 0.073631
+INFO:root:Train Epoch: 92 [0 (0%)]	Loss: 0.066974
+INFO:root:Train Epoch: 93 [0 (0%)]	Loss: 0.113755
+INFO:root:Train Epoch: 94 [0 (0%)]	Loss: 0.058498
+INFO:root:Train Epoch: 95 [0 (0%)]	Loss: 0.132291
+INFO:root:Train Epoch: 96 [0 (0%)]	Loss: 0.022187
+INFO:root:Train Epoch: 97 [0 (0%)]	Loss: 0.062248
+INFO:root:Train Epoch: 98 [0 (0%)]	Loss: 0.029089
+INFO:root:Train Epoch: 99 [0 (0%)]	Loss: 0.042929
+INFO:root:Train Epoch: 100 [0 (0%)]	Loss: 0.043851
+INFO:root:Accuracy of plane : 86 %
+INFO:root:Accuracy of   car : 92 %
+INFO:root:Accuracy of  bird : 84 %
+INFO:root:Accuracy of   cat : 75 %
+INFO:root:Accuracy of  deer : 91 %
+INFO:root:Accuracy of   dog : 75 %
+INFO:root:Accuracy of  frog : 90 %
+INFO:root:Accuracy of horse : 91 %
+INFO:root:Accuracy of  ship : 92 %
+INFO:root:Accuracy of truck : 93 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 8734/10000 (87%)
+
+INFO:root:Train Epoch: 101 [0 (0%)]	Loss: 0.083017
+INFO:root:Train Epoch: 102 [0 (0%)]	Loss: 0.031342
+INFO:root:Train Epoch: 103 [0 (0%)]	Loss: 0.019956
+INFO:root:Train Epoch: 104 [0 (0%)]	Loss: 0.034470
+INFO:root:Train Epoch: 105 [0 (0%)]	Loss: 0.016217
+INFO:root:Train Epoch: 106 [0 (0%)]	Loss: 0.035593
+INFO:root:Train Epoch: 107 [0 (0%)]	Loss: 0.014874
+INFO:root:Train Epoch: 108 [0 (0%)]	Loss: 0.033411
+INFO:root:Train Epoch: 109 [0 (0%)]	Loss: 0.046556
+INFO:root:Train Epoch: 110 [0 (0%)]	Loss: 0.050536
+INFO:root:Accuracy of plane : 88 %
+INFO:root:Accuracy of   car : 89 %
+INFO:root:Accuracy of  bird : 81 %
+INFO:root:Accuracy of   cat : 70 %
+INFO:root:Accuracy of  deer : 86 %
+INFO:root:Accuracy of   dog : 82 %
+INFO:root:Accuracy of  frog : 90 %
+INFO:root:Accuracy of horse : 89 %
+INFO:root:Accuracy of  ship : 92 %
+INFO:root:Accuracy of truck : 95 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 8653/10000 (87%)
+
+INFO:root:Train Epoch: 111 [0 (0%)]	Loss: 0.037948
+INFO:root:Train Epoch: 112 [0 (0%)]	Loss: 0.049716
+INFO:root:Train Epoch: 113 [0 (0%)]	Loss: 0.014550
+INFO:root:Train Epoch: 114 [0 (0%)]	Loss: 0.025765
+INFO:root:Train Epoch: 115 [0 (0%)]	Loss: 0.014760
+INFO:root:Train Epoch: 116 [0 (0%)]	Loss: 0.039391
+INFO:root:Train Epoch: 117 [0 (0%)]	Loss: 0.035430
+INFO:root:Train Epoch: 118 [0 (0%)]	Loss: 0.086210
+INFO:root:Train Epoch: 119 [0 (0%)]	Loss: 0.074931
+INFO:root:Train Epoch: 120 [0 (0%)]	Loss: 0.046437
+INFO:root:Accuracy of plane : 87 %
+INFO:root:Accuracy of   car : 94 %
+INFO:root:Accuracy of  bird : 82 %
+INFO:root:Accuracy of   cat : 76 %
+INFO:root:Accuracy of  deer : 88 %
+INFO:root:Accuracy of   dog : 77 %
+INFO:root:Accuracy of  frog : 89 %
+INFO:root:Accuracy of horse : 91 %
+INFO:root:Accuracy of  ship : 93 %
+INFO:root:Accuracy of truck : 91 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 8726/10000 (87%)
+
+INFO:root:Train Epoch: 121 [0 (0%)]	Loss: 0.034932
+INFO:root:Train Epoch: 122 [0 (0%)]	Loss: 0.007524
+INFO:root:Train Epoch: 123 [0 (0%)]	Loss: 0.014521
+INFO:root:Train Epoch: 124 [0 (0%)]	Loss: 0.013967
+INFO:root:Train Epoch: 125 [0 (0%)]	Loss: 0.002660
+INFO:root:Train Epoch: 126 [0 (0%)]	Loss: 0.013965
+INFO:root:Train Epoch: 127 [0 (0%)]	Loss: 0.005231
+INFO:root:Train Epoch: 128 [0 (0%)]	Loss: 0.001797
+INFO:root:Train Epoch: 129 [0 (0%)]	Loss: 0.001971
+INFO:root:Train Epoch: 130 [0 (0%)]	Loss: 0.000901
+INFO:root:Accuracy of plane : 91 %
+INFO:root:Accuracy of   car : 94 %
+INFO:root:Accuracy of  bird : 81 %
+INFO:root:Accuracy of   cat : 75 %
+INFO:root:Accuracy of  deer : 87 %
+INFO:root:Accuracy of   dog : 82 %
+INFO:root:Accuracy of  frog : 91 %
+INFO:root:Accuracy of horse : 92 %
+INFO:root:Accuracy of  ship : 92 %
+INFO:root:Accuracy of truck : 92 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 8810/10000 (88%)
+
+INFO:root:Train Epoch: 131 [0 (0%)]	Loss: 0.000918
+INFO:root:Train Epoch: 132 [0 (0%)]	Loss: 0.001004
+INFO:root:Train Epoch: 133 [0 (0%)]	Loss: 0.010709
+INFO:root:Train Epoch: 134 [0 (0%)]	Loss: 0.010237
+INFO:root:Train Epoch: 135 [0 (0%)]	Loss: 0.001063
+INFO:root:Train Epoch: 136 [0 (0%)]	Loss: 0.000225
+INFO:root:Train Epoch: 137 [0 (0%)]	Loss: 0.000318
+INFO:root:Train Epoch: 138 [0 (0%)]	Loss: 0.004866
+INFO:root:Train Epoch: 139 [0 (0%)]	Loss: 0.000588
+INFO:root:Train Epoch: 140 [0 (0%)]	Loss: 0.001128
+INFO:root:Accuracy of plane : 91 %
+INFO:root:Accuracy of   car : 95 %
+INFO:root:Accuracy of  bird : 83 %
+INFO:root:Accuracy of   cat : 74 %
+INFO:root:Accuracy of  deer : 87 %
+INFO:root:Accuracy of   dog : 81 %
+INFO:root:Accuracy of  frog : 91 %
+INFO:root:Accuracy of horse : 90 %
+INFO:root:Accuracy of  ship : 93 %
+INFO:root:Accuracy of truck : 91 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 8809/10000 (88%)
+
+INFO:root:Train Epoch: 141 [0 (0%)]	Loss: 0.002389
+INFO:root:Train Epoch: 142 [0 (0%)]	Loss: 0.000395
+INFO:root:Train Epoch: 143 [0 (0%)]	Loss: 0.002541
+INFO:root:Train Epoch: 144 [0 (0%)]	Loss: 0.019684
+INFO:root:Train Epoch: 145 [0 (0%)]	Loss: 0.002836
+INFO:root:Train Epoch: 146 [0 (0%)]	Loss: 0.006339
+INFO:root:Train Epoch: 147 [0 (0%)]	Loss: 0.003931
+INFO:root:Train Epoch: 148 [0 (0%)]	Loss: 0.015188
+INFO:root:Train Epoch: 149 [0 (0%)]	Loss: 0.000379
+INFO:root:Train Epoch: 150 [0 (0%)]	Loss: 0.000653
+INFO:root:Accuracy of plane : 92 %
+INFO:root:Accuracy of   car : 95 %
+INFO:root:Accuracy of  bird : 83 %
+INFO:root:Accuracy of   cat : 74 %
+INFO:root:Accuracy of  deer : 88 %
+INFO:root:Accuracy of   dog : 80 %
+INFO:root:Accuracy of  frog : 92 %
+INFO:root:Accuracy of horse : 90 %
+INFO:root:Accuracy of  ship : 92 %
+INFO:root:Accuracy of truck : 92 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 8817/10000 (88%)
+
+INFO:root:Train Epoch: 151 [0 (0%)]	Loss: 0.000867
+INFO:root:Train Epoch: 152 [0 (0%)]	Loss: 0.001373
+INFO:root:Train Epoch: 153 [0 (0%)]	Loss: 0.003602
+INFO:root:Train Epoch: 154 [0 (0%)]	Loss: 0.000251
+INFO:root:Train Epoch: 155 [0 (0%)]	Loss: 0.008857
+INFO:root:Train Epoch: 156 [0 (0%)]	Loss: 0.000225
+INFO:root:Train Epoch: 157 [0 (0%)]	Loss: 0.020846
+INFO:root:Train Epoch: 158 [0 (0%)]	Loss: 0.000379
+INFO:root:Train Epoch: 159 [0 (0%)]	Loss: 0.000206
+INFO:root:Train Epoch: 160 [0 (0%)]	Loss: 0.004031
+INFO:root:Accuracy of plane : 92 %
+INFO:root:Accuracy of   car : 95 %
+INFO:root:Accuracy of  bird : 82 %
+INFO:root:Accuracy of   cat : 76 %
+INFO:root:Accuracy of  deer : 87 %
+INFO:root:Accuracy of   dog : 79 %
+INFO:root:Accuracy of  frog : 90 %
+INFO:root:Accuracy of horse : 91 %
+INFO:root:Accuracy of  ship : 92 %
+INFO:root:Accuracy of truck : 92 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 8811/10000 (88%)
+
+INFO:root:Results: 
+INFO:root:     epoch  training_loss  test_acc  epoch_train_time  total_train_time     lr
+0        0      -1.000000      0.00         -1.000000         -1.000000 -1.000
+1        1       2.357676     -1.00         12.574294         12.574294  0.010
+2        2       1.922810     -1.00         12.476166         25.050460  0.010
+3        3       1.641458     -1.00         12.937406         37.987865  0.010
+4        4       1.526125     -1.00         12.849504         50.837369  0.010
+..     ...            ...       ...               ...               ...    ...
+156    156       0.000693     -1.00         12.708145       1979.344602  0.001
+157    157       0.000255     -1.00         12.829407       1992.174009  0.001
+158    158       0.000037     -1.00         12.515922       2004.689931  0.001
+159    159       0.000212     -1.00         12.730111       2017.420043  0.001
+160    160       0.000014     88.11         12.742220       2030.162263  0.001
+
+[161 rows x 6 columns]
