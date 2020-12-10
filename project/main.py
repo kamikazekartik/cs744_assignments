@@ -263,7 +263,8 @@ if __name__ == '__main__':
     for num in ["weight", "momentum", "grad"]:
         quant_dict[num] = quantizer(forward_number=number_dict[num],
                                     forward_rounding=args.rounding)
-
+    
+    logger.info("Running experiment with args: {}".format(args))
     results_df = run_experiment(args, number_dict, quant_dict)
     if args.results_filename == 'results.csv':
         # default filename, change it

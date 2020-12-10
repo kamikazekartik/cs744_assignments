@@ -1,7 +1,7 @@
 #!/bin/bash
 
 model_data=( 1 )
-baseline_dir="./Early-Bird-Tickets/lp_baseline"
+baseline_dir="./early_bird_tickets/lp_baseline"
 echo "Baseline Dir:"
 ls $baseline_dir
 
