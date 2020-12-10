@@ -143,6 +143,7 @@ def get_model(model_name='lenet', device=None, pruned_model_path=None, num_class
     elif model_name == 'resnet18':
         model = resnet.ResNet18().to(device)
     elif model_name == 'resnet50':
+        # TODO: I think we should pass a model_path here
         model = resnet50.resnet50().to(device)
     elif model_name =='resnet152':
         model = resnet.ResNet152().to(device)

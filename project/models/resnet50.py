@@ -121,6 +121,7 @@ assert len(cfg_official) == 48, "Length of cfg_official is not right"
 
 
 def resnet50(depth=50, dataset='ImageNet', cfg=None, pretrained=False, num_classes = 10):
+    # TODO: I think here we need to load path and extract cfg from there
     """Constructs a ResNet-50 model.
 
     Args:
