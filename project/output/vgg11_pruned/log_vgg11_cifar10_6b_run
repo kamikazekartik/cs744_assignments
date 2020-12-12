@@ -1,0 +1,229 @@
+INFO:root:using Tesla V100-SXM2-16GB
+INFO:root:weight    : BlockFloatingPoint (wl=6, dim=0)
+INFO:root:activate  : BlockFloatingPoint (wl=6, dim=0)
+INFO:root:grad      : BlockFloatingPoint (wl=6, dim=0)
+INFO:root:error     : BlockFloatingPoint (wl=6, dim=0)
+INFO:root:momentum  : BlockFloatingPoint (wl=6, dim=0)
+Seeded everything with seed: 42
+Files already downloaded and verified
+Files already downloaded and verified
+Loading pruned model from: /home/crepea/cs744_assignments/project/Early-Bird-Tickets/lp_baseline/vgg16-cifar10-8b/pruned_30_0.3/pruned.pth.tar
+INFO:root:Accuracy of plane : 39 %
+INFO:root:Accuracy of   car :  0 %
+INFO:root:Accuracy of  bird : 32 %
+INFO:root:Accuracy of   cat : 99 %
+INFO:root:Accuracy of  deer : 74 %
+INFO:root:Accuracy of   dog :  4 %
+INFO:root:Accuracy of  frog : 58 %
+INFO:root:Accuracy of horse : 62 %
+INFO:root:Accuracy of  ship : 29 %
+INFO:root:Accuracy of truck : 57 %
+INFO:root:
+Test set: Average loss: 0.0001, Accuracy: 4571/10000 (46%)
+
+INFO:root:Train Epoch: 1 [0 (0%)]	Loss: 1.453529
+INFO:root:Train Epoch: 1 [32000 (64%)]	Loss: 0.230841
+INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 0.203279
+INFO:root:Train Epoch: 2 [32000 (64%)]	Loss: 0.157562
+INFO:root:Train Epoch: 3 [0 (0%)]	Loss: 0.126225
+INFO:root:Train Epoch: 3 [32000 (64%)]	Loss: 0.087720
+INFO:root:Train Epoch: 4 [0 (0%)]	Loss: 0.224639
+INFO:root:Train Epoch: 4 [32000 (64%)]	Loss: 0.070674
+INFO:root:Train Epoch: 5 [0 (0%)]	Loss: 0.127433
+INFO:root:Train Epoch: 5 [32000 (64%)]	Loss: 0.168450
+INFO:root:Train Epoch: 6 [0 (0%)]	Loss: 0.268964
+INFO:root:Train Epoch: 6 [32000 (64%)]	Loss: 0.106108
+INFO:root:Train Epoch: 7 [0 (0%)]	Loss: 0.073399
+INFO:root:Train Epoch: 7 [32000 (64%)]	Loss: 0.208710
+INFO:root:Train Epoch: 8 [0 (0%)]	Loss: 0.087587
+INFO:root:Train Epoch: 8 [32000 (64%)]	Loss: 0.449800
+INFO:root:Train Epoch: 9 [0 (0%)]	Loss: 0.190937
+INFO:root:Train Epoch: 9 [32000 (64%)]	Loss: 0.132638
+INFO:root:Train Epoch: 10 [0 (0%)]	Loss: 0.040977
+INFO:root:Train Epoch: 10 [32000 (64%)]	Loss: 0.212516
+INFO:root:Train Epoch: 11 [0 (0%)]	Loss: 0.150235
+INFO:root:Train Epoch: 11 [32000 (64%)]	Loss: 0.253735
+INFO:root:Train Epoch: 12 [0 (0%)]	Loss: 0.297912
+INFO:root:Train Epoch: 12 [32000 (64%)]	Loss: 0.132548
+INFO:root:Train Epoch: 13 [0 (0%)]	Loss: 0.149884
+INFO:root:Train Epoch: 13 [32000 (64%)]	Loss: 0.058213
+INFO:root:Train Epoch: 14 [0 (0%)]	Loss: 0.190185
+INFO:root:Train Epoch: 14 [32000 (64%)]	Loss: 0.192622
+INFO:root:Train Epoch: 15 [0 (0%)]	Loss: 0.177861
+INFO:root:Train Epoch: 15 [32000 (64%)]	Loss: 0.054137
+INFO:root:Train Epoch: 16 [0 (0%)]	Loss: 0.161566
+INFO:root:Train Epoch: 16 [32000 (64%)]	Loss: 0.099782
+INFO:root:Train Epoch: 17 [0 (0%)]	Loss: 0.161632
+INFO:root:Train Epoch: 17 [32000 (64%)]	Loss: 0.095511
+INFO:root:Train Epoch: 18 [0 (0%)]	Loss: 0.141145
+INFO:root:Train Epoch: 18 [32000 (64%)]	Loss: 0.165426
+INFO:root:Train Epoch: 19 [0 (0%)]	Loss: 0.144685
+INFO:root:Train Epoch: 19 [32000 (64%)]	Loss: 0.235776
+INFO:root:Train Epoch: 20 [0 (0%)]	Loss: 0.098215
+INFO:root:Train Epoch: 20 [32000 (64%)]	Loss: 0.196566
+INFO:root:Accuracy of plane : 90 %
+INFO:root:Accuracy of   car : 95 %
+INFO:root:Accuracy of  bird : 85 %
+INFO:root:Accuracy of   cat : 68 %
+INFO:root:Accuracy of  deer : 89 %
+INFO:root:Accuracy of   dog : 86 %
+INFO:root:Accuracy of  frog : 94 %
+INFO:root:Accuracy of horse : 95 %
+INFO:root:Accuracy of  ship : 95 %
+INFO:root:Accuracy of truck : 91 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 8937/10000 (89%)
+
+INFO:root:Train Epoch: 21 [0 (0%)]	Loss: 0.094566
+INFO:root:Train Epoch: 21 [32000 (64%)]	Loss: 0.163129
+INFO:root:Train Epoch: 22 [0 (0%)]	Loss: 0.181209
+INFO:root:Train Epoch: 22 [32000 (64%)]	Loss: 0.096016
+INFO:root:Train Epoch: 23 [0 (0%)]	Loss: 0.083034
+INFO:root:Train Epoch: 23 [32000 (64%)]	Loss: 0.061809
+INFO:root:Train Epoch: 24 [0 (0%)]	Loss: 0.146268
+INFO:root:Train Epoch: 24 [32000 (64%)]	Loss: 0.109900
+INFO:root:Train Epoch: 25 [0 (0%)]	Loss: 0.105235
+INFO:root:Train Epoch: 25 [32000 (64%)]	Loss: 0.065224
+INFO:root:Train Epoch: 26 [0 (0%)]	Loss: 0.109549
+INFO:root:Train Epoch: 26 [32000 (64%)]	Loss: 0.234452
+INFO:root:Train Epoch: 27 [0 (0%)]	Loss: 0.074043
+INFO:root:Train Epoch: 27 [32000 (64%)]	Loss: 0.040304
+INFO:root:Train Epoch: 28 [0 (0%)]	Loss: 0.191397
+INFO:root:Train Epoch: 28 [32000 (64%)]	Loss: 0.038891
+INFO:root:Train Epoch: 29 [0 (0%)]	Loss: 0.177802
+INFO:root:Train Epoch: 29 [32000 (64%)]	Loss: 0.174824
+INFO:root:Train Epoch: 30 [0 (0%)]	Loss: 0.063389
+INFO:root:Train Epoch: 30 [32000 (64%)]	Loss: 0.069836
+INFO:root:Train Epoch: 31 [0 (0%)]	Loss: 0.069495
+INFO:root:Train Epoch: 31 [32000 (64%)]	Loss: 0.097314
+INFO:root:Train Epoch: 32 [0 (0%)]	Loss: 0.185740
+INFO:root:Train Epoch: 32 [32000 (64%)]	Loss: 0.076818
+INFO:root:Train Epoch: 33 [0 (0%)]	Loss: 0.177911
+INFO:root:Train Epoch: 33 [32000 (64%)]	Loss: 0.151368
+INFO:root:Train Epoch: 34 [0 (0%)]	Loss: 0.036380
+INFO:root:Train Epoch: 34 [32000 (64%)]	Loss: 0.206872
+INFO:root:Train Epoch: 35 [0 (0%)]	Loss: 0.239975
+INFO:root:Train Epoch: 35 [32000 (64%)]	Loss: 0.202789
+INFO:root:Train Epoch: 36 [0 (0%)]	Loss: 0.231509
+INFO:root:Train Epoch: 36 [32000 (64%)]	Loss: 0.052291
+INFO:root:Train Epoch: 37 [0 (0%)]	Loss: 0.183800
+INFO:root:Train Epoch: 37 [32000 (64%)]	Loss: 0.140464
+INFO:root:Train Epoch: 38 [0 (0%)]	Loss: 0.135316
+INFO:root:Train Epoch: 38 [32000 (64%)]	Loss: 0.125803
+INFO:root:Train Epoch: 39 [0 (0%)]	Loss: 0.127366
+INFO:root:Train Epoch: 39 [32000 (64%)]	Loss: 0.164701
+INFO:root:Train Epoch: 40 [0 (0%)]	Loss: 0.145273
+INFO:root:Train Epoch: 40 [32000 (64%)]	Loss: 0.185636
+INFO:root:Accuracy of plane : 76 %
+INFO:root:Accuracy of   car : 94 %
+INFO:root:Accuracy of  bird : 86 %
+INFO:root:Accuracy of   cat : 82 %
+INFO:root:Accuracy of  deer : 93 %
+INFO:root:Accuracy of   dog : 81 %
+INFO:root:Accuracy of  frog : 94 %
+INFO:root:Accuracy of horse : 91 %
+INFO:root:Accuracy of  ship : 89 %
+INFO:root:Accuracy of truck : 92 %
+INFO:root:
+Test set: Average loss: 0.0000, Accuracy: 8832/10000 (88%)
+
+INFO:root:Train Epoch: 41 [0 (0%)]	Loss: 0.121860
+INFO:root:Train Epoch: 41 [32000 (64%)]	Loss: 0.312068
+INFO:root:Train Epoch: 42 [0 (0%)]	Loss: 0.133971
+INFO:root:Train Epoch: 42 [32000 (64%)]	Loss: 0.081428
+INFO:root:Train Epoch: 43 [0 (0%)]	Loss: 0.106005
+INFO:root:Train Epoch: 43 [32000 (64%)]	Loss: 0.102651
+INFO:root:Train Epoch: 44 [0 (0%)]	Loss: 0.231093
+INFO:root:Train Epoch: 44 [32000 (64%)]	Loss: 0.087308
+INFO:root:Train Epoch: 45 [0 (0%)]	Loss: 0.101053
+INFO:root:Train Epoch: 45 [32000 (64%)]	Loss: 0.145240
+INFO:root:Train Epoch: 46 [0 (0%)]	Loss: 0.159301
+INFO:root:Train Epoch: 46 [32000 (64%)]	Loss: 0.261231
+INFO:root:Train Epoch: 47 [0 (0%)]	Loss: 0.108252
+INFO:root:Train Epoch: 47 [32000 (64%)]	Loss: 0.138153
+INFO:root:Train Epoch: 48 [0 (0%)]	Loss: 0.233677
+INFO:root:Train Epoch: 48 [32000 (64%)]	Loss: 0.158779
+INFO:root:Train Epoch: 49 [0 (0%)]	Loss: 0.114767
+INFO:root:Train Epoch: 49 [32000 (64%)]	Loss: 0.227196
+INFO:root:Train Epoch: 50 [0 (0%)]	Loss: 0.072640
+INFO:root:Train Epoch: 50 [32000 (64%)]	Loss: 0.284321
+INFO:root:Train Epoch: 51 [0 (0%)]	Loss: 0.095143
+INFO:root:Train Epoch: 51 [32000 (64%)]	Loss: 0.155987
+INFO:root:Train Epoch: 52 [0 (0%)]	Loss: 0.108101
+INFO:root:Train Epoch: 52 [32000 (64%)]	Loss: 0.201863
+INFO:root:Train Epoch: 53 [0 (0%)]	Loss: 0.071207
+INFO:root:Train Epoch: 53 [32000 (64%)]	Loss: 0.180128
+INFO:root:Train Epoch: 54 [0 (0%)]	Loss: 0.144923
+INFO:root:Train Epoch: 54 [32000 (64%)]	Loss: 0.172844
+INFO:root:Train Epoch: 55 [0 (0%)]	Loss: 0.135432
+INFO:root:Train Epoch: 55 [32000 (64%)]	Loss: 0.081607
+INFO:root:Train Epoch: 56 [0 (0%)]	Loss: 0.083283
+INFO:root:Train Epoch: 56 [32000 (64%)]	Loss: 0.221671
+INFO:root:Train Epoch: 57 [0 (0%)]	Loss: 0.147964
+INFO:root:Train Epoch: 57 [32000 (64%)]	Loss: 0.177999
+INFO:root:Train Epoch: 58 [0 (0%)]	Loss: 0.145470
+INFO:root:Train Epoch: 58 [32000 (64%)]	Loss: 0.192220
+INFO:root:Train Epoch: 59 [0 (0%)]	Loss: 0.077909
+INFO:root:Train Epoch: 59 [32000 (64%)]	Loss: 0.141125
+INFO:root:Results: 
+INFO:root:    epoch  training_loss  test_acc  epoch_train_time  total_train_time    lr
+0       0      -1.000000     45.71         -1.000000         -1.000000 -1.00
+1       1       0.297812     -1.00         24.590360         24.590360  0.01
+2       2       0.133881     -1.00         21.146404         45.736763  0.01
+3       3       0.202338     -1.00         21.283150         67.019913  0.01
+4       4       0.082865     -1.00         21.825375         88.845288  0.01
+5       5       0.013083     -1.00         20.926517        109.771806  0.01
+6       6       0.416133     -1.00         21.967040        131.738845  0.01
+7       7       0.289448     -1.00         21.069579        152.808425  0.01
+8       8       0.110736     -1.00         22.584125        175.392549  0.01
+9       9       0.415734     -1.00         21.404799        196.797348  0.01
+10     10       0.023588     -1.00         22.816096        219.613444  0.01
+11     11       0.010923     -1.00         21.471157        241.084601  0.01
+12     12       0.007701     -1.00         22.876398        263.960999  0.01
+13     13       0.061514     -1.00         22.745270        286.706269  0.01
+14     14       0.198981     -1.00         22.050378        308.756647  0.01
+15     15       0.149050     -1.00         21.323116        330.079763  0.01
+16     16       0.109826     -1.00         21.768211        351.847973  0.01
+17     17       0.027721     -1.00         20.805343        372.653316  0.01
+18     18       0.281352     -1.00         22.224718        394.878034  0.01
+19     19       0.153244     -1.00         22.830546        417.708580  0.01
+20     20       0.090279     89.37         22.554464        440.263044  0.01
+21     21       0.200674     -1.00         21.798996        462.062040  0.01
+22     22       0.031483     -1.00         23.203614        485.265654  0.01
+23     23       0.060560     -1.00         22.647793        507.913447  0.01
+24     24       0.135109     -1.00         22.069694        529.983140  0.01
+25     25       0.256178     -1.00         21.298401        551.281541  0.01
+26     26       0.107067     -1.00         24.466312        575.747853  0.01
+27     27       0.095008     -1.00         23.505480        599.253333  0.01
+28     28       0.039460     -1.00         21.010218        620.263551  0.01
+29     29       0.259528     -1.00         21.304237        641.567788  0.01
+30     30       0.218819     -1.00         23.498597        665.066385  0.01
+31     31       0.219868     -1.00         21.763513        686.829898  0.01
+32     32       0.277263     -1.00         22.065144        708.895042  0.01
+33     33       0.288162     -1.00         22.549880        731.444921  0.01
+34     34       0.021296     -1.00         21.618080        753.063001  0.01
+35     35       0.032509     -1.00         22.905539        775.968540  0.01
+36     36       0.026365     -1.00         21.934634        797.903174  0.01
+37     37       0.076365     -1.00         24.200959        822.104133  0.01
+38     38       0.080171     -1.00         22.588731        844.692865  0.01
+39     39       0.038431     -1.00         22.853090        867.545955  0.01
+40     40       0.193732     88.32         22.607538        890.153493  0.01
+41     41       0.463711     -1.00         21.838943        911.992437  0.01
+42     42       0.145697     -1.00         21.367253        933.359689  0.01
+43     43       0.015480     -1.00         22.175612        955.535301  0.01
+44     44       0.165085     -1.00         21.323748        976.859050  0.01
+45     45       0.092774     -1.00         22.002606        998.861656  0.01
+46     46       0.637673     -1.00         23.004632       1021.866287  0.01
+47     47       0.291367     -1.00         23.443008       1045.309296  0.01
+48     48       0.061696     -1.00         21.772358       1067.081654  0.01
+49     49       0.275241     -1.00         22.410635       1089.492289  0.01
+50     50       0.459480     -1.00         20.854688       1110.346977  0.01
+51     51       0.045271     -1.00         23.422384       1133.769361  0.01
+52     52       0.244518     -1.00         21.587108       1155.356470  0.01
+53     53       0.020780     -1.00         21.871023       1177.227493  0.01
+54     54       0.038670     -1.00         20.925613       1198.153105  0.01
+55     55       0.081789     -1.00         23.991962       1222.145067  0.01
+56     56       0.146245     -1.00         21.953254       1244.098322  0.01
+57     57       0.125292     -1.00         21.317912       1265.416233  0.01
+58     58       0.356397     -1.00         21.447154       1286.863388  0.01
+59     59       0.010468     -1.00         21.679869       1308.543256  0.01
