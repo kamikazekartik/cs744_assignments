@@ -75,11 +75,11 @@ df_resnet = df[(df['model']=="resnet50") & (df['dataset']=="Cifar10")]
 df_resnet = df_resnet.pivot(index='batch_size', columns='precision', values='avg_epoch_train_time')
 df_resnet = df_resnet[orders]
 fig, axes = plt.subplots(nrows=1, ncols=3, sharex=True, sharey=True, figsize=(16,7))
-styles = [':','-','--']
+styles = ['-',':','--']
 colors = ['red', 'green', 'blue']
-df_lenet.plot(ax=axes[0], style=styles, color=colors); axes[0].set_title('LeNet & EMNIST')
-df_vgg16.plot(ax=axes[1], style=styles, color=colors); axes[1].set_title('VGG-16 & Cifar10')
-df_resnet.plot(ax=axes[2], style=styles, color=colors); axes[2].set_title('ResNet50 & Cifar10')
+df_lenet.plot(ax=axes[0], style=styles, color=colors, grid=True); axes[0].set_title('LeNet & EMNIST')
+df_vgg16.plot(ax=axes[1], style=styles, color=colors, grid=True); axes[1].set_title('VGG-16 & Cifar10')
+df_resnet.plot(ax=axes[2], style=styles, color=colors, grid=True); axes[2].set_title('ResNet50 & Cifar10')
 plt.xticks([64,128,256,512])
 axes[0].set_xlabel("Batch Size")
 axes[1].set_xlabel("Batch Size")
