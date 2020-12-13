@@ -3,6 +3,9 @@ import math
 import torch.nn as nn
 import torch.utils.model_zoo as model_zoo
 from .channel_selection import channel_selection
+import logging
+
+logging.basicConfig()
 
 __all__ = ['resnet50']
 
@@ -120,9 +123,9 @@ cfg_official = [item for sublist in cfg_official for item in sublist]
 assert len(cfg_official) == 48, "Length of cfg_official is not right"
 
 
-def resnet50(depth=50, dataset='ImageNet', cfg=None, pretrained=False, num_classes = 10):
-    # TODO: I think here we need to load path and extract cfg from there
+def resnet50(depth=50, dataset='ImageNet', cfg=None, pretrained=False, num_classes = 10, pruned_model_path=None):
     """Constructs a ResNet-50 model.
+    # NOTE: dataset does nothing here!
 
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
@@ -133,7 +136,18 @@ def resnet50(depth=50, dataset='ImageNet', cfg=None, pretrained=False, num_class
         cfg_official = [item for sublist in cfg_official for item in sublist]
         assert len(cfg_official) == 49, "Length of cfg_official is not right"
         cfg = cfg_official
+    
+    if pruned_model_path is not None:
+        logging.info('Loading pruned model from:', pruned_model_path)
+        model_ckpt = torch.load(pruned_model_path)
+        cfg = model_ckpt['cfg']
+    
     model = ResNet(Bottleneck, [3, 4, 6, 3], cfg)
+    
     if pretrained:
         model.load_state_dict(model_zoo.load_url(model_urls['resnet50']))
+
+    if pruned_model_path is not None:
+        model.load_state_dict(model_ckpt['state_dict'])
+    
     return model
