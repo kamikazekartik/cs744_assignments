@@ -1,0 +1,28 @@
+INFO:root:using Tesla V100-SXM2-16GB
+INFO:root:weight    : BlockFloatingPoint (wl=4, dim=0)
+INFO:root:activate  : BlockFloatingPoint (wl=4, dim=0)
+INFO:root:grad      : BlockFloatingPoint (wl=4, dim=0)
+INFO:root:error     : BlockFloatingPoint (wl=4, dim=0)
+INFO:root:momentum  : BlockFloatingPoint (wl=4, dim=0)
+INFO:root:Running experiment with args: Namespace(batch_size=128, dataset='Cifar10', device='cuda', gamma=0.998, low_prec=True, lr=0.1, max_epochs=161, model='resnet50', nbits_activate=4, nbits_error=4, nbits_grad=4, nbits_momentum=4, nbits_weight=4, num_classes=1000, preload_data=False, pruned_model_path=None, results_filename='output/v100_fullmodel_2/results_resnet50_Cifar10_batchsize128_precision4bit.csv', rounding='stochastic', save_model=False, seed=42, test_batch_size=1000, use_amp=False, use_half=False)
+Seeded everything with seed: 42
+Files already downloaded and verified
+Files already downloaded and verified
+INFO:root:Accuracy of plane :  0 %
+INFO:root:Accuracy of   car : 26 %
+INFO:root:Accuracy of  bird : 84 %
+INFO:root:Accuracy of   cat :  0 %
+INFO:root:Accuracy of  deer :  0 %
+INFO:root:Accuracy of   dog :  0 %
+INFO:root:Accuracy of  frog :  0 %
+INFO:root:Accuracy of horse :  0 %
+INFO:root:Accuracy of  ship :  0 %
+INFO:root:Accuracy of truck :  0 %
+INFO:root:
+Test set: Average loss: 0.0002, Accuracy: 1105/10000 (11%)
+
+INFO:root:Train Epoch: 1 [0 (0%)]	Loss: 2.302249
+INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 1.975288
+INFO:root:Train Epoch: 3 [0 (0%)]	Loss: 1.900919
+INFO:root:Train Epoch: 4 [0 (0%)]	Loss: 1.846737
+INFO:root:Train Epoch: 5 [0 (0%)]	Loss: 1.702343

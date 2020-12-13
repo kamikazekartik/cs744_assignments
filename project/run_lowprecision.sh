@@ -11,10 +11,10 @@ python3 main.py --seed 42 \
 --preload-data False \
 --device=cuda \
 --low-prec=True \
---nbits-weight=8 \
---nbits-activate=8 \
---nbits-grad=8 \
---nbits-error=8 \
---nbits-momentum=8 \
---results-file=output/v100_fullmodel_2/results_resnet50_Cifar10_batchsize128_precision8bit.csv \
-> output/v100_fullmodel_2/log_resnet50_Cifar10_batchsize128_precision8bit 2>&1
+--nbits-weight=4 \
+--nbits-activate=4 \
+--nbits-grad=4 \
+--nbits-error=4 \
+--nbits-momentum=4 \
+--results-file=output/v100_fullmodel_2/results_resnet50_Cifar10_batchsize128_precision4bit.csv \
+> output/v100_fullmodel_2/log_resnet50_Cifar10_batchsize128_precision4bit 2>&1
