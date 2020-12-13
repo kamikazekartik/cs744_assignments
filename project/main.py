@@ -129,8 +129,12 @@ def run_experiment(args, number_dict, quant_dict):
         model = sequential_lower(model, layer_types=["conv", "linear"],
                                  forward_number=number_dict["activate"], backward_number=number_dict["error"],
                                  forward_rounding=args.rounding, backward_rounding=args.rounding)
+
+        if args.model in ('vgg11', 'vgg13', 'vgg16', 'vgg19', 'vgg_pruned'):
         # removing the final quantization module
-        model.classifier = model.classifier[0]
+            model.classifier = model.classifier[0]
+        elif args.model in ('resnet50', 'resnet101'):
+            model.linear = model.linear[0]
 
     if args.use_half:
         model.half()

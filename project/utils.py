@@ -143,7 +143,7 @@ def get_model(model_name='lenet', device=None, pruned_model_path=None, num_class
     elif model_name == 'resnet18':
         model = resnet.ResNet18().to(device)
     elif model_name == 'resnet50':
-        model = resnet50.resnet50().to(device)
+        model = resnet.ResNet50().to(device)
     elif model_name == 'resnet50_pruned':
         model = resnet50.resnet50(pruned_model_path=pruned_model_path).to(device)
     elif model_name =='resnet152':
