@@ -35,7 +35,7 @@ do
 			echo "Processing: Model=$model; Data=$data; Batch Size=$bs; AMP=$amp; Half=$half"
 			python3 main.py --seed 42 \
 				--max-epochs 161 \
-				--lr 0.01 \
+				--lr 0.1 \
 				--gamma 0.998 \
 				--dataset $data \
 				--model $model \
@@ -51,8 +51,8 @@ do
 				--nbits-grad=8 \
 				--nbits-error=8 \
 				--nbits-momentum=8 \
-				--results-file=output/v100_fullmodel_2/results_${model}_${data}_batchsize${bs}_${prec} \
-				> output/v100_fullmodel_2/log_${model}_${data}_batchsize${bs}_${prec} 2>&1
+				--results-file=output/v100_fullmodel_2/results_${model}_${data}_batchsize${bs}_${prec}_fixed.csv \
+				> output/v100_fullmodel_2/log_${model}_${data}_batchsize${bs}_${prec}_fixed 2>&1
 
 		done
 	done
