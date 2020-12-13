@@ -1,6 +1,6 @@
 #!/bin/bash
 
-model_data=( 2 3 )
+model_data=( 3 )
 for md in "${model_data[@]}"
 do
 	if [ $md -eq 1 ]; then
@@ -16,7 +16,7 @@ do
 	batch_size=( 128 )
 	for bs in "${batch_size[@]}"
 	do
-		precision=( 1 2 3 )
+		precision=( 3 )
 		for pr in "${precision[@]}"
 		do
 			if [ $pr -eq 1 ]; then
@@ -35,7 +35,7 @@ do
 			echo "Processing: Model=$model; Data=$data; Batch Size=$bs; AMP=$amp; Half=$half"
 			python3 main.py --seed 42 \
 				--max-epochs 161 \
-				--lr 0.1 \
+				--lr 0.01 \
 				--gamma 0.998 \
 				--dataset $data \
 				--model $model \

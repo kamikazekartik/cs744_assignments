@@ -166,7 +166,7 @@ def run_experiment(args, number_dict, quant_dict):
         epoch_train_time_list.append(epoch_training_time)
         total_train_time_list.append(total_training_time)
         lr_list.append(curr_lr)
-        if epoch%20 == 0:
+        if epoch%10 == 0:
             test_acc = test(args.dataset, model, args.device, test_loader, criterion)
         else:
             test_acc = -1
