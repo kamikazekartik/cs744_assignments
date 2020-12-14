@@ -28,3 +28,24 @@ You can always exit conda completely by running `conda deactivate` until the con
 The scripts for building and running on tickets are in the `/project/Early-Bird-Tickets/` directory. From `/project/Early-Bird-Tickets/`, run the command `bash ./scripts/vgg-fp/search.sh` to find a ticket and `bash ./scripts/vgg-fp/pruned.sh` to prune it. Similarly, to recover the low-precision tickets, you can run `bash ./scripts/vgg-lp/search.sh` to get the low precision ticket and `bash ./scripts/vgg-lp/pruned.sh` to prune it.
 
 These tickets can be called form the `/project/` directory using the scripts `bash run_main_eb.sh` and `bash run_main_eb_lp.sh`.
+
+## PreResNet
+To run PreResnet, you can do one of two things:
+
+1. Run 'non-pruned', by running `run_preresnet.sh` file while omitting the `--pruned-model-path` argument. This will train from scratch like any normal model.
+1. Run on a 'pruned' model. This can be done by first recovering the EB ticket, and then running the `run_preresnet.sh` script with a path to the EB ticket model .pth.tar.
+
+If you run without EB ticket, it should just work out of the box as all other models. With EB ticket, you can generate tickets with the following familiar steps:
+
+1. Activate the early_bird environment (optional?)
+1. In `/early_bird_tickets`, run `bash ./scripts/preresnet/search.sh`. Note - this script will run for a fixed number of iterations (a long time), and will save out `/baseline/resnet-nolp-cifar10/EB-30.pth.tar` (model for 30 percent pruned) and `/baseline/resnet-nolp-cifar10/EB-50.pth.tar` (model for 50 percent pruned) while running. Once the desired networks have been created, you can kill the script safely.
+1. Run `bash ./scripts/preresnet/prune30.sh` and `bash./scripts/preresnet/prune50.sh` to prune and save out the pruned models.
+
+From here, you should be able to load these models into your `run_preresnet.sh` model.
+
+In terms of parameters, the EB Ticket authors noted the following parameters for training:
+
+Training takes 160 epochs in
+total and the batch size of 256; the initial learning rate is set to 0.1, and is divided by 10 at the 80th
+and 120th epochs, respectively; the SGD solver is adopted with a momentum of 0.9 and a weight
+decay of 10−4
