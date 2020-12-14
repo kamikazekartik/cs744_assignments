@@ -139,7 +139,7 @@ def run_experiment(args, number_dict, quant_dict):
             model.fc = model.fc[0]
         elif args.model == 'preresnet':
             # TODO: might need to put something in here
-            pass
+            model.fc = model.fc[0]
 
     if args.use_half:
         model.half()
