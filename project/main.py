@@ -135,6 +135,11 @@ def run_experiment(args, number_dict, quant_dict):
             model.classifier = model.classifier[0]
         elif args.model in ('resnet50', 'resnet101'):
             model.linear = model.linear[0]
+        elif args.model == 'resnet50_pruned':
+            model.fc = model.fc[0]
+        elif args.model == 'preresnet':
+            # TODO: might need to put something in here
+            pass
 
     if args.use_half:
         model.half()
