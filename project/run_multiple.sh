@@ -1,6 +1,6 @@
 #!/bin/bash
 
-model_data=( 2 3 )
+model_data=( 3 )
 for md in "${model_data[@]}"
 do
 	if [ $md -eq 1 ]; then
@@ -16,7 +16,7 @@ do
 	batch_size=( 128 )
 	for bs in "${batch_size[@]}"
 	do
-		precision=( 1 2 3 )
+		precision=( 3 )
 		for pr in "${precision[@]}"
 		do
 			if [ $pr -eq 1 ]; then
@@ -51,8 +51,8 @@ do
 				--nbits-grad=8 \
 				--nbits-error=8 \
 				--nbits-momentum=8 \
-				--results-file=output/v100_fullmodel_2/results_${model}_${data}_batchsize${bs}_${prec} \
-				> output/v100_fullmodel_2/log_${model}_${data}_batchsize${bs}_${prec} 2>&1
+				--results-file=output/v100_fullmodel_2/results_${model}_${data}_batchsize${bs}_${prec}_fixed.csv \
+				> output/v100_fullmodel_2/log_${model}_${data}_batchsize${bs}_${prec}_fixed 2>&1
 
 		done
 	done
