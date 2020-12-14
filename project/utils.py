@@ -20,6 +20,7 @@ import models.vgg as vgg
 import models.resnet_original as resnet
 import models.resnet50 as resnet50
 import models.lenet as lenet
+import models.preresnet as preresnet
 
 logging.basicConfig()
 logger = logging.getLogger()
@@ -147,6 +148,8 @@ def get_model(model_name='lenet', device=None, pruned_model_path=None, num_class
         model = resnet50.resnet50().to(device)
     elif model_name =='resnet152':
         model = resnet.ResNet152().to(device)
+    elif model_name=='preresnet':
+        model = preresnet.preresnet(pruned_model_path, False, num_classes=num_classes).to(device)
     else:
         logger.info("Unknown Model Name!!!")
         model -1
