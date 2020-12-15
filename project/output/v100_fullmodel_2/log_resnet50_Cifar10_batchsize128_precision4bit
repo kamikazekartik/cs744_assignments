@@ -4,7 +4,7 @@ INFO:root:activate  : BlockFloatingPoint (wl=4, dim=0)
 INFO:root:grad      : BlockFloatingPoint (wl=4, dim=0)
 INFO:root:error     : BlockFloatingPoint (wl=4, dim=0)
 INFO:root:momentum  : BlockFloatingPoint (wl=4, dim=0)
-INFO:root:Running experiment with args: Namespace(batch_size=128, dataset='Cifar10', device='cuda', gamma=0.998, low_prec=True, lr=0.1, max_epochs=161, model='resnet50', nbits_activate=4, nbits_error=4, nbits_grad=4, nbits_momentum=4, nbits_weight=4, num_classes=1000, preload_data=False, pruned_model_path=None, results_filename='output/v100_fullmodel_2/results_resnet50_Cifar10_batchsize128_precision4bit.csv', rounding='stochastic', save_model=False, seed=42, test_batch_size=1000, use_amp=False, use_half=False)
+INFO:root:Running experiment with args: Namespace(batch_size=128, dataset='Cifar10', device='cuda', gamma=0.998, low_prec=True, lr=0.01, max_epochs=161, model='resnet50', nbits_activate=4, nbits_error=4, nbits_grad=4, nbits_momentum=4, nbits_weight=4, num_classes=1000, preload_data=False, pruned_model_path=None, results_filename='output/v100_fullmodel_2/results_resnet50_Cifar10_batchsize128_precision4bit.csv', rounding='stochastic', save_model=False, seed=42, test_batch_size=1000, use_amp=False, use_half=False)
 Seeded everything with seed: 42
 Files already downloaded and verified
 Files already downloaded and verified
@@ -22,7 +22,92 @@ INFO:root:
 Test set: Average loss: 0.0002, Accuracy: 1105/10000 (11%)
 
 INFO:root:Train Epoch: 1 [0 (0%)]	Loss: 2.302249
-INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 1.975288
-INFO:root:Train Epoch: 3 [0 (0%)]	Loss: 1.900919
-INFO:root:Train Epoch: 4 [0 (0%)]	Loss: 1.846737
-INFO:root:Train Epoch: 5 [0 (0%)]	Loss: 1.702343
+INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 2.292109
+INFO:root:Train Epoch: 3 [0 (0%)]	Loss: 2.147933
+INFO:root:Train Epoch: 4 [0 (0%)]	Loss: 2.054979
+INFO:root:Train Epoch: 5 [0 (0%)]	Loss: 1.848211
+INFO:root:Train Epoch: 6 [0 (0%)]	Loss: 1.843408
+INFO:root:Train Epoch: 7 [0 (0%)]	Loss: 1.900326
+INFO:root:Train Epoch: 8 [0 (0%)]	Loss: 1.804652
+INFO:root:Train Epoch: 9 [0 (0%)]	Loss: 1.828400
+INFO:root:Train Epoch: 10 [0 (0%)]	Loss: 1.792587
+INFO:root:Accuracy of plane : 98 %
+INFO:root:Accuracy of   car :  1 %
+INFO:root:Accuracy of  bird :  0 %
+INFO:root:Accuracy of   cat :  6 %
+INFO:root:Accuracy of  deer :  0 %
+INFO:root:Accuracy of   dog :  0 %
+INFO:root:Accuracy of  frog :  0 %
+INFO:root:Accuracy of horse :  0 %
+INFO:root:Accuracy of  ship :  0 %
+INFO:root:Accuracy of truck :  0 %
+INFO:root:
+Test set: Average loss: 0.0002, Accuracy: 1054/10000 (11%)
+
+INFO:root:Train Epoch: 11 [0 (0%)]	Loss: 2.295040
+INFO:root:Train Epoch: 12 [0 (0%)]	Loss: 2.103943
+INFO:root:Train Epoch: 13 [0 (0%)]	Loss: 2.094141
+INFO:root:Train Epoch: 14 [0 (0%)]	Loss: 2.123390
+INFO:root:Train Epoch: 15 [0 (0%)]	Loss: 2.126619
+INFO:root:Train Epoch: 16 [0 (0%)]	Loss: 1.963010
+INFO:root:Train Epoch: 17 [0 (0%)]	Loss: 2.038563
+INFO:root:Train Epoch: 18 [0 (0%)]	Loss: 2.030894
+INFO:root:Train Epoch: 19 [0 (0%)]	Loss: 2.255054
+INFO:root:Train Epoch: 20 [0 (0%)]	Loss: 2.300888
+INFO:root:Accuracy of plane :  0 %
+INFO:root:Accuracy of   car :  3 %
+INFO:root:Accuracy of  bird :  0 %
+INFO:root:Accuracy of   cat :  0 %
+INFO:root:Accuracy of  deer :  0 %
+INFO:root:Accuracy of   dog :  0 %
+INFO:root:Accuracy of  frog : 96 %
+INFO:root:Accuracy of horse :  0 %
+INFO:root:Accuracy of  ship :  4 %
+INFO:root:Accuracy of truck :  0 %
+INFO:root:
+Test set: Average loss: 0.0002, Accuracy: 1050/10000 (10%)
+
+INFO:root:Train Epoch: 21 [0 (0%)]	Loss: 2.302691
+INFO:root:Train Epoch: 22 [0 (0%)]	Loss: 2.315378
+INFO:root:Train Epoch: 23 [0 (0%)]	Loss: 2.152704
+INFO:root:Train Epoch: 24 [0 (0%)]	Loss: 2.136739
+INFO:root:Train Epoch: 25 [0 (0%)]	Loss: 2.012769
+INFO:root:Train Epoch: 26 [0 (0%)]	Loss: 2.073783
+INFO:root:Train Epoch: 27 [0 (0%)]	Loss: 2.157781
+INFO:root:Train Epoch: 28 [0 (0%)]	Loss: 2.318326
+INFO:root:Train Epoch: 29 [0 (0%)]	Loss: nan
+INFO:root:Train Epoch: 30 [0 (0%)]	Loss: nan
+INFO:root:Accuracy of plane : 100 %
+INFO:root:Accuracy of   car :  0 %
+INFO:root:Accuracy of  bird :  0 %
+INFO:root:Accuracy of   cat :  0 %
+INFO:root:Accuracy of  deer :  0 %
+INFO:root:Accuracy of   dog :  0 %
+INFO:root:Accuracy of  frog :  0 %
+INFO:root:Accuracy of horse :  0 %
+INFO:root:Accuracy of  ship :  0 %
+INFO:root:Accuracy of truck :  0 %
+INFO:root:
+Test set: Average loss: nan, Accuracy: 1000/10000 (10%)
+
+INFO:root:Train Epoch: 31 [0 (0%)]	Loss: nan
+INFO:root:Train Epoch: 32 [0 (0%)]	Loss: nan
+INFO:root:Train Epoch: 33 [0 (0%)]	Loss: nan
+INFO:root:Train Epoch: 34 [0 (0%)]	Loss: nan
+INFO:root:Train Epoch: 35 [0 (0%)]	Loss: nan
+Traceback (most recent call last):
+  File "main.py", line 272, in <module>
+    results_df = run_experiment(args, number_dict, quant_dict)
+  File "main.py", line 161, in run_experiment
+    last_epoch_loss = train(model, optimizer, criterion, scaler, train_loader, args.use_amp, epoch)
+  File "main.py", line 98, in train
+    scaler.step(optimizer)
+  File "/home/treitz/.local/lib/python3.7/site-packages/torch/cuda/amp/grad_scaler.py", line 292, in step
+    return optimizer.step(*args, **kwargs)
+  File "/home/treitz/.local/lib/python3.7/site-packages/qtorch/optim/optim_low.py", line 98, in step
+    p.data = self.weight_quant(p.data).data
+  File "/home/treitz/.local/lib/python3.7/site-packages/qtorch/quant/quant_function.py", line 163, in forward
+    out = forward_quant(x.contiguous(), quant_module)
+  File "/home/treitz/.local/lib/python3.7/site-packages/qtorch/quant/quant_function.py", line 101, in <lambda>
+    x, forward_number.wl, forward_number.dim
+KeyboardInterrupt
