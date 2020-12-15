@@ -23,7 +23,9 @@ import models.lenet as lenet
 import utils
 
 from qtorch.quant import *
-from qtorch.optim import OptimLP
+# from qtorch.optim import OptimLP
+# using our custom OptimLP since qtorch has an issue
+from custom_optim_low import OptimLP
 from qtorch import BlockFloatingPoint, FixedPoint, FloatingPoint
 from qtorch.auto_low import sequential_lower
 
