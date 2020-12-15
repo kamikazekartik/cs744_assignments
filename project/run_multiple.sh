@@ -16,7 +16,7 @@ do
 	batch_size=( 256 )
 	for bs in "${batch_size[@]}"
 	do
-		precision=( 2 3 )
+		precision=( 3 )
 		for pr in "${precision[@]}"
 		do
 			if [ $pr -eq 1 ]; then
