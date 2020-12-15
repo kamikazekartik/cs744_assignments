@@ -149,7 +149,7 @@ def run_experiment(args, number_dict, quant_dict):
     criterion = nn.CrossEntropyLoss()
     curr_lr = args.lr
     optimizer = optim.SGD(model.parameters(), lr=curr_lr, momentum=0.9)
-    use_scaler = args.use_amp or args.low_prec or args.use_half
+    use_scaler = args.use_amp or args.low_prec
     # use scaler unless you are in full precicion mode
     scaler = torch.cuda.amp.GradScaler(enabled=use_scaler)
     total_training_time = 0
