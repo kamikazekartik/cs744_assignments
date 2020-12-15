@@ -1,6 +1,6 @@
 python3 main.py --seed 42 \
 --max-epochs 161 \
---lr 0.01 \
+--lr 0.1 \
 --gamma 0.998 \
 --dataset Cifar10 \
 --model preresnet \
