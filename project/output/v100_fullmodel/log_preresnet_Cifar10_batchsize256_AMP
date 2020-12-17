@@ -1,0 +1,37 @@
+INFO:root:using Tesla V100-SXM2-16GB
+INFO:root:weight    : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:activate  : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:grad      : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:error     : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:momentum  : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:Running experiment with args: Namespace(batch_size=256, dataset='Cifar10', device='cuda', gamma=0.998, low_prec=False, lr=0.01, max_epochs=6, model='preresnet', nbits_activate=8, nbits_error=8, nbits_grad=8, nbits_momentum=8, nbits_weight=8, num_classes=1000, preload_data=False, pruned_model_path=None, results_filename='output/v100_fullmodel/results_preresnet_Cifar10_batchsize256_AMP', rounding='stochastic', save_model=False, seed=42, test_batch_size=1000, use_amp=True, use_half=False)
+Seeded everything with seed: 42
+Files already downloaded and verified
+Files already downloaded and verified
+Building unpruned resnet from scratch
+INFO:root:Accuracy of plane :  0 %
+INFO:root:Accuracy of   car :  0 %
+INFO:root:Accuracy of  bird :  0 %
+INFO:root:Accuracy of   cat :  0 %
+INFO:root:Accuracy of  deer :  0 %
+INFO:root:Accuracy of   dog :  9 %
+INFO:root:Accuracy of  frog : 87 %
+INFO:root:Accuracy of horse :  1 %
+INFO:root:Accuracy of  ship :  6 %
+INFO:root:Accuracy of truck :  0 %
+INFO:root:
+Test set: Average loss: 0.0002, Accuracy: 1042/10000 (10%)
+
+INFO:root:Train Epoch: 1 [0 (0%)]	Loss: 2.304112
+INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 2.152843
+INFO:root:Train Epoch: 3 [0 (0%)]	Loss: 2.012008
+INFO:root:Train Epoch: 4 [0 (0%)]	Loss: 1.955628
+INFO:root:Train Epoch: 5 [0 (0%)]	Loss: 1.715686
+INFO:root:Results: 
+INFO:root:   epoch  training_loss  test_acc  epoch_train_time  total_train_time    lr
+0      0      -1.000000     10.42         -1.000000         -1.000000 -1.00
+1      1       2.029564     -1.00         28.404868         28.404868  0.01
+2      2       1.996421     -1.00         28.531012         56.935879  0.01
+3      3       1.819187     -1.00         28.229978         85.165857  0.01
+4      4       1.789448     -1.00         28.963838        114.129695  0.01
+5      5       1.689580     -1.00         28.119477        142.249172  0.01
