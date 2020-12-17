@@ -1,0 +1,34 @@
+INFO:root:using Tesla T4
+INFO:root:weight    : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:activate  : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:grad      : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:error     : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:momentum  : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:Running experiment with args: Namespace(batch_size=128, dataset='Cifar10', device='cuda', gamma=0.998, low_prec=False, lr=0.01, max_epochs=5, model='vgg16', nbits_activate=8, nbits_error=8, nbits_grad=8, nbits_momentum=8, nbits_weight=8, num_classes=1000, preload_data=False, pruned_model_path=None, results_filename='./output/gpu_comp/results_vgg16_T4_5epoch_Full.csv', rounding='stochastic', save_model=False, seed=42, test_batch_size=1000, use_amp=False, use_half=False)
+Seeded everything with seed: 42
+Files already downloaded and verified
+Files already downloaded and verified
+INFO:root:Accuracy of plane :  0 %
+INFO:root:Accuracy of   car :  0 %
+INFO:root:Accuracy of  bird :  0 %
+INFO:root:Accuracy of   cat :  0 %
+INFO:root:Accuracy of  deer :  0 %
+INFO:root:Accuracy of   dog :  0 %
+INFO:root:Accuracy of  frog :  0 %
+INFO:root:Accuracy of horse :  0 %
+INFO:root:Accuracy of  ship :  0 %
+INFO:root:Accuracy of truck :  0 %
+INFO:root:
+Test set: Average loss: 0.0007, Accuracy: 0/10000 (0%)
+
+INFO:root:Train Epoch: 1 [0 (0%)]	Loss: 6.906084
+INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 1.977317
+INFO:root:Train Epoch: 3 [0 (0%)]	Loss: 2.044684
+INFO:root:Train Epoch: 4 [0 (0%)]	Loss: 1.483961
+INFO:root:Results: 
+INFO:root:   epoch  training_loss  test_acc  epoch_train_time  total_train_time    lr
+0      0      -1.000000       0.0         -1.000000         -1.000000 -1.00
+1      1       2.157094      -1.0         43.966899         43.966899  0.01
+2      2       1.973439      -1.0         46.425106         90.392005  0.01
+3      3       1.540109      -1.0         47.571594        137.963599  0.01
+4      4       1.136776      -1.0         47.367926        185.331525  0.01
