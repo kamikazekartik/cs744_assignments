@@ -1,0 +1,36 @@
+INFO:root:using Tesla V100-SXM2-16GB
+INFO:root:weight    : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:activate  : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:grad      : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:error     : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:momentum  : BlockFloatingPoint (wl=8, dim=0)
+INFO:root:Running experiment with args: Namespace(batch_size=64, dataset='MNIST', device='cuda', gamma=0.998, low_prec=False, lr=0.01, max_epochs=5, model='lenet', nbits_activate=8, nbits_error=8, nbits_grad=8, nbits_momentum=8, nbits_weight=8, num_classes=1000, preload_data=False, pruned_model_path=None, results_filename='./output/gpu_comp/results_lenet_v100_5epoch_Half.csv', rounding='stochastic', save_model=False, seed=42, test_batch_size=1000, use_amp=False, use_half=True)
+Seeded everything with seed: 42
+INFO:root:Accuracy of     0 : 90 %
+INFO:root:Accuracy of     1 :  0 %
+INFO:root:Accuracy of     2 :  0 %
+INFO:root:Accuracy of     3 : 20 %
+INFO:root:Accuracy of     4 :  0 %
+INFO:root:Accuracy of     5 :  0 %
+INFO:root:Accuracy of     6 :  0 %
+INFO:root:Accuracy of     7 :  0 %
+INFO:root:Accuracy of     8 :  0 %
+INFO:root:Accuracy of     9 :  0 %
+INFO:root:
+Test set: Average loss: 0.0002, Accuracy: 1099/10000 (11%)
+
+INFO:root:Train Epoch: 1 [0 (0%)]	Loss: 2.300781
+INFO:root:Train Epoch: 1 [32000 (53%)]	Loss: 0.205811
+INFO:root:Train Epoch: 2 [0 (0%)]	Loss: 0.173584
+INFO:root:Train Epoch: 2 [32000 (53%)]	Loss: 0.037354
+INFO:root:Train Epoch: 3 [0 (0%)]	Loss: 0.035461
+INFO:root:Train Epoch: 3 [32000 (53%)]	Loss: 0.027969
+INFO:root:Train Epoch: 4 [0 (0%)]	Loss: 0.011925
+INFO:root:Train Epoch: 4 [32000 (53%)]	Loss: 0.011330
+INFO:root:Results: 
+INFO:root:   epoch  training_loss  test_acc  epoch_train_time  total_train_time    lr
+0      0      -1.000000     10.99         -1.000000         -1.000000 -1.00
+1      1       0.154541     -1.00          9.171420          9.171420  0.01
+2      2       0.004326     -1.00          9.675107         18.846527  0.01
+3      3       0.090271     -1.00          9.843296         28.689823  0.01
+4      4       0.149292     -1.00         10.020789         38.710612  0.01
